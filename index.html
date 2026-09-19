@@ -142131,7 +142131,7 @@ function startTestUI() {
     /* ==================== SHARE WITH BATCHMATES ==================== */
 
     function getShareMessage() {
-        return "Hey! I've been prepping for NEET using NEXT WHITE — it's got chapter-wise practice, full-length mock tests with the real Bio/Chem/Physics split, and it tracks your progress too. Thought it might help you as well 🩺📚\n\nCheck it out: https://nextwhiteneet.github.io/test/";
+        return "Hey! I've been prepping for NEET using NEXT WHITE — it's got chapter-wise practice, full-length mock tests with the real Bio/Chem/Physics split, and it tracks your progress too. Thought it might help you as well 🩺📚\n\nCheck it out: https://nextwhiteneet.github.io/test/ \n\nCheck it out(for Mobile): https://nextwhiteneet.github.io/mobile/ ";
     }
 
     function shareTo(platform) {
@@ -142141,7 +142141,7 @@ function startTestUI() {
         if (platform === 'whatsapp') {
             window.open(`https://wa.me/?text=${encoded}`, '_blank');
         } else if (platform === 'telegram') {
-            window.open(`https://t.me/share/url?url=${encodeURIComponent('https://nextwhiteneet.github.io/test/')}&text=${encodeURIComponent(message.replace('https://nextwhiteneet.github.io/test/', '').trim())}`, '_blank');
+            window.open(`https://t.me/share/url?url=${encodeURIComponent('https://nextwhiteneet.github.io/test/ \n\nhttps://nextwhiteneet.github.io/mobile/')}&text=${encodeURIComponent(message.replace('https://nextwhiteneet.github.io/test/ \n\nhttps://nextwhiteneet.github.io/mobile/', '').trim())}`, '_blank');
         } else if (platform === 'instagram' || platform === 'snapchat') {
             copyShareMessage(message);
             const deepLink = platform === 'instagram' ? 'instagram://direct-inbox' : 'snapchat://';
