@@ -1,4 +1,4 @@
-const CACHE = 'nw-v1';
+const CACHE = 'nw-v2';
 self.addEventListener('install', e => {
   self.skipWaiting();
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(['./'])));

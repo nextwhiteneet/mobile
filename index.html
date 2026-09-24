@@ -146533,7 +146533,12 @@ function startTestUI() {
     if (btn && typeof toggleDrawer === 'function') {
       var drawer = document.getElementById('main-left-drawer');
       if (drawer && !drawer.classList.contains('collapsed')) {
-        setTimeout(function () { toggleDrawer(); }, 120);
+        setTimeout(function () {
+          /* Mobile: only ever CLOSE (the button's own onclick already
+             collapsed it, so toggling here re-opened it). */
+          if (window.innerWidth <= 900) drawer.classList.add('collapsed');
+          else toggleDrawer();
+        }, 120);
       }
     }
   }, true);
