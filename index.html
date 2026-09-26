@@ -81218,7 +81218,7 @@ function startTestUI() {
       "Assertion is true but reason is false.",
       "Assertion is false but reason is true."
     ],
-    "correctIndex": 0,
+    "correctIndex": 1,
     "difficulty": "Medium"
   },
   {
@@ -119039,7 +119039,7 @@ function startTestUI() {
     "options": [
       "A-(iv); B-(ii); C-(iii); D-(i)",
       "A-(i); B-(ii); C-(iii); D-(iv)",
-      "A-(ii); B-(ii); C-(iii); D-(iv)",
+      "A-(ii); B-(i); C-(iii); D-(iv)",
       "A-(ii); B-(iv); C-(iii); D-(i)"
     ],
     "correctIndex": 1,
@@ -122434,7 +122434,7 @@ function startTestUI() {
       "2-Methylcyclopent-2-enol",
       "3-Methylcyclopent-1-en-2-ol"
     ],
-    "correctIndex": 1,
+    "correctIndex": 2,
     "difficulty": "Hard"
   },
   {
@@ -142623,9 +142623,6 @@ function startTestUI() {
         if (q.subject) prompt += `Subject: ${q.subject}\n`;
         if (q.chapter) prompt += `Chapter: ${q.chapter}\n`;
         prompt += `\nQuestion: ${q.question}\n\nOptions:\n${optionsText}\n\n`;
-        if (typeof q.correctIndex === 'number' && q.options && q.options[q.correctIndex] !== undefined) {
-            prompt += `The marked correct answer is: ${optLabels[q.correctIndex] || (q.correctIndex + 1)}. ${q.options[q.correctIndex]}\n\n`;
-        }
         prompt += `Please explain step-by-step why the correct option is right, why the other options are wrong, and mention any shortcut/trick useful for solving such questions quickly in the NEET exam.`;
         return prompt;
     }
