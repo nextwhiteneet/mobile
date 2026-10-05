@@ -1964,52 +1964,151 @@
         }
 
 
-        /* ================= INTRO WINDOW (single full-screen window: story + name/target) ================= */
-        #nw-intro { position: fixed; inset: 0; z-index: 1000000; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; color: var(--text-main);
-            background: radial-gradient(900px 600px at 12% 8%, rgba(176,38,255,.20), transparent 70%), radial-gradient(800px 600px at 92% 92%, rgba(0,243,255,.14), transparent 70%), rgb(var(--surf0-rgb));
-            transition: opacity .45s ease; }
+        /* ================= INTRO WINDOW v3 (exam-hall landing: answer-sheet hero, syllabus explorer, exam pattern, registration sheet) ================= */
+        #nw-intro { position: fixed; inset: 0; z-index: 1000000; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; color: var(--text-main); scroll-behavior: smooth;
+            background: rgb(var(--surf0-rgb)); transition: opacity .45s ease; }
         #nw-intro.nwi-out { opacity: 0; pointer-events: none; }
         #nw-intro.nwi-gone { display: none; }
-        .nwi-wrap { min-height: 100%; max-width: 1080px; margin: 0 auto; box-sizing: border-box; display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; padding: calc(32px + env(safe-area-inset-top, 0px)) 28px calc(32px + env(safe-area-inset-bottom, 0px)); }
-        .nwi-a { animation: nwiIn .6s var(--nw-ease) both; animation-delay: calc(var(--i, 0) * .09s); }
-        @keyframes nwiIn { from { opacity: 0; transform: translate3d(0, 14px, 0); } to { opacity: 1; transform: none; } }
-        .nwi-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .16em; }
-        .nwi-brand i { font-style: normal; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; font-size: 20px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); }
-        .nwi-brand b { color: var(--accent-cyan); }
-        .nwi-pill { display: inline-block; margin: 22px 0 14px; padding: 6px 14px; border-radius: 999px; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent-cyan); border: 1px solid rgba(0,243,255,.35); background: rgba(0,243,255,.07); }
-        .nwi-h { margin: 0 0 14px; font-size: clamp(2.2rem, 5.2vw, 3.8rem); line-height: 1.08; font-weight: 800; letter-spacing: -.02em; }
-        .nwi-h em { font-style: normal; background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-        .nwi-lead { margin: 0 0 24px; max-width: 520px; color: var(--text-muted); font-size: 1.05rem; line-height: 1.6; }
-        .nwi-feats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
-        .nwi-feat { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border-radius: 16px; background: rgba(var(--surf3-rgb), .55); border: 1px solid var(--glass-border); }
-        .nwi-feat em { font-style: normal; font-size: 1.5rem; line-height: 1; }
-        .nwi-feat b { display: block; font-size: .95rem; margin-bottom: 2px; } .nwi-feat span { color: var(--text-muted); font-size: .8rem; line-height: 1.4; }
-        .nwi-stats { display: flex; gap: 28px; } .nwi-stats div { padding-left: 14px; border-left: 2px solid var(--accent-cyan); }
-        .nwi-stats b { display: block; font-size: 1.5rem; } .nwi-stats small { color: var(--text-muted); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; }
-        .nwi-panel { padding: 28px 26px; border-radius: 26px; background: rgba(var(--surf3-rgb), .88); border: 1px solid var(--glass-border); box-shadow: 0 24px 60px rgba(0,0,0,.35); }
-        .nwi-panel h2 { margin: 0 0 6px; font-size: 1.55rem; } .nwi-sub { margin: 0 0 20px; color: var(--text-muted); font-size: .92rem; line-height: 1.5; }
-        .nwi-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: .78rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); } .nwi-label i { font-style: normal; font-weight: 500; }
-        .nwi-panel input[type=text], .nwi-panel input[type=number] { width: 100%; box-sizing: border-box; padding: 14px 16px; border-radius: 14px; font: inherit; font-size: 16px; color: var(--text-main); background: rgba(var(--surf0-rgb), .6); border: 1px solid var(--glass-border); outline: none; }
-        .nwi-panel input:focus { border-color: var(--accent-cyan); }
-        .nwi-f-name { margin-bottom: 20px; }
-        .nwi-score { display: flex; align-items: baseline; gap: 8px; } .nwi-score b { font-size: 3.4rem; line-height: 1; font-variant-numeric: tabular-nums; } .nwi-score small { color: var(--text-muted); letter-spacing: .1em; }
-        .nwi-bar { height: 6px; margin: 12px 0 8px; border-radius: 6px; background: rgba(var(--glass-rgb), .12); overflow: hidden; }
+        #nw-intro * { box-sizing: border-box; }
+        .nwi-mono { font-family: 'JetBrains Mono', monospace; }
+        .nwi-in-wrap { max-width: 1120px; margin: 0 auto; padding: 0 26px; }
+        /* top bar */
+        .nwi-top { position: sticky; top: 0; z-index: 5; background: rgba(var(--surf0-rgb), .82); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--glass-border); padding-top: env(safe-area-inset-top, 0px); }
+        .nwi-top .nwi-in-wrap { display: flex; align-items: center; gap: 22px; height: 64px; }
+        .nwi-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: .14em; margin-right: auto; }
+        .nwi-logo i { font-style: normal; width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; font-size: 19px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); }
+        .nwi-logo b { background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .nwi-nav { display: flex; gap: 4px; }
+        .nwi-nav button { background: none; border: 0; font: inherit; font-size: .88rem; font-weight: 600; color: var(--text-muted); padding: 8px 12px; border-radius: 10px; cursor: pointer; transition: background .2s, color .2s; }
+        .nwi-nav button:hover { color: var(--text-main); background: rgba(var(--glass-rgb), .08); }
+        .nwi-btn { border: 0; font: inherit; font-weight: 700; cursor: pointer; border-radius: 14px; color: #000; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); padding: 12px 22px; font-size: .95rem; transition: transform .2s cubic-bezier(.2,.9,.3,1.5), box-shadow .2s; }
+        .nwi-btn:hover { transform: scale(1.04); box-shadow: 0 8px 26px rgba(0,243,255,.28); } .nwi-btn:active { transform: scale(.96); }
+        .nwi-btn.lg { padding: 17px 34px; font-size: 1.08rem; border-radius: 16px; }
+        .nwi-btn.ghost { color: var(--text-main); background: transparent; border: 1px solid var(--glass-border); }
+        .nwi-btn.ghost:hover { box-shadow: none; background: rgba(var(--glass-rgb), .07); }
+        .nwi-btn:disabled { opacity: .6; }
+        /* hero */
+        .nwi-hero { position: relative; text-align: center; padding: 76px 0 54px; overflow: hidden; }
+        .nwi-hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+            background-image: radial-gradient(circle, transparent 5px, rgba(var(--glass-rgb), .22) 5.5px, rgba(var(--glass-rgb), .22) 6.5px, transparent 7px); background-size: 34px 34px;
+            -webkit-mask-image: radial-gradient(ellipse 60% 70% at 50% 40%, #000 20%, transparent 75%); mask-image: radial-gradient(ellipse 60% 70% at 50% 40%, #000 20%, transparent 75%); }
+        .nwi-hero > * { position: relative; }
+        .nwi-pill { display: inline-flex; align-items: center; gap: 9px; padding: 7px 15px; border-radius: 999px; font-size: .8rem; font-weight: 600; color: var(--text-muted); border: 1px solid var(--glass-border); background: rgba(var(--surf3-rgb), .6); }
+        .nwi-pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); animation: nwiPulse 1.9s ease-in-out infinite; }
+        @keyframes nwiPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(16,185,129,.55); } 50% { box-shadow: 0 0 0 7px rgba(16,185,129,0); } }
+        .nwi-h { margin: 22px auto 16px; max-width: 880px; font-size: clamp(2.3rem, 6vw, 4.3rem); line-height: 1.04; font-weight: 800; letter-spacing: -.03em; }
+        .nwi-h span { font-weight: 800; background: linear-gradient(135deg, var(--hero-grad-a) 20%, var(--hero-grad-b) 50%, var(--accent-cyan) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+        .nwi-lead { margin: 0 auto 28px; max-width: 600px; color: var(--text-muted); font-size: 1.08rem; line-height: 1.65; }
+        .nwi-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .nwi-again { margin-top: 14px; background: none; border: 0; font: inherit; font-size: .85rem; color: var(--text-muted); text-decoration: underline; cursor: pointer; display: none; } .nwi-ret .nwi-again { display: inline-block; }
+        /* OMR answer sheet */
+        .nwi-omr { margin: 40px auto 0; width: 300px; padding: 16px 18px 14px; text-align: left; border-radius: 18px; background: rgba(var(--surf3-rgb), .85); border: 1px solid var(--glass-border); box-shadow: 0 22px 50px rgba(0,0,0,.28); transform: rotate(-1.6deg); animation: nwiSettle .9s cubic-bezier(.2,.9,.3,1.3) .2s both; }
+        @keyframes nwiSettle { from { opacity: 0; transform: translateY(18px) rotate(-5deg) scale(.92); } to { opacity: 1; transform: rotate(-1.6deg); } }
+        .nwi-omr-h { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: .68rem; letter-spacing: .12em; color: var(--text-muted); }
+        .nwi-omr-r { display: flex; align-items: center; gap: 10px; padding: 5px 0; border-top: 1px dashed var(--glass-border); }
+        .nwi-omr-r > b { width: 22px; font-size: .74rem; color: var(--text-muted); font-weight: 600; }
+        .nwi-omr-r > div { display: flex; gap: 12px; margin-left: auto; }
+        .nwi-omr-r i { width: 24px; height: 24px; border-radius: 50%; border: 1.5px solid var(--glass-border); display: grid; place-items: center; font-style: normal; font-size: .62rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+        .nwi-omr-r i.on { animation: nwiFill .42s cubic-bezier(.2,.9,.3,1.6) var(--d) both; }
+        @keyframes nwiFill { 0% { transform: scale(1); } 45% { transform: scale(1.35); } 100% { transform: scale(1); background: var(--accent-cyan); border-color: var(--accent-cyan); color: #000; } }
+        /* stats ribbon */
+        .nwi-ribbon { border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); background: rgba(var(--surf3-rgb), .35); }
+        .nwi-ribbon .nwi-in-wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+        .nwi-rb { padding: 26px 18px; text-align: center; border-left: 1px solid var(--glass-border); }
+        .nwi-rb:first-child { border-left: 0; }
+        .nwi-rb b { display: block; font-family: 'JetBrains Mono', monospace; font-size: clamp(1.6rem, 3.4vw, 2.5rem); font-weight: 700; font-variant-numeric: tabular-nums; }
+        .nwi-rb span { color: var(--text-muted); font-size: .85rem; }
+        /* sections */
+        .nwi-sec { padding: 72px 0 8px; }
+        .nwi-sec h2 { margin: 0 0 8px; font-size: clamp(1.6rem, 3.4vw, 2.3rem); letter-spacing: -.02em; font-weight: 800; }
+        .nwi-sec > .nwi-in-wrap > p { margin: 0 0 28px; max-width: 620px; color: var(--text-muted); line-height: 1.6; }
+        .nwi-js .nwi-rv:not(.nwi-shown) { opacity: 0; transform: scale(.94) translate3d(0, 12px, 0); }
+        .nwi-rv.nwi-shown { animation: nwiPop .6s cubic-bezier(.2,.9,.3,1.3) both; animation-delay: var(--rd, 0s); }
+        @keyframes nwiPop { 0% { opacity: 0; transform: scale(.94) translate3d(0,12px,0); } 65% { opacity: 1; transform: scale(1.015); } 100% { opacity: 1; transform: none; } }
+        /* syllabus explorer */
+        .nwi-tabs { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+        .nwi-tab { text-align: left; min-width: 178px; padding: 14px 18px; border-radius: 16px; cursor: pointer; font: inherit; color: var(--text-main); background: rgba(var(--surf3-rgb), .55); border: 1px solid var(--glass-border); transition: transform .22s cubic-bezier(.2,.9,.3,1.5), border-color .2s, background .2s; }
+        .nwi-tab:hover { transform: translateY(-2px); }
+        .nwi-tab b { display: block; font-size: 1.02rem; } .nwi-tab small { color: var(--text-muted); font-size: .78rem; }
+        .nwi-tab.on { border-color: var(--c); background: rgba(var(--surf3-rgb), .95); box-shadow: inset 0 -3px 0 var(--c); }
+        .nwi-chaps { display: flex; flex-wrap: wrap; gap: 8px; min-height: 60px; }
+        .nwi-chap { padding: 8px 14px; border-radius: 999px; font-size: .86rem; border: 1px solid var(--glass-border); background: rgba(var(--surf3-rgb), .45); animation: nwiChip .4s cubic-bezier(.2,.9,.3,1.4) both; animation-delay: calc(var(--k) * 28ms); }
+        .nwi-chap em { font-style: normal; margin-left: 8px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-size: .74rem; }
+        @keyframes nwiChip { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: none; } }
+        .nwi-banks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 30px; }
+        .nwi-bank { padding: 20px; border-radius: 18px; border: 1px solid var(--glass-border); background: rgba(var(--surf3-rgb), .5); transition: transform .25s cubic-bezier(.2,.9,.3,1.4); }
+        .nwi-bank:hover { transform: translateY(-4px); }
+        .nwi-bank b { display: block; font-size: 1.05rem; } .nwi-bank strong { display: block; margin: 8px 0 4px; font-family: 'JetBrains Mono', monospace; font-size: 1.7rem; font-variant-numeric: tabular-nums; }
+        .nwi-bank span { color: var(--text-muted); font-size: .85rem; line-height: 1.5; }
+        /* exam pattern + palette demo */
+        .nwi-pat { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+        .nwi-card { padding: 24px; border-radius: 22px; border: 1px solid var(--glass-border); background: rgba(var(--surf3-rgb), .55); }
+        .nwi-card h3 { margin: 0 0 14px; font-size: 1.05rem; }
+        .nwi-rows > div { display: flex; justify-content: space-between; gap: 12px; padding: 11px 0; border-top: 1px solid var(--glass-border); font-size: .95rem; }
+        .nwi-rows > div:first-child { border-top: 0; } .nwi-rows span { color: var(--text-muted); } .nwi-rows b { font-family: 'JetBrains Mono', monospace; text-align: right; }
+        .nwi-pos { color: var(--accent-green); } .nwi-neg { color: var(--accent-red); }
+        .nwi-pal { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 14px; }
+        .nwi-pal button { aspect-ratio: 1; border-radius: 12px; font: inherit; font-family: 'JetBrains Mono', monospace; font-weight: 700; cursor: pointer; color: var(--text-main); background: rgba(var(--glass-rgb), .07); border: 1px solid var(--glass-border); transition: transform .18s cubic-bezier(.2,.9,.3,1.6); }
+        .nwi-pal button:active { transform: scale(.86); }
+        .nwi-pal button.a { color: #000; background: var(--accent-cyan); border-color: var(--accent-cyan); }
+        .nwi-pal button.m { color: #fff; background: var(--accent-purple); border-color: var(--accent-purple); }
+        .nwi-pal button.pop { animation: nwiTile .35s cubic-bezier(.2,.9,.3,1.6); } @keyframes nwiTile { 40% { transform: scale(1.22); } }
+        .nwi-leg { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: .8rem; color: var(--text-muted); } .nwi-leg i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; } .nwi-leg b { color: var(--text-main); font-family: 'JetBrains Mono', monospace; }
+        .nwi-hint { margin: 10px 0 0; font-size: .78rem; color: var(--text-muted); }
+        /* bento features */
+        .nwi-bento { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        .nwi-bt { padding: 22px; border-radius: 20px; border: 1px solid var(--glass-border); background: rgba(var(--surf3-rgb), .5); transition: transform .25s cubic-bezier(.2,.9,.3,1.4), border-color .2s; }
+        .nwi-bt:hover { transform: translateY(-4px); border-color: rgba(0,243,255,.4); }
+        .nwi-bt.w2 { grid-column: span 2; }
+        .nwi-bt em { font-style: normal; font-size: 1.6rem; display: block; margin-bottom: 10px; }
+        .nwi-bt b { display: block; margin-bottom: 4px; font-size: 1.02rem; } .nwi-bt span { color: var(--text-muted); font-size: .88rem; line-height: 1.55; }
+        /* closing band */
+        .nwi-end { margin: 72px 0 0; padding: 64px 0 90px; text-align: center; border-top: 1px solid var(--glass-border); background: rgba(var(--surf3-rgb), .35); }
+        .nwi-end h2 { margin: 0 0 8px; font-size: clamp(1.7rem, 3.6vw, 2.5rem); font-weight: 800; letter-spacing: -.02em; }
+        .nwi-end p { margin: 0 0 24px; color: var(--text-muted); } .nwi-end small { display: block; margin-top: 16px; color: var(--text-muted); letter-spacing: .1em; font-size: .72rem; }
+        /* registration sheet */
+        .nwi-sheet { position: fixed; inset: 0; z-index: 8; display: none; align-items: center; justify-content: center; padding: 18px; background: rgba(2,6,14,.62); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+        .nwi-sheet-open .nwi-sheet { display: flex; animation: nwiFade .25s ease both; } @keyframes nwiFade { from { opacity: 0; } }
+        .nwi-form { position: relative; width: 100%; max-width: 460px; max-height: 100%; overflow-y: auto; border-radius: 26px; background: rgb(var(--surf3-rgb)); border: 1px solid var(--glass-border); box-shadow: 0 30px 80px rgba(0,0,0,.5); animation: nwiSheet .5s cubic-bezier(.2,.9,.3,1.25) both; }
+        @keyframes nwiSheet { from { opacity: 0; transform: translateY(26px) scale(.94); } }
+        .nwi-ticket { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding: 20px 58px 16px 24px; border-bottom: 2px dashed var(--glass-border); background: linear-gradient(135deg, rgba(0,243,255,.10), rgba(176,38,255,.10)); border-radius: 26px 26px 0 0; }
+        .nwi-ticket small { display: block; font-size: .66rem; letter-spacing: .14em; color: var(--text-muted); margin-bottom: 4px; }
+        .nwi-ticket strong { display: block; font-size: 1.2rem; max-width: 230px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .nwi-ticket div:last-child { text-align: right; } .nwi-ticket div:last-child strong { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; }
+        .nwi-fb { padding: 22px 24px 24px; }
+        .nwi-x { position: absolute; top: 14px; right: 14px; z-index: 1; width: 30px; height: 30px; border-radius: 10px; border: 0; background: rgba(var(--glass-rgb), .12); color: var(--text-main); font-size: 1rem; cursor: pointer; }
+        .nwi-fb h2 { margin: 0 0 4px; font-size: 1.4rem; } .nwi-sub { margin: 0 0 18px; color: var(--text-muted); font-size: .9rem; line-height: 1.5; }
+        .nwi-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); } .nwi-label i { font-style: normal; font-weight: 500; }
+        .nwi-fb input[type=text], .nwi-fb input[type=number] { width: 100%; padding: 14px 16px; border-radius: 14px; font: inherit; font-size: 16px; color: var(--text-main); background: rgba(var(--surf0-rgb), .6); border: 1px solid var(--glass-border); outline: none; transition: border-color .2s; }
+        .nwi-fb input:focus { border-color: var(--accent-cyan-text); }
+        .nwi-f-name { margin-bottom: 18px; }
+        .nwi-score { display: flex; align-items: baseline; gap: 8px; } .nwi-score b { font-family: 'JetBrains Mono', monospace; font-size: 3rem; line-height: 1; font-variant-numeric: tabular-nums; } .nwi-score small { color: var(--text-muted); }
+        .nwi-bar { height: 6px; margin: 10px 0 8px; border-radius: 6px; background: rgba(var(--glass-rgb), .12); overflow: hidden; }
         .nwi-bar i { display: block; height: 100%; width: 100%; transform-origin: left; transform: scaleX(0); background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple)); transition: transform .25s ease; }
-        .nwi-tier { min-height: 1.2em; margin-bottom: 12px; font-size: .85rem; color: var(--accent-cyan); }
-        #nwi-range { width: 100%; margin: 4px 0 12px; accent-color: var(--accent-cyan); }
+        .nwi-tier { min-height: 1.2em; margin-bottom: 10px; font-size: .85rem; color: var(--accent-cyan-text); }
+        #nwi-range { width: 100%; margin: 2px 0 10px; accent-color: var(--accent-cyan-text); }
         .nwi-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
-        .nwi-chip { padding: 8px 14px; border-radius: 999px; font: inherit; font-size: .85rem; cursor: pointer; color: var(--text-muted); background: transparent; border: 1px solid var(--glass-border); }
-        .nwi-chip.on { color: #04101c; background: var(--accent-cyan); border-color: var(--accent-cyan); font-weight: 700; }
+        .nwi-chip { padding: 8px 14px; border-radius: 999px; font: inherit; font-size: .85rem; cursor: pointer; color: var(--text-muted); background: transparent; border: 1px solid var(--glass-border); transition: transform .2s cubic-bezier(.2,.9,.3,1.5); }
+        .nwi-chip:hover { transform: scale(1.08); } .nwi-chip:active { transform: scale(.94); }
+        .nwi-chip.on { color: #000; background: var(--accent-cyan); border-color: var(--accent-cyan); font-weight: 700; }
         .nwi-meta { margin-top: 8px; color: var(--text-muted); font-size: .8rem; }
         .nwi-err { display: none; margin: 12px 0 0; color: var(--accent-red); font-size: .88rem; }
-        .nwi-go { width: 100%; margin-top: 18px; padding: 16px; border: 0; border-radius: 14px; cursor: pointer; font: inherit; font-weight: 700; font-size: 1.05rem; color: #04101c; background: linear-gradient(90deg, var(--accent-cyan), #7b9cff, var(--accent-purple)); }
-        .nwi-go:active { transform: scale(.98); } .nwi-go:disabled { opacity: .6; }
-        .nwi-edit { display: none; width: 100%; margin-top: 10px; background: none; border: 0; color: var(--text-muted); font: inherit; font-size: .85rem; cursor: pointer; padding: 8px; text-decoration: underline; }
-        .nwi-ret .nwi-edit { display: block; }
-        .nwi-ret .nwi-f-name, .nwi-ret #nwi-range, .nwi-ret #nwi-chips, .nwi-ret #nwi-target { display: none; }
-        .nwi-foot { margin-top: 14px; text-align: center; color: var(--text-muted); font-size: .72rem; letter-spacing: .1em; }
-        @media (max-width: 860px) { .nwi-wrap { grid-template-columns: 1fr; gap: 26px; padding-left: 18px; padding-right: 18px; } .nwi-feats { grid-template-columns: 1fr; } .nwi-pill { margin-top: 16px; } .nwi-stats { gap: 18px; } .nwi-panel { padding: 22px 18px; } }
-        @media (prefers-reduced-motion: reduce) { .nwi-a { animation: none; } .nwi-bar i { transition: none; } }
+        .nwi-go { width: 100%; margin-top: 18px; padding: 16px; font-size: 1.05rem; border-radius: 14px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-blue)); }
+        .nwi-foot { margin-top: 12px; text-align: center; color: var(--text-muted); font-size: .72rem; letter-spacing: .1em; }
+        .nwi-fixcta { display: none; }
+        @media (max-width: 860px) {
+            .nwi-nav { display: none; } .nwi-top .nwi-in-wrap { height: 58px; } .nwi-top .nwi-btn { padding: 10px 16px; font-size: .88rem; }
+            .nwi-in-wrap { padding: 0 16px; } .nwi-hero { padding: 44px 0 40px; } .nwi-omr { width: 270px; margin-top: 32px; }
+            .nwi-ribbon .nwi-in-wrap { grid-template-columns: 1fr 1fr; } .nwi-rb:nth-child(3) { border-left: 0; } .nwi-rb:nth-child(n+3) { border-top: 1px solid var(--glass-border); } .nwi-rb { padding: 20px 12px; }
+            .nwi-sec { padding-top: 54px; } .nwi-tab { min-width: 0; flex: 1 1 100%; } .nwi-banks, .nwi-pat { grid-template-columns: 1fr; }
+            .nwi-bento { grid-template-columns: 1fr 1fr; } .nwi-bt.w2 { grid-column: span 2; } .nwi-bt { padding: 18px; }
+            .nwi-end { padding-bottom: 110px; }
+            .nwi-fixcta { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 4; padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(transparent, rgb(var(--surf0-rgb)) 40%); }
+            .nwi-fixcta .nwi-btn { width: 100%; padding: 15px; font-size: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+            .nwi-sheet-open .nwi-fixcta { display: none; } .nwi-sheet { align-items: flex-end; padding: 0; } .nwi-form { border-radius: 26px 26px 0 0; max-height: 94%; }
+        }
+        @media (max-width: 520px) { .nwi-bento { grid-template-columns: 1fr; } .nwi-bt.w2 { grid-column: auto; } }
+        @media (prefers-reduced-motion: reduce) { #nw-intro { scroll-behavior: auto; } .nwi-pill::before, .nwi-omr, .nwi-omr-r i.on, .nwi-chap, .nwi-form, .nwi-sheet-open .nwi-sheet { animation: none; } .nwi-omr-r i.on { background: var(--accent-cyan); border-color: var(--accent-cyan); color: #000; } .nwi-js .nwi-rv:not(.nwi-shown) { opacity: 1; transform: none; } .nwi-rv.nwi-shown { animation: none; } .nwi-bar i, .nwi-btn, .nwi-bt, .nwi-bank, .nwi-tab, .nwi-chip, .nwi-pal button { transition: none; } }
 
 /* ---------- boot splash ---------- */
         #nw-splash {
@@ -2455,6 +2554,687 @@
         }
     </style>
 
+<style id="nw-match-style">
+/* Match-the-following table (NEET paper style) */
+.nw-match { width: 100%; }
+.nw-match-intro { margin-bottom: 12px; line-height: 1.6; }
+.nw-match-outro { margin-top: 12px; line-height: 1.6; opacity: .9; }
+.nw-match-scroll { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.nw-match-table { width: 100%; border-collapse: collapse; table-layout: auto; font-size: .97em; line-height: 1.5; }
+.nw-match-table th, .nw-match-table td {
+  border: 1px solid rgba(var(--glass-rgb, 255,255,255), 0.38);
+  padding: 8px 12px; vertical-align: top; text-align: left; color: var(--text-strong, inherit);
+}
+.nw-match-table th { text-align: center; font-weight: 800; background: rgba(var(--glass-rgb, 255,255,255), 0.06); }
+.nw-match-sub { font-weight: 500; font-size: .85em; opacity: .8; }
+.nw-match-table td.nw-lbl { width: 1%; white-space: nowrap; font-weight: 700; padding-right: 8px; }
+.nw-match-table td.nw-lbl + td { width: 49%; }
+.nw-match-table tbody tr:nth-child(even) td { background: rgba(var(--glass-rgb, 255,255,255), 0.025); }
+@media (max-width: 640px) {
+  .nw-match-table { font-size: .9em; }
+  .nw-match-table th, .nw-match-table td { padding: 6px 7px; }
+}
+</style>
+<script id="nw-match-formatter">
+/* NW match-the-following formatter: turns text-dump match questions into a two/three column table */
+(function (root) {
+  var ROMAN_U = ['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+  var ROMAN_L = ROMAN_U.map(function (x) { return x.toLowerCase(); });
+  var UP = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+  var LO = 'abcdefghijklmnopqrstuvwxyz'.split('');
+  var DIG = ['1','2','3','4','5','6','7','8','9','10'];
+  var SCHEMES = [
+    { id: 'U', seq: UP, starts: ['A','P'] },
+    { id: 'L', seq: LO, starts: ['a','p'] },
+    { id: 'RU', seq: ROMAN_U, starts: ['I'] },
+    { id: 'RL', seq: ROMAN_L, starts: ['i'] },
+    { id: 'D', seq: DIG, starts: ['1'] }
+  ];
+  function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+  // find a marker for label `lab` at/after `from`; returns {s,e} (s = marker start, e = text start) or null
+  function findMarker(str, lab, from, loose, scheme) {
+    var L = esc(lab);
+    var forms = [
+      '\\(' + L + '\\)\\s*',                       // (A)
+      L + '\\)\\s*',                               // A)
+      L + '\\.(?=\\s|\\$|\\\\)\\s*',               // A.
+      ((scheme.id === 'U' || scheme.id === 'D') ? L + ':(?=\\s)\\s*' : null),
+      (scheme.id === 'D' ? L + '\\s?[-\u2013](?=[A-Za-z])' : L + '\\s?[-\u2013\u2014]\\s?(?=[^\\s\\-' + (scheme.id === 'U' ? '' : '\\d') + '])')   // A-Text
+    ];
+    if (loose && scheme.id !== 'D' && scheme.id !== 'L' && scheme.id !== 'RL') forms.push(L + '\\s+(?=[A-Z0-9$\\\\(])'); // bare "A Text"
+    forms = forms.filter(Boolean);
+    var re = new RegExp('(^|[\\s,;|:])(?:' + forms.join('|') + ')', 'g');
+    re.lastIndex = from;
+    var m;
+    while ((m = re.exec(str))) {
+      var s = m.index + m[1].length;
+      if (s < from) { re.lastIndex = m.index + 1; continue; }
+      return { s: s, e: m.index + m[0].length };
+    }
+    return null;
+  }
+
+  // scan sequential labels of a scheme in str starting at `from`
+  function scan(str, scheme, startIdx, from, loose) {
+    var out = [], pos = from;
+    for (var k = startIdx; k < scheme.seq.length; k++) {
+      var m = findMarker(str, scheme.seq[k], pos, loose, scheme);
+      if (!m) break;
+      out.push({ label: scheme.seq[k], s: m.s, e: m.e });
+      pos = m.e;
+    }
+    return out;
+  }
+
+  function candidates(str, loose, only) {
+    var res = [];
+    SCHEMES.forEach(function (sc) {
+      if (only && only.indexOf(sc.id) < 0) return;
+      sc.starts.forEach(function (st) {
+        var idx = sc.seq.indexOf(st);
+        var m0 = findMarker(str, st, 0, loose, sc);
+        if (!m0) return;
+        var mk = scan(str, sc, idx, 0, loose);
+        if (mk.length >= 2) res.push({ sc: sc, marks: mk });
+      });
+    });
+    return res;
+  }
+
+  function clean(t) {
+    t = t.replace(/<br\s*\/?>/gi, ' ').replace(/\s*\n\s*/g, ' ').replace(/\s+/g, ' ');
+    t = t.replace(/^[\s|\u2014\u2013\-:;,]+/, '').replace(/[\s|;,]+$/, '').replace(/\s+[\u2014\u2013\-]$/, '').replace(/\s+with$/i, '').replace(/;\s*with(\s+\w+)?$/i, '').replace(/\s*(?:Column|List)[\s\-]*(?:III|II|I|1|2|3)\s*[:\-]?$/i, '');
+    t = t.replace(/[\s|;,]+$/, '');
+    t = t.replace(/\.?\s+[A-Z][A-Za-z ]{2,30}:$/, '');
+    t = t.replace(/([A-Za-z]{3,})\.$/, '$1');
+    return t.trim();
+  }
+
+  var HDR = /(?:Column|List|Col\.?)[\s\-\u2013]*(III|II|I|IV|1|2|3|A|B|C)(?![A-Za-z0-9])\s*(\([^()]*\))?\s*[:\-\u2013]?/g;
+  var TAIL = /(?:^|[\s.])(?:Choose|Select|Identify|Pick|Mark|Find|Options?\s*[:\-]|Codes?\s*[:\-]|Which\s+one|Give|Answer)\b|\((?:NEET|AIPMT|RE[\s-]*Exam|Cancelled|AIIMS|JEE)[^)]*\)\s*$/i;
+
+  function buildFromColumns(cols, intro, outro) {
+    // cols: [{title, items:[{label,text}]}]
+    var n = Math.max.apply(null, cols.map(function (c) { return c.items.length; }));
+    var h = '<div class="nw-match">';
+    if (intro) h += '<div class="nw-match-intro">' + intro + '</div>';
+    h += '<div class="nw-match-scroll"><table class="nw-match-table"><thead><tr>';
+    cols.forEach(function (c, i) {
+      h += '<th colspan="2">' + (c.name || '') + (c.title ? ' <span class="nw-match-sub">(' + c.title + ')</span>' : '') + '</th>';
+    });
+    h += '</tr></thead><tbody>';
+    for (var r = 0; r < n; r++) {
+      h += '<tr>';
+      cols.forEach(function (c) {
+        var it = c.items[r];
+        h += it ? '<td class="nw-lbl">(' + it.label + ')</td><td>' + it.text + '</td>' : '<td class="nw-lbl"></td><td></td>';
+      });
+      h += '</tr>';
+    }
+    h += '</tbody></table></div>';
+    if (outro) h += '<div class="nw-match-outro">' + outro + '</div>';
+    return h + '</div>';
+  }
+
+  function splitTail(text) {
+    var m = TAIL.exec(text);
+    if (m && m.index > 0 && clean(text.slice(0, m.index))) {
+      return [text.slice(0, m.index), text.slice(m.index)];
+    }
+    return [text, ''];
+  }
+
+  function itemsFrom(str, marks, endAt, allMarks) {
+    var items = [];
+    for (var i = 0; i < marks.length; i++) {
+      var end = endAt;
+      // end = next marker (of any scheme) after this one
+      for (var j = 0; j < allMarks.length; j++) { if (allMarks[j].s > marks[i].s && allMarks[j].s < end) end = allMarks[j].s; }
+      items.push({ label: marks[i].label, text: clean(str.slice(marks[i].e, end)) });
+    }
+    return items;
+  }
+
+  function colName(letter) {
+    var map = { I: 'Column I', II: 'Column II', III: 'Column III', IV: 'Column IV', '1': 'Column I', '2': 'Column II', '3': 'Column III', A: 'Column A', B: 'Column B', C: 'Column C' };
+    return map[letter] || ('Column ' + letter);
+  }
+
+  function valid(items, minLen) {
+    if (items.length < (minLen || 2)) return false;
+    return items.every(function (it) { return it.text.length > 0 && it.text.length < 400; });
+  }
+
+  function tryFormat(raw) {
+    var str = raw.replace(/<br\s*\/?>/gi, '\n').replace(/\*\*/g, '');
+    // ---------- headers ----------
+    var hdrs = [], m;
+    HDR.lastIndex = 0;
+    while ((m = HDR.exec(str))) {
+      var tt = m[2] ? m[2].slice(1, -1).trim() : '';
+      if (/^([A-Za-z]|[ivxIVX]+|\d+)$/.test(tt)) { tt = ''; HDR.lastIndex = m.index + m[0].length - m[2].length - (m[0].length - m[0].replace(/\s*[:\-\u2013]?$/, '').length) ; }
+      hdrs.push({ s: m.index, e: m.index + m[0].length, letter: m[1], title: tt, raw: m[0] });
+    }
+    // fix headers whose optional paren was a bare label: recompute end position properly
+    hdrs.forEach(function (h) {
+      if (h.title === '' && /\(\s*(?:[A-Za-z]|[ivxIVX]+|\d+)\s*\)/.test(h.raw)) {
+        var cut = h.raw.search(/\s*\(\s*(?:[A-Za-z]|[ivxIVX]+|\d+)\s*\)/);
+        h.e = h.s + cut;
+      }
+    });
+    // keep only headers that are really column headers (followed by an item marker, or sitting right next to another header)
+    var START = /^[\s:|\-\u2013;,]*(?:\(\s*(?:A|a|I|i|1|P|p)\s*\)|(?:A|a|I|i|1|P|p)[.)](?=\s)|[AIP]\s+(?=[A-Z$(])|[APa1]\s?[-\u2013](?=\w)|[A-Za-z1]:(?=\s))/;
+    var valids = [];
+    hdrs.forEach(function (h, i) {
+      var nxt = i + 1 < hdrs.length ? hdrs[i + 1].s : str.length;
+      var reg = str.slice(h.e, nxt);
+      reg = reg.replace(/^\s*\((?![\s]*(?:[A-Za-z]|[ivxIVX]+|\d+)\s*\))[^()]*\)/, '');
+      if (START.test(reg) || (i + 1 < hdrs.length && /^[\s|:]*$/.test(reg))) valids.push(h);
+    });
+    var seen = {}, H = [];
+    valids.forEach(function (h) { var k = colName(h.letter); if (!seen[k]) { seen[k] = 1; H.push(h); } });
+    if (H.length >= 2) {
+      var intro = str.slice(0, H[0].s);
+      // regions between headers
+      var regions = H.map(function (h, i) { return str.slice(h.e, i + 1 < H.length ? H[i + 1].s : str.length); });
+      var anyMarks = regions.slice(0, -1).some(function (r) { return candidates(r, false).length > 0; });
+      if (anyMarks) {
+        // separate columns
+        var cols = [], ok = true;
+        for (var ci = 0; ci < regions.length && ok; ci++) {
+          var reg = regions[ci], cands = candidates(reg, false);
+          if (!cands.length) { cands = candidates(reg, true); }
+          if (!cands.length) { ok = false; break; }
+          cands.sort(function (a, b) { return b.marks.length - a.marks.length; });
+          var best = cands[0];
+          var endAt = reg.length, outro = '';
+          var items = itemsFrom(reg, best.marks, endAt, best.marks);
+          if (ci === regions.length - 1 && items.length) {
+            var last = items[items.length - 1];
+            var sp = splitTail(last.text);
+            last.text = clean(sp[0]); outro = clean(sp[1]);
+            cols.outro = outro;
+          }
+          var firstTitle = clean(reg.slice(0, best.marks[0].s)).replace(/^\(|\)$/g, '');
+          if (!valid(items)) { ok = false; break; }
+          cols.push({ name: colName(H[ci].letter), title: H[ci].title || (firstTitle.length < 60 ? firstTitle : ''), items: items });
+        }
+        if (ok && cols.length >= 2) return build(cols, intro, cols.outro);
+      } else {
+        // interleaved rows under combined headers
+        var lastH = H[H.length - 1];
+        var body = str.slice(lastH.e);
+        var titles = H.map(function (h) { return h.title; });
+        // header2 title may sit directly after header II; body begins after it
+        var r = interleaved(body, false) || interleaved(body, true);
+        if (r) {
+          var cols2 = r.cols.map(function (c, i) { c.name = H[i] ? colName(H[i].letter) : colName(String(i + 1)); c.title = titles[i] || ''; return c; });
+          return build(cols2, String(intro || '').replace(/\s+/g, ' ').trim(), r.outro);
+        }
+      }
+    }
+    // ---------- headerless ----------
+    if (/match/i.test(str)) {
+      var r2 = interleaved(str, false, true) || interleaved(str, true, true);
+      if (r2) {
+        var cols3 = r2.cols.map(function (c, i) { c.name = colName(String(i + 1)); return c; });
+        return build(cols3, String(r2.intro || '').replace(/\s+/g, ' ').trim(), r2.outro);
+      }
+    }
+    return null;
+  }
+
+  function build(cols, intro, outro) {
+    return buildFromColumns(cols, intro ? intro.replace(/\n/g, '<br>') : '', outro || '');
+  }
+
+  // body contains both columns' markers (rows or two blocks)
+  function interleaved(body, loose, headerless) {
+    var c1all = candidates(body, loose);
+    if (c1all.length < 2) return null;
+    var best = null;
+    for (var a = 0; a < c1all.length; a++) {
+      for (var b = 0; b < c1all.length; b++) {
+        var A = c1all[a], B = c1all[b];
+        if (A.sc.id === B.sc.id && A.marks[0].label === B.marks[0].label) continue;
+        if (A.sc.id === B.sc.id && A.marks.some(function (x) { return B.marks.some(function (y) { return y.label === x.label; }); })) continue;
+        if (A.marks[0].s > B.marks[0].s) continue; // col1 first
+        var diff = B.marks.length - A.marks.length;
+        if (Math.abs(diff) > 3) continue;
+        if (A.marks.length < 2) continue;
+        if (headerless && A.marks.length < 3 && B.marks.length < 3) continue;
+        var all = A.marks.concat(B.marks);
+        var i1 = itemsFrom(body, A.marks, body.length, all);
+        var i2 = itemsFrom(body, B.marks, body.length, all);
+        // the very last item may carry tail text
+        var lastItems = (B.marks[B.marks.length - 1].s > A.marks[A.marks.length - 1].s) ? i2 : i1;
+        var li = lastItems[lastItems.length - 1], outro = '';
+        var sp = splitTail(li.text); li.text = clean(sp[0]); outro = clean(sp[1]);
+        if (!valid(i1) || !valid(i2)) continue;
+        var score = A.marks.length + B.marks.length - Math.abs(diff) * 0.5 - (loose ? 0 : 0);
+        if (!best || score > best.score) {
+          best = { score: score, i1: i1, i2: i2, outro: outro, intro: body.slice(0, A.marks[0].s) };
+        }
+      }
+    }
+    if (!best) return null;
+    return { cols: [{ items: best.i1 }, { items: best.i2 }], outro: best.outro, intro: best.intro };
+  }
+
+
+  function pipeTable(raw) {
+    var lines = raw.replace(/<br\s*\/?>/gi, '\n').replace(/\*\*/g, '').split('\n');
+    var rows = [], pre = [], post = [], started = false, ended = false;
+    lines.forEach(function (ln) {
+      var t = ln.trim();
+      if (/^\|.*\|$/.test(t) || (/^\(?[ivxIVX\d]+\)?\s*\|/.test(t) && t.indexOf('|') > -1)) {
+        if (ended) { post.push(ln); return; }
+        started = true;
+        if (/^\|?[\s:\-|]+\|?$/.test(t) && /-{3,}/.test(t)) return;
+        var cells = t.replace(/^\|/, '').replace(/\|$/, '').split('|').map(function (c) { return c.trim(); });
+        rows.push(cells);
+      } else if (started && t) { ended = true; post.push(ln); }
+      else if (!started) { pre.push(ln); }
+      else if (t) post.push(ln);
+    });
+    if (rows.length < 2) return null;
+    var w = Math.max.apply(null, rows.map(function (r) { return r.length; }));
+    if (w < 2 || w > 6) return null;
+    var head = null;
+    var firstRowIsHead = rows[0].some(function (c) { return /^(Column|List|Scientist|Point)/i.test(c); }) || /\|\s*-{3,}/.test(raw);
+    if (firstRowIsHead && /^\|/.test(raw.replace(/<br\s*\/?>/gi, '\n').split('\n').filter(function (l) { return /^\s*\|/.test(l); })[1] || '') && /-{3,}/.test(raw)) head = rows.shift();
+    var h = '<div class="nw-match">';
+    var intro = pre.join('<br>').trim(), outro = post.join('<br>').trim();
+    if (intro) h += '<div class="nw-match-intro">' + intro + '</div>';
+    h += '<div class="nw-match-scroll"><table class="nw-match-table">';
+    if (head) { h += '<thead><tr>' + head.map(function (c) { return '<th>' + c + '</th>'; }).join('') + '</tr></thead>'; }
+    h += '<tbody>';
+    rows.forEach(function (r) {
+      h += '<tr>';
+      for (var i = 0; i < w; i++) {
+        var c = r[i] || '';
+        var isLbl = /^\(?([A-Za-z]|[ivxIVX]+|\d+)[\).]?\)?$/.test(c) && c.length < 6;
+        if (isLbl && /^\d+$|^[A-Za-z]$|^[ivxIVX]+$/.test(c)) c = '(' + c + ')';
+        h += isLbl ? '<td class="nw-lbl">' + c + '</td>' : '<td>' + c + '</td>';
+      }
+      h += '</tr>';
+    });
+    h += '</tbody></table></div>';
+    if (outro) h += '<div class="nw-match-outro">' + outro + '</div>';
+    return h + '</div>';
+  }
+
+  // "(i) Column-I: x | Column-II: y | Column-III: z" rows
+  function inlineColRows(raw) {
+    var lines = raw.replace(/<br\s*\/?>/gi, '\n').split('\n');
+    var rows = [], pre = [], post = [], heads = [];
+    lines.forEach(function (ln) {
+      var m = /^\s*\(([A-Za-z]|[ivxIVX]+|\d+)\)\s*(Column[\s\-]*[IVX\d]+\s*:.*\|.*)$/.exec(ln);
+      if (m) {
+        var cells = m[2].split('|').map(function (c) {
+          var mm = /^\s*(Column[\s\-]*[IVX\d]+)\s*:\s*(.*)$/.exec(c);
+          return mm ? [mm[1].replace(/Column[\s\-]*/, 'Column '), mm[2].trim()] : ['', c.trim()];
+        });
+        if (!heads.length) heads = cells.map(function (c) { return c[0]; });
+        rows.push([m[1]].concat(cells.map(function (c) { return c[1]; })));
+      } else if (!rows.length) pre.push(ln); else if (ln.trim()) post.push(ln);
+    });
+    if (rows.length < 2) return null;
+    var h = '<div class="nw-match">';
+    if (pre.join('').trim()) h += '<div class="nw-match-intro">' + pre.join('<br>').trim() + '</div>';
+    h += '<div class="nw-match-scroll"><table class="nw-match-table"><thead><tr><th></th>' + heads.map(function (x) { return '<th>' + x + '</th>'; }).join('') + '</tr></thead><tbody>';
+    rows.forEach(function (r) { h += '<tr><td class="nw-lbl">(' + r[0] + ')</td>' + r.slice(1).map(function (c) { return '<td>' + c + '</td>'; }).join('') + '</tr>'; });
+    h += '</tbody></table></div>';
+    if (post.join('').trim()) h += '<div class="nw-match-outro">' + post.join('<br>').trim() + '</div>';
+    return h + '</div>';
+  }
+
+
+  // rows like "I Earthworms | a Trachea" (label + text on each side of a single pipe)
+  function labelledPipe(raw) {
+    var lines = raw.replace(/<br\s*\/?>/gi, '\n').replace(/\*\*/g, '').split('\n');
+    var LAB = /^\(?([A-Za-z]|[ivxIVX]+|\d+)[\).]?\s+(.+)$/;
+    var rows = [], pre = [], post = [], heads = null;
+    lines.forEach(function (ln) {
+      var parts = ln.split('|');
+      if (parts.length === 2) {
+        var a = LAB.exec(parts[0].trim()), b = LAB.exec(parts[1].trim());
+        if (a && b) { rows.push([a[1], clean(a[2]), b[1], clean(b[2])]); return; }
+        if (/column|list/i.test(ln) && !rows.length) { heads = [parts[0].trim(), parts[1].trim()]; return; }
+      }
+      if (rows.length && parts.length === 1) { var x = /^\s*\(([A-Za-z]|[ivxIVX]+|\d+)\)\s+(.+)$/.exec(ln); if (x) { rows.push(['', '', x[1], clean(x[2])]); return; } }
+      if (!rows.length) pre.push(ln); else if (ln.trim()) post.push(ln);
+    });
+    if (rows.length < 2) return null;
+    var h = '<div class="nw-match">';
+    if (pre.join('').trim()) h += '<div class="nw-match-intro">' + pre.join('<br>').trim() + '</div>';
+    h += '<div class="nw-match-scroll"><table class="nw-match-table"><thead><tr>';
+    (heads || ['Column I', 'Column II']).forEach(function (x) { h += '<th colspan="2">' + x + '</th>'; });
+    h += '</tr></thead><tbody>';
+    rows.forEach(function (r) { h += '<tr><td class="nw-lbl">' + (r[0] ? '(' + r[0] + ')' : '') + '</td><td>' + r[1] + '</td><td class="nw-lbl">(' + r[2] + ')</td><td>' + r[3] + '</td></tr>'; });
+    h += '</tbody></table></div>';
+    if (post.join('').trim()) h += '<div class="nw-match-outro">' + post.join('<br>').trim() + '</div>';
+    return h + '</div>';
+  }
+
+  var cache = {};
+  function format(raw) {
+    if (typeof raw !== 'string' || raw.length < 20 || raw.length > 4000) return raw;
+    if (!/match|column|list[\s-]*i/i.test(raw)) return raw;
+    if (raw.indexOf('nw-match') > -1) return raw;
+    if (Object.prototype.hasOwnProperty.call(cache, raw)) return cache[raw];
+    var out = raw;
+    try { var r = inlineColRows(raw) || (raw.indexOf('|') > -1 ? labelledPipe(raw) : null) || (raw.indexOf('|') > -1 && /\n\s*\|?\s*[\w(]/.test(raw) && !/Column[\s\-]*I\s*\|\s*Column/i.test(raw) && !/^[^\n]*Column[^\n]*\n(?:\(|[A-Za-z]\s)/.test(raw) ? pipeTable(raw) : null) || tryFormat(raw) || (raw.indexOf('|') > -1 ? pipeTable(raw) : null); if (r) out = r; } catch (e) { out = raw; }
+    cache[raw] = out;
+    return out;
+  }
+  root.nwFormatMatch = format;
+})(typeof window !== 'undefined' ? window : globalThis);
+
+</script>
+<style id="nw-stmt-style">
+.nw-stmt-wrap { display: flex; flex-direction: column; gap: 10px; text-align: left; }
+.nw-stmt-intro, .nw-stmt-outro { line-height: 1.65; }
+.nw-stmt-outro { opacity: .92; margin-top: 2px; }
+.nw-stmt-block { line-height: 1.65; padding-left: 12px; border-left: 3px solid rgba(128,128,128,.35); }
+.nw-stmt-name { font-weight: 800; margin-right: 4px; }
+.nw-stmt-item { display: flex; align-items: baseline; gap: 10px; line-height: 1.65; padding-left: 4px; }
+.nw-stmt-lbl { flex: 0 0 auto; min-width: 1.9em; font-weight: 800; white-space: nowrap; }
+.nw-stmt-body { flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+.nw-stmt-block .nw-stmt-body { display: inline; }
+</style>
+<script id="nw-stmt-formatter">
+/* NW statement formatter: Assertion-Reason, Statement I/II and multi-statement (a)(b)(c) / (i)(ii)(iii) / 1. 2. 3. questions.
+   Wraps nwFormatMatch: match-the-following output is untouched; only questions it left unchanged are processed here. */
+(function (root) {
+  var LO = 'abcdefgh'.split(''), UP = 'ABCDEFGH'.split('');
+  var RLO = ['i','ii','iii','iv','v','vi','vii','viii','ix','x'];
+  var RUP = RLO.map(function (x) { return x.toUpperCase(); });
+  var DG = ['1','2','3','4','5','6','7','8','9'];
+  var FAMS = [LO, UP, RLO, RUP, DG];
+  var CUE_AR = 'In the light of|In light of|Choose|Select|Mark|Based on|Considering|Which of the|Identify|Pick|Answer|Give the correct';
+  var CUE_LIST = CUE_AR + '|How many|Then|Hence|Thus|Find|Arrange|Read the|Calculate|Determine|What';
+  var OUT_AR = new RegExp('([.?!:;\\)])\\s+(?:' + CUE_AR + ')\\b');
+  var OUT_LIST = new RegExp('([.?!:;\\)])\\s+(?:' + CUE_LIST + ')\\b');
+  var OUT_STRONG = /\s+(?:Which of the following|How many|Choose the|Select the|In the light of|Mark the)\b/;
+  var MATCH_RE = /\bmatch(?:ing)?\s+(?:the|column|list|each)|column[\s\-]*(?:I|1)\b|list[\s\-]*(?:I|1)\b/i;
+  var masks = [];
+
+  function mask(s) {
+    masks = [];
+    function keep(m) { masks.push(m); return '\uE000' + (masks.length - 1) + '\uE001'; }
+    return s.replace(/\$\$[\s\S]+?\$\$|\$[^$\n]+?\$|\\\([\s\S]+?\\\)|\\\[[\s\S]+?\\\]|<\/?[a-zA-Z][^>\n]*>/g, keep);
+  }
+  function unmask(s) { return s.replace(/\uE000(\d+)\uE001/g, function (m, i) { return masks[+i]; }); }
+  function nl(s) { return unmask(s.trim()).replace(/\n+/g, '<br>'); }
+
+  function splitTail(text, re) {
+    var i = text.indexOf('\n');
+    if (i > -1 && text.slice(i + 1).trim()) return [text.slice(0, i), text.slice(i + 1)];
+    var m = re.exec(text), k = -1;
+    if (m) k = m.index + 1;
+    var m2 = OUT_STRONG.exec(text);
+    if (m2 && (k < 0 || m2.index < k)) k = m2.index;
+    if (k > 0) return [text.slice(0, k), text.slice(k)];
+    return [text, ''];
+  }
+  function intro(s) { s = s.trim(); return s ? '<div class="nw-stmt-intro">' + nl(s) + '</div>' : ''; }
+  function outro(s) { s = s.trim(); return s ? '<div class="nw-stmt-outro">' + nl(s) + '</div>' : ''; }
+  function block(name, body) {
+    return '<div class="nw-stmt-block"><span class="nw-stmt-name">' + name + '</span><span class="nw-stmt-body">' + nl(body) + '</span></div>';
+  }
+  function wrap(h) { return '<div class="nw-stmt-wrap">' + h + '</div>'; }
+
+  /* ---------- Assertion / Reason ---------- */
+  function assertionReason(t) {
+    var A = /(^|[\s\]\)>.:;])(Assertion\s*(?:\(\s*A\s*\)|A)?\s*[:\uFF1A\-\u2013\u2014])(?!\s*Reason)\s*/i.exec(t);
+    if (!A) return null;
+    var aStart = A.index + A[1].length, aEnd = A.index + A[0].length;
+    var rest = t.slice(aEnd);
+    var R = /(^|[\s\]\)>.:;])(Reason\s*(?:\(\s*R\s*\)|R)?\s*[:\uFF1A\-\u2013\u2014])\s*/i.exec(rest);
+    if (!R) return null;
+    var aBody = rest.slice(0, R.index).trim();
+    var rName = R[2];
+    var tail = splitTail(rest.slice(R.index + R[0].length), OUT_AR);
+    if (!aBody || !tail[0].trim()) return null;
+    return wrap(intro(t.slice(0, aStart)) + block(A[2], aBody) + block(rName, tail[0]) + outro(tail[1]));
+  }
+
+  /* ---------- Statement I / Statement II ---------- */
+  function statements(t) {
+    var re = /(^|[\s\]\)>.:;])(Statement\s*[\-\u2013]?\s*\(?\s*(I{1,3}|IV|V|[1-5]|[A-C])\s*\)?\s*[:\uFF1A.\-\u2013\u2014])\s*/gi;
+    var found = [], m;
+    while ((m = re.exec(t))) found.push({ s: m.index + m[1].length, e: m.index + m[0].length, name: m[2], lab: m[3].toUpperCase() });
+    if (found.length < 2) return null;
+    var seqs = [['I','II','III','IV','V'], ['1','2','3','4','5'], ['A','B','C']], ok = false;
+    seqs.forEach(function (q) { if (!ok && found.length <= q.length) { ok = found.every(function (f, i) { return f.lab === q[i]; }); } });
+    if (!ok) return null;
+    var h = intro(t.slice(0, found[0].s)), tail = '';
+    found.forEach(function (f, i) {
+      var body = t.slice(f.e, i + 1 < found.length ? found[i + 1].s : t.length);
+      if (i + 1 === found.length) { var sp = splitTail(body, OUT_AR); body = sp[0]; tail = sp[1]; }
+      if (!body.trim()) h = null;
+      if (h !== null) h += block(f.name, body);
+    });
+    if (h === null) return null;
+    return wrap(h + outro(tail));
+  }
+
+  /* ---------- (a)(b)(c) / (i)(ii)(iii) / (1)(2)(3) / 1. 2. 3. lists ---------- */
+  function occurrences(t) {
+    var occ = [], m, re = /\(\s*([A-Za-z]{1,4}|\d)\s*\)/g;
+    while ((m = re.exec(t))) {
+      var pc = m.index ? t.charAt(m.index - 1) : '';
+      if (pc && !/[\s,.;:\u2014\u2013\-]/.test(pc)) continue;
+      occ.push({ s: m.index, e: m.index + m[0].length, lab: m[1], txt: '(' + m[1] + ')' });
+    }
+    re = /(^|\n)[ \t]*([A-Za-z]{1,4}|\d)([.)])[ \t]+/g;
+    while ((m = re.exec(t))) {
+      var st = m.index + m[1].length;
+      occ.push({ s: st, e: m.index + m[0].length, lab: m[2], txt: m[2] + m[3], dot: true });
+    }
+    occ.sort(function (a, b) { return a.s - b.s; });
+    return occ;
+  }
+  function chainFor(occ, fam) {
+    var chain = [], from = 0;
+    for (var k = 0; k < fam.length; k++) {
+      var f = -1;
+      for (var j = from; j < occ.length; j++) {
+        if (occ[j].lab === fam[k] && (!chain.length || occ[j].s >= chain[chain.length - 1].e)) { f = j; break; }
+      }
+      if (f < 0) break;
+      chain.push(occ[f]); from = f + 1;
+    }
+    return chain;
+  }
+  function multiList(t) {
+    var occ = occurrences(t), best = null;
+    FAMS.forEach(function (fam) {
+      var c = chainFor(occ, fam);
+      if (c.length >= 2 && (!best || c.length > best.length)) best = c;
+    });
+    if (!best) return null;
+    var n = best.length, items = [], tail = '';
+    best.forEach(function (c, i) {
+      var body = t.slice(c.e, i + 1 < n ? best[i + 1].s : t.length);
+      if (i + 1 === n) { var sp = splitTail(body, OUT_LIST); body = sp[0]; tail = sp[1]; }
+      items.push(body.trim());
+    });
+    if (items.some(function (x) { return x.replace(/[^A-Za-z0-9\uE000-\uE001]/g, '').length < 3; })) return null;
+    var lens = items.map(function (x) { return x.replace(/\uE000\d+\uE001/g, 'mmmm').length; });
+    var avg = lens.reduce(function (a, b) { return a + b; }, 0) / n, min = Math.min.apply(null, lens);
+    var mid = best.filter(function (c) {
+      if (c.dot) return false;
+      var before = t.slice(0, c.s).replace(/\s+$/, '');
+      return before && !/[.?!:;]$/.test(before) && t.slice(before.length, c.s).indexOf('\n') < 0;
+    }).length;
+    var apply = n >= 3 ? (avg >= 18 || /statement/i.test(t)) : (mid === 0 && min >= 35);
+    if (!apply) return null;
+    var h = intro(t.slice(0, best[0].s));
+    items.forEach(function (x, i) {
+      h += '<div class="nw-stmt-item"><span class="nw-stmt-lbl">' + best[i].txt + '</span><span class="nw-stmt-body">' + nl(x) + '</span></div>';
+    });
+    return wrap(h + outro(tail));
+  }
+
+  var cache = {};
+  function stmtFormat(raw) {
+    if (typeof raw !== 'string' || raw.length < 25 || raw.length > 6000) return null;
+    if (raw.indexOf('nw-') > -1) return null;
+    if (!/Assertion|Statement|\(\s*(?:[a-hA-H]|i{1,3}|iv|v|I{1,3}|IV|V|[1-9])\s*\)|(?:^|\n)[ \t]*(?:[A-Za-z]|\d)[.)][ \t]/.test(raw)) return null;
+    if (Object.prototype.hasOwnProperty.call(cache, raw)) return cache[raw];
+    var out = null;
+    try {
+      var t = mask(raw.replace(/<br\s*\/?>/gi, '\n'));
+      out = assertionReason(t) || statements(t);
+      if (!out && !MATCH_RE.test(t)) out = multiList(t);
+    } catch (e) { out = null; }
+    cache[raw] = out;
+    return out;
+  }
+
+  var orig = root.nwFormatMatch;
+  root.nwFormatMatch = function (raw) {
+    var base = orig ? orig(raw) : raw;
+    if (base !== raw) return base;
+    var r = stmtFormat(raw);
+    return r || raw;
+  };
+  root.nwFormatStmt = stmtFormat;
+})(typeof window !== 'undefined' ? window : globalThis);
+</script>
+
+<style id="nwp-style">
+#hero-view .nwf.setup-card{container:nwf/inline-size;padding:0;gap:0;background:none;border:0;box-shadow:none;border-radius:0;overflow:visible;--ac:var(--accent-cyan-text);--ln:rgba(var(--glass-rgb),.17);--ln2:rgba(var(--glass-rgb),.32);--mu:var(--text-muted);--st:var(--text-strong)}
+#hero-view .nwf.setup-card::after,#hero-view .nwf .subject-card::after,#hero-view .nwf .subject-card::before{display:none}
+#hero-view .nwf *{-webkit-tap-highlight-color:transparent}
+#hero-view .nwf :is(button,[role=checkbox],[role=radio],input):focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+#hero-view .nwf :is(.tag-filter-btn,.q-count-btn,.mode-btn,.chapter-tag-chip,.subject-card):active{transform:none}
+#hero-view .nwf-top{margin:0 0 20px}
+#hero-view .nwf-top h2{margin:0;font-size:1.6rem;font-weight:800;letter-spacing:-.02em;color:var(--st)}
+#hero-view .nwf-top p{margin:6px 0 0;font-size:.9rem;color:var(--mu)}
+#hero-view .nwf-main{display:flex;flex-direction:column;gap:18px;min-width:0}
+#hero-view .nwf-duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+#hero-view .nwf-duo>.nwf-panel{height:100%}
+#hero-view .nwf-panel,#hero-view .nwf-bp{border:1px solid var(--ln);border-radius:18px;background:rgba(var(--glass-rgb),.025);box-shadow:inset 0 1px 0 rgba(var(--glass-rgb),.06),0 12px 28px -20px rgba(0,0,0,.55)}
+#hero-view .nwf-ph{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--ln);background:rgba(var(--glass-rgb),.04);border-radius:17px 17px 0 0}
+#hero-view .nwf-ph h3{margin:0;font-size:.98rem;font-weight:700;color:var(--st)}
+#hero-view .nwf-ph p{margin:2px 0 0;font-size:.76rem;color:var(--mu)}
+#hero-view .nwf-pb{padding:20px}
+#hero-view .nwf-badge{flex:none;padding:5px 12px;border-radius:999px;border:1px solid var(--ln);background:rgba(var(--glass-rgb),.05);font-size:.74rem;font-weight:700;color:var(--ac);white-space:nowrap}
+#hero-view .nwf-link,#hero-view .nwf .btn-select-all-ch,#hero-view .nwf .btn-deselect-all-ch{padding:6px 13px;border-radius:999px;border:1px solid var(--ln2);background:transparent;font:600 .76rem 'Plus Jakarta Sans',sans-serif;color:var(--ac);cursor:pointer;transition:background-color .2s,border-color .2s}
+#hero-view .nwf-link:hover,#hero-view .nwf .btn-select-all-ch:hover,#hero-view .nwf .btn-deselect-all-ch:hover{background:color-mix(in srgb,var(--ac) 10%,transparent);border-color:var(--ac);color:var(--ac)}
+#hero-view .nwf small{font-size:.74rem;font-weight:500;color:var(--mu)}
+/* subjects */
+#hero-view .nwf .subject-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+#hero-view .nwf .subject-card{--c:#3b82f6;position:relative;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:4px 12px;padding:16px;border-radius:14px;border:1px solid var(--ln);background:rgba(var(--glass-rgb),.02);box-shadow:none;transform:none;cursor:pointer;transition:border-color .2s,background-color .2s,box-shadow .2s}
+#hero-view .nwf #sub-Chemistry{--c:#10b981}#hero-view .nwf #sub-Biology{--c:#f43f5e}
+#hero-view .nwf .subject-card:hover{border-color:color-mix(in srgb,var(--c) 60%,transparent);transform:none}
+#hero-view .nwf .subject-card.selected{border-color:var(--c);background:color-mix(in srgb,var(--c) 9%,transparent);box-shadow:0 0 0 1px var(--c),0 8px 22px -12px var(--c)}
+#hero-view .nwf-ico{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 14%,transparent);border:1px solid color-mix(in srgb,var(--c) 30%,transparent);color:var(--c)}
+#hero-view .nwf-ico svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#hero-view .nwf .subject-title{font-size:.98rem;font-weight:700;color:var(--st)}
+#hero-view .nwf .nwq-tick{box-sizing:border-box;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--ln2);transition:all .2s}
+#hero-view .nwf .subject-card.selected .nwq-tick{border-color:var(--c);background:var(--c) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center/12px no-repeat}
+#hero-view .nwf-meta{grid-column:1/-1;display:flex;align-items:center;gap:10px;margin-top:8px;padding-top:10px;border-top:1px dashed var(--ln);font-size:.72rem;font-weight:600;color:var(--mu)}
+#hero-view .nwf-mbar{flex:1;height:5px;border-radius:9px;background:rgba(var(--glass-rgb),.1);overflow:hidden}
+#hero-view .nwf-mbar i{display:block;height:100%;width:0;background:var(--c);border-radius:9px;transition:width .3s}
+/* chapters */
+#hero-view .nwf .nw-ch-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0}
+#hero-view .nwf .nw-search-wrap{position:relative;flex:1;min-width:200px}
+#hero-view .nwf #nw-chapter-search{width:100%;padding:11px 14px 11px 36px;border-radius:12px;background:rgba(var(--glass-rgb),.04);border:1px solid var(--ln2);color:var(--st);font-weight:600;font-size:.84rem}
+#hero-view .nwf #nw-chapter-search:focus{outline:0;border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 16%,transparent)}
+#hero-view .nwf .nw-count-chip{padding:8px 14px;border-radius:999px;background:rgba(var(--glass-rgb),.05);border:1px solid var(--ln);color:var(--mu);font-size:.74rem}
+#hero-view .nwf #subject-chapters-container{display:flex;flex-direction:column;gap:14px;margin-top:14px;max-height:480px;overflow-y:auto;padding:2px 4px 2px 2px;scrollbar-width:thin}
+#hero-view .nwf #subject-chapters-container:empty::before{content:"Select a subject to see its chapters.";display:block;padding:22px;text-align:center;font-size:.85rem;color:var(--mu);border:1.5px dashed var(--ln2);border-radius:14px}
+#hero-view .nwf .subject-chapter-group{flex:none;--c:var(--ac);margin:0;padding:0;gap:0;border:1px solid var(--ln);border-left:4px solid var(--c);border-radius:14px;overflow:hidden;background:rgba(var(--glass-rgb),.02)}
+#hero-view .nwf [data-subject=Physics]{--c:#3b82f6}#hero-view .nwf [data-subject=Chemistry]{--c:#10b981}#hero-view .nwf [data-subject=Biology]{--c:#f43f5e}
+#hero-view .nwf .subject-group-header{padding:10px 14px;background:color-mix(in srgb,var(--c) 9%,transparent);border-bottom:1px solid var(--ln)}
+#hero-view .nwf .subject-group-title{font-size:.9rem;font-weight:700;letter-spacing:0;text-transform:none;color:var(--st)}
+#hero-view .nwf .ch-sub-section{padding:12px 14px 2px}
+#hero-view .nwf .ch-sub-section+.ch-sub-section{border-top:1px dashed var(--ln)}
+#hero-view .nwf .ch-sub-title{margin:0 0 8px;padding:0;border:0;font-size:.78rem;font-weight:700;letter-spacing:0;text-transform:none;color:var(--mu)}
+#hero-view .nwf .chapter-chips-grid{display:flex;flex-wrap:wrap;gap:8px;padding:0 0 12px}
+#hero-view .nwf .chapter-tag-chip{display:inline-flex;align-items:center;gap:8px;padding:7px 12px 7px 9px;border-radius:10px;border:1px solid var(--ln);background:transparent;box-shadow:none;transform:none;font-size:.8rem;font-weight:600;color:var(--text-main);cursor:pointer;transition:border-color .2s,background-color .2s}
+#hero-view .nwf .chapter-tag-chip::before{content:"";box-sizing:border-box;flex:none;width:15px;height:15px;border-radius:5px;border:1.5px solid var(--ln2);transition:all .2s}
+#hero-view .nwf .chapter-tag-chip:hover{border-color:color-mix(in srgb,var(--c) 60%,transparent);transform:none}
+#hero-view .nwf .chapter-tag-chip.selected{border-color:var(--c);background:color-mix(in srgb,var(--c) 12%,transparent);color:var(--st);box-shadow:0 0 0 1px color-mix(in srgb,var(--c) 70%,transparent)}
+#hero-view .nwf .chapter-tag-chip.selected::before{border-color:var(--c);background:var(--c) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center/10px no-repeat}
+/* option tiles */
+#hero-view .nwf-tiles{display:grid;gap:12px}
+#hero-view .nwf-t4{grid-template-columns:repeat(4,1fr)}#hero-view .nwf-t3{grid-template-columns:repeat(3,1fr)}#hero-view .nwf-t2{grid-template-columns:repeat(2,1fr)}
+#hero-view .nwf :is(.nwf-tiles .tag-filter-btn,.mode-btn,.q-count-btn){position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:auto;padding:13px 42px 13px 15px;border-radius:13px;border:1px solid var(--ln);background:rgba(var(--glass-rgb),.02);box-shadow:none;transform:none;text-align:left;font-family:inherit;color:var(--text-main);cursor:pointer;white-space:normal;transition:border-color .2s,background-color .2s,box-shadow .2s}
+#hero-view .nwf :is(.nwf-tiles .tag-filter-btn,.mode-btn,.q-count-btn)::after{content:"";box-sizing:border-box;position:absolute;top:14px;right:14px;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--ln2);background:transparent;transition:all .2s}
+#hero-view .nwf :is(.nwf-tiles .tag-filter-btn,.mode-btn,.q-count-btn):hover{border-color:var(--ln2);transform:none;background:rgba(var(--glass-rgb),.04)}
+#hero-view .nwf :is(.nwf-tiles .tag-filter-btn.selected,.mode-btn.active,.q-count-btn.active){border-color:var(--ac);background:color-mix(in srgb,var(--ac) 9%,transparent);box-shadow:0 0 0 1px var(--ac)}
+#hero-view .nwf :is(.nwf-tiles .tag-filter-btn.selected,.mode-btn.active,.q-count-btn.active)::after{border:4.5px solid var(--ac);background:#fff}
+#hero-view .nwf :is(.nwf-tiles .tag-filter-btn,.mode-btn,.q-count-btn) b{font-size:.9rem;font-weight:700;color:var(--st)}
+#hero-view .nwf .q-count-btn b{font:800 1.2rem 'JetBrains Mono',monospace}
+#hero-view .nwf-lv{display:flex;gap:3px;align-items:flex-end;height:14px;margin-bottom:6px}
+#hero-view .nwf-lv i{width:5px;border-radius:2px;background:rgba(var(--glass-rgb),.18)}
+#hero-view .nwf-lv i:nth-child(1){height:6px}#hero-view .nwf-lv i:nth-child(2){height:10px}#hero-view .nwf-lv i:nth-child(3){height:14px}
+#hero-view .nwf-lv[data-l=e] i:nth-child(1){background:#10b981}
+#hero-view .nwf-lv[data-l=m] i:nth-child(-n+2){background:#f59e0b}
+#hero-view .nwf-lv[data-l=h] i{background:#f43f5e}
+#hero-view .nwf-lv[data-l=x] i:nth-child(1){background:#10b981}#hero-view .nwf-lv[data-l=x] i:nth-child(2){background:#f59e0b}#hero-view .nwf-lv[data-l=x] i:nth-child(3){background:#f43f5e}
+#hero-view .nwf-mi{width:18px;height:18px;fill:none;stroke:var(--mu);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:4px}
+#hero-view .nwf-stack{display:flex;flex-direction:column;gap:12px}
+#hero-view .nwf-cnt{font:700 .72rem 'JetBrains Mono',monospace;font-style:normal;color:var(--ac)}
+#hero-view .nwf-mini{margin:16px 0 8px;font-size:.78rem;font-weight:600;color:var(--mu)}
+#hero-view .nwf .nwf-pills .tag-filter-btn{display:inline-flex;padding:7px 14px;border-radius:999px;border:1px solid var(--ln);background:transparent;box-shadow:none;transform:none;font-size:.8rem;font-weight:600;color:var(--text-main);cursor:pointer;transition:all .2s}
+#hero-view .nwf .nwf-pills .tag-filter-btn:hover{transform:none;border-color:var(--ln2)}
+#hero-view .nwf .nwf-pills .tag-filter-btn.selected{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 12%,transparent);color:var(--st);box-shadow:0 0 0 1px var(--ac)}
+#hero-view .nwf #src-info-note{padding:10px 12px;border-radius:10px;border:1px solid var(--ln);background:rgba(var(--glass-rgb),.04)}
+#hero-view .nwf-step{display:flex;align-items:center;margin-top:14px;border:1px solid var(--ln2);border-radius:12px;overflow:hidden}
+#hero-view .nwf-step:focus-within{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 16%,transparent)}
+#hero-view .nwf-step button{width:46px;height:44px;border:0;background:rgba(var(--glass-rgb),.04);font-size:1.2rem;color:var(--mu);cursor:pointer}
+#hero-view .nwf-step button:first-child{border-right:1px solid var(--ln)}#hero-view .nwf-step button:last-child{border-left:1px solid var(--ln)}
+#hero-view .nwf-step button:hover{background:rgba(var(--glass-rgb),.09);color:var(--st)}
+#hero-view .nwf-step input{flex:1;min-width:0;text-align:center;background:transparent;border:0;outline:0;color:var(--st);font:800 1rem 'JetBrains Mono',monospace}
+/* blueprint (final block) */
+#hero-view .nwf-bp{margin-top:18px;border-color:color-mix(in srgb,var(--ac) 42%,var(--ln));background:rgb(var(--surf3-rgb));box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 8%,transparent),var(--card-shadow)}
+#hero-view .nwf-bp .nwf-ph{background:color-mix(in srgb,var(--ac) 8%,transparent);border-bottom-color:color-mix(in srgb,var(--ac) 28%,var(--ln))}
+#hero-view .nwf-bpb{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0;align-items:stretch}
+#hero-view .nwf-bpl,#hero-view .nwf-bpr{display:flex;flex-direction:column;gap:16px;padding:22px 24px}
+#hero-view .nwf-bpr{border-left:1px solid var(--ln);justify-content:space-between}
+#hero-view .nwf-big{display:flex;align-items:baseline;gap:10px}
+#hero-view .nwf-big b{font:800 3.1rem/1 'JetBrains Mono',monospace;letter-spacing:-.04em;color:var(--st)}
+#hero-view .nwf-big span{font-size:.88rem;font-weight:600;color:var(--mu)}
+#hero-view .nwf-time{font-size:.82rem;font-weight:700;color:var(--ac);margin-top:-8px}
+#hero-view .nwf-split{display:flex;gap:3px;height:10px}
+#hero-view .nwf-split i{display:block;border-radius:6px;transition:flex .35s}
+#hero-view .nwf-split.e{border-radius:6px;background:repeating-linear-gradient(45deg,rgba(var(--glass-rgb),.1) 0 6px,transparent 6px 12px)}
+#hero-view .nwf-rows{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+#hero-view .nwf-rows li{display:flex;align-items:center;gap:10px;font-size:.85rem;font-weight:600;color:var(--st)}
+#hero-view .nwf-rows li i{width:9px;height:9px;border-radius:50%}
+#hero-view .nwf-rows li small{margin-left:auto;text-align:right}
+#hero-view .nwf-rows li em{font:800 .92rem 'JetBrains Mono',monospace;font-style:normal;min-width:32px;text-align:right}
+#hero-view .nwf-facts{margin:0;display:grid;grid-template-columns:auto 1fr;gap:0;font-size:.84rem;border:1px solid var(--ln);border-radius:12px;overflow:hidden}
+#hero-view .nwf-facts dt,#hero-view .nwf-facts dd{margin:0;padding:9px 14px;border-top:1px solid var(--ln)}
+#hero-view .nwf-facts dt:first-of-type,#hero-view .nwf-facts dt:first-of-type+dd{border-top:0}
+#hero-view .nwf-facts dt{color:var(--mu);font-weight:500;background:rgba(var(--glass-rgb),.03)}
+#hero-view .nwf-facts dd{text-align:right;font-weight:700;color:var(--st);background:rgba(var(--glass-rgb),.03)}
+#hero-view .nwf-pool{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border-radius:12px;border:1px solid var(--ln);background:rgba(var(--glass-rgb),.04);font-size:.8rem;font-weight:600;line-height:1.45;color:var(--text-main)}
+#hero-view .nwf-pool::before{content:"";flex:none;width:8px;height:8px;margin-top:6px;border-radius:50%;background:var(--mu)}
+#hero-view .nwf-pool.ok{border-color:rgba(16,185,129,.45);background:rgba(16,185,129,.08)}#hero-view .nwf-pool.ok::before{background:#10b981}
+#hero-view .nwf-pool.warn{border-color:rgba(245,158,11,.5);background:rgba(245,158,11,.09)}#hero-view .nwf-pool.warn::before{background:#f59e0b}
+#hero-view .nwf-cta{width:100%;padding:15px 20px;font-size:1rem;border-radius:13px}
+@container nwf (max-width:760px){
+#hero-view .nwf-duo{grid-template-columns:1fr}
+#hero-view .nwf-bpb{grid-template-columns:1fr}
+#hero-view .nwf-bpr{border-left:0;border-top:1px solid var(--ln)}
+#hero-view .nwf-bpl,#hero-view .nwf-bpr{padding:18px}}
+@container nwf (max-width:600px){
+#hero-view .nwf .subject-grid,#hero-view .nwf-t3{grid-template-columns:1fr}
+#hero-view .nwf-t4{grid-template-columns:repeat(2,1fr)}
+#hero-view .nwf-pb{padding:16px}#hero-view .nwf-ph{padding:12px 16px}
+#hero-view .nwf .chapter-tag-chip{padding:9px 12px 9px 10px}
+#hero-view .nwf #subject-chapters-container{max-height:440px}
+#hero-view .nwf-top h2{font-size:1.35rem}}
+@media(prefers-reduced-motion:reduce){#hero-view .nwf *{transition:none!important}}
+</style>
 </head>
 <body onload="init()">
 <button id="theme-toggle-btn" title="Toggle light / dark theme" onclick="toggleNWTheme()">🌙</button>
@@ -2489,23 +3269,94 @@
     <div class="nw-splash-tip">Loading your question bank…</div>
 </div>
 
-<!-- ===== INTRO WINDOW: one full-screen window on every open (first visit also asks name + target) ===== -->
-<div id="nw-intro" role="dialog" aria-modal="true" aria-labelledby="nwi-title">
- <div class="nwi-wrap">
-  <section>
-   <div class="nwi-brand nwi-a" style="--i:0"><i>🥼</i><span>NEXT <b>WHITE</b></span></div>
-   <span class="nwi-pill nwi-a" style="--i:1">NEET UG · Mock Test Portal</span>
-   <h1 class="nwi-h nwi-a" style="--i:2">Practise like it's the <em>real paper.</em></h1>
-   <p class="nwi-lead nwi-a" style="--i:3">Full-length tests in the exact NEET pattern, with live scoring and daily goals that keep you consistent — all in one place.</p>
-   <div class="nwi-feats nwi-a" style="--i:4">
-    <div class="nwi-feat"><em>🎯</em><div><b>Real exam pattern</b><span>180 questions, 720 marks, +4 / −1 marking.</span></div></div>
-    <div class="nwi-feat"><em>📊</em><div><b>Live scoring</b><span>See your score update as you answer.</span></div></div>
-    <div class="nwi-feat"><em>⚡</em><div><b>Daily goals &amp; levels</b><span>Build a streak and level up every day.</span></div></div>
-    <div class="nwi-feat"><em>🧬</em><div><b>Physics · Chemistry · Biology</b><span>Practise subject by subject, chapter by chapter.</span></div></div>
+<!-- ===== INTRO WINDOW v3: exam-hall landing on every open (first visit also asks name + target) ===== -->
+<div id="nw-intro" role="dialog" aria-modal="true" aria-labelledby="nwi-hero-title">
+ <div class="nwi-top"><div class="nwi-in-wrap">
+  <div class="nwi-logo"><i>🥼</i><span>NEXT <b>WHITE</b></span></div>
+  <div class="nwi-nav"><button type="button" data-go="nwi-s-syl">Syllabus</button><button type="button" data-go="nwi-s-pat">Exam pattern</button><button type="button" data-go="nwi-s-feat">Features</button></div>
+  <button type="button" class="nwi-btn" data-open="1" id="nwi-top-cta">Start preparing</button>
+ </div></div>
+
+ <div class="nwi-hero"><div class="nwi-in-wrap">
+  <span class="nwi-pill">NEET UG test series · free to use</span>
+  <h1 class="nwi-h" id="nwi-hero-title">A full NEET exam hall, <span>open whenever you are.</span></h1>
+  <p class="nwi-lead">Chapter tests and full-length mocks in the exact NEET pattern, with live scoring, a detailed review after every attempt and daily goals that keep you consistent.</p>
+  <div class="nwi-cta"><button type="button" class="nwi-btn lg" data-open="1" id="nwi-hero-cta">Start preparing →</button><button type="button" class="nwi-btn lg ghost" data-go="nwi-s-syl">See what's inside</button></div>
+  <button type="button" class="nwi-again" id="nwi-edit">Edit name &amp; target</button>
+  <div class="nwi-omr" aria-hidden="true">
+   <div class="nwi-omr-h"><span>ANSWER SHEET</span><span>+4 / −1</span></div>
+   <div class="nwi-omr-r"><b>1</b><div><i>A</i><i>B</i><i class="on" style="--d:.9s">C</i><i>D</i></div></div>
+   <div class="nwi-omr-r"><b>2</b><div><i class="on" style="--d:1.25s">A</i><i>B</i><i>C</i><i>D</i></div></div>
+   <div class="nwi-omr-r"><b>3</b><div><i>A</i><i>B</i><i>C</i><i class="on" style="--d:1.6s">D</i></div></div>
+   <div class="nwi-omr-r"><b>4</b><div><i>A</i><i class="on" style="--d:1.95s">B</i><i>C</i><i>D</i></div></div>
+   <div class="nwi-omr-r"><b>5</b><div><i>A</i><i>B</i><i class="on" style="--d:2.3s">C</i><i>D</i></div></div>
+  </div>
+ </div></div>
+
+ <div class="nwi-ribbon"><div class="nwi-in-wrap">
+  <div class="nwi-rb"><b data-nwi-count="questions">10,000+</b><span>questions</span></div>
+  <div class="nwi-rb"><b data-nwi-count="chapters">40+</b><span>chapters</span></div>
+  <div class="nwi-rb"><b data-nwi-count="subjects">3</b><span>subjects</span></div>
+  <div class="nwi-rb"><b data-nwi-count="banks">3</b><span>question banks</span></div>
+ </div></div>
+
+ <div class="nwi-sec" id="nwi-s-syl"><div class="nwi-in-wrap">
+  <h2 class="nwi-rv">Every chapter, subject by subject</h2>
+  <p class="nwi-rv">Tap a subject to see the chapters you can practise and how many questions each one has.</p>
+  <div class="nwi-tabs nwi-rv" id="nwi-tabs"></div>
+  <div class="nwi-chaps" id="nwi-chaps"></div>
+  <div class="nwi-banks">
+   <div class="nwi-bank nwi-rv"><b>Mission JEET</b><strong data-nwi-bank="missionjeet">—</strong><span>Core practice set covering the full syllabus.</span></div>
+   <div class="nwi-bank nwi-rv" style="--rd:.08s"><b>PYQs</b><strong data-nwi-bank="pyq">—</strong><span>Previous-year questions to learn how the paper is asked.</span></div>
+   <div class="nwi-bank nwi-rv" style="--rd:.16s"><b>ALLEN</b><strong data-nwi-bank="allen">—</strong><span>Module-based questions for deep chapter practice.</span></div>
+  </div>
+ </div></div>
+
+ <div class="nwi-sec" id="nwi-s-pat"><div class="nwi-in-wrap">
+  <h2 class="nwi-rv">The same pattern as the real paper</h2>
+  <p class="nwi-rv">Know the marking scheme and the question palette before you sit your first test.</p>
+  <div class="nwi-pat">
+   <div class="nwi-card nwi-rv"><h3>Exam pattern</h3><div class="nwi-rows">
+    <div><span>Questions in a full test</span><b>180</b></div><div><span>Maximum marks</span><b>720</b></div>
+    <div><span>Correct answer</span><b class="nwi-pos">+4</b></div><div><span>Wrong answer</span><b class="nwi-neg">−1</b></div>
+    <div><span>Unattempted</span><b>0</b></div><div><span>Subjects</span><b>Physics · Chemistry · Biology</b></div>
+   </div></div>
+   <div class="nwi-card nwi-rv" style="--rd:.1s"><h3>Question palette</h3>
+    <div class="nwi-pal" id="nwi-pal"></div>
+    <div class="nwi-leg"><span><i style="background:var(--accent-cyan)"></i>Answered <b id="nwi-la">0</b></span><span><i style="background:var(--accent-purple)"></i>Marked <b id="nwi-lm">0</b></span><span><i style="background:rgba(var(--glass-rgb),.25)"></i>Not visited <b id="nwi-ln">0</b></span></div>
+    <p class="nwi-hint">Try it: tap a number to cycle its status, just like in the test.</p>
    </div>
-   <div class="nwi-stats nwi-a" style="--i:5"><div><b>720</b><small>Marks</small></div><div><b>180</b><small>Questions</small></div><div><b>+4 / −1</b><small>Marking</small></div></div>
-  </section>
-  <section class="nwi-panel nwi-a" style="--i:3">
+  </div>
+ </div></div>
+
+ <div class="nwi-sec" id="nwi-s-feat"><div class="nwi-in-wrap">
+  <h2 class="nwi-rv">Built for serious practice</h2>
+  <p class="nwi-rv">Everything you need to practise, review and improve in one place.</p>
+  <div class="nwi-bento">
+   <div class="nwi-bt w2 nwi-rv"><em>🎯</em><b>Real exam pattern</b><span>180 questions, 720 marks, +4 / −1 marking and a running timer, so every test feels like exam day.</span></div>
+   <div class="nwi-bt nwi-rv" style="--rd:.05s"><em>📊</em><b>Live scoring</b><span>Score, accuracy and time per question after every test.</span></div>
+   <div class="nwi-bt nwi-rv" style="--rd:.1s"><em>🧠</em><b>Smart review</b><span>Mark for review, bookmark, report a question and revisit mistakes.</span></div>
+   <div class="nwi-bt nwi-rv"><em>🗂️</em><b>Question palette</b><span>Jump to any question and see your progress at a glance.</span></div>
+   <div class="nwi-bt w2 nwi-rv" style="--rd:.05s"><em>📚</em><b>Chapter-wise and full tests</b><span>Choose a question bank, pick subjects and chapters, or take a full-length mock.</span></div>
+   <div class="nwi-bt nwi-rv" style="--rd:.1s"><em>⚡</em><b>Goals and badges</b><span>Daily targets, streaks, levels and achievements.</span></div>
+   <div class="nwi-bt w2 nwi-rv"><em>🕘</em><b>Test history and weak chapters</b><span>Every attempt is saved, so you can see your progress and find the chapters that need work.</span></div>
+   <div class="nwi-bt w2 nwi-rv" style="--rd:.05s"><em>🌗</em><b>Made for focus</b><span>Light and dark themes, adjustable text size, and a layout that works on phone and PC.</span></div>
+  </div>
+ </div></div>
+
+ <div class="nwi-end"><div class="nwi-in-wrap">
+  <h2 class="nwi-rv">Ready to take your first test?</h2>
+  <p class="nwi-rv">Tell us your name and target score and we'll measure every test against it.</p>
+  <button type="button" class="nwi-btn lg nwi-rv" data-open="1" id="nwi-end-cta">Start preparing →</button>
+  <small>+4 CORRECT · −1 WRONG · 720 TOTAL</small>
+ </div></div>
+
+ <div class="nwi-fixcta"><button type="button" class="nwi-btn" data-open="1" id="nwi-fix-cta">Start preparing →</button></div>
+
+ <div class="nwi-sheet" id="nwi-sheet"><div class="nwi-form">
+  <div class="nwi-ticket"><div><small>CANDIDATE</small><strong id="nwi-c-name">Your name</strong></div><div><small>TARGET</small><strong id="nwi-c-score">—</strong></div></div>
+  <div class="nwi-fb">
+   <button type="button" class="nwi-x" id="nwi-x" aria-label="Close">✕</button>
    <h2 id="nwi-title">Set your goal</h2>
    <p class="nwi-sub" id="nwi-sub">Tell us your name and the score you are chasing. Every test is measured against it.</p>
    <div class="nwi-f-name"><div class="nwi-label"><span>Your name</span></div><input type="text" id="nwi-name" maxlength="40" autocomplete="given-name" placeholder="e.g. Arshdeep Nambardar"></div>
@@ -2518,11 +3369,10 @@
    <input type="number" id="nwi-target" min="1" max="720" inputmode="numeric" placeholder="or type your exact target">
    <div class="nwi-meta" id="nwi-meta"></div>
    <div class="nwi-err" id="nwi-err"></div>
-   <button type="button" class="nwi-go" id="nwi-go">Start Preparing →</button>
-   <button type="button" class="nwi-edit" id="nwi-edit">Edit name &amp; target</button>
-   <div class="nwi-foot">+4 correct · −1 wrong · 720 total</div>
-  </section>
- </div>
+   <button type="button" class="nwi-btn nwi-go" id="nwi-go">Start Preparing →</button>
+   <div class="nwi-foot">+4 CORRECT · −1 WRONG · 720 TOTAL</div>
+  </div>
+ </div></div>
 </div>
 
 <div class="ambient-bg">
@@ -2644,114 +3494,19 @@
                     </div>
                 </div>
 
-                <div class="setup-card">
-                    <div>
-                        <div class="section-label" style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;">
-                            <span>Select Target Subjects</span>
-                            <button type="button" class="btn btn-clear" id="subjects-toggle-all-btn" style="padding:6px 14px; font-size:0.72rem;" onclick="toggleAllSubjects()">Select All</button>
-                        </div>
-                        <div class="subject-grid">
-                            <div class="subject-card" id="sub-Physics" onclick="toggleSubject('Physics')">
-                                <div>
-                                    <div class="subject-title">Physics</div>
-                                    <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">Mechanics⚙️ Electrodynamics⚡</div>
-                                </div>
-                                <div class="subject-icon">🧲</div>
-                            </div>
-                            <div class="subject-card" id="sub-Chemistry" onclick="toggleSubject('Chemistry')">
-                                <div>
-                                    <div class="subject-title">Chemistry</div>
-                                    <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">Organic🔬  Physical⚛️  Inorganic⚗️</div>
-                                </div>
-                                <div class="subject-icon">🧪</div>
-                            </div>
-                            <div class="subject-card" id="sub-Biology" onclick="toggleSubject('Biology')">
-                                <div>
-                                    <div class="subject-title">Biology</div>
-                                    <div style="font-size: 0.78rem; color: var(--text-muted); margin-top: 2px;">Botany🌿 Zoology🦠</div>
-                                </div>
-                                <div class="subject-icon">🧬</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="section-label">Select Session Mode</div>
-                        <div class="mode-selector">
-                            <div class="mode-btn active" id="mode-practice" onclick="setSessionMode('practice')">
-                                🔄 Practice Mode
-                                <span>Without Timer</span>
-                            </div>
-                            <div class="mode-btn" id="mode-test" onclick="setSessionMode('test')">
-                                ⏱️ Test Mode
-                                <span>With Timer (1min/Question)</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="section-label">Categorized Chapter Selection</div>
-                        <div id="subject-chapters-container"></div>
-                    </div>
-
-                    <div>
-                        <div class="section-label">Question Difficulty</div>
-                        <div class="tag-selector-grid">
-                            <button class="tag-filter-btn selected" id="diff-btn-Mix" onclick="setDifficulty('Mix')">
-                                🎛️ Mix (NEET Pattern)
-                            </button>
-                            <button class="tag-filter-btn" id="diff-btn-Easy" onclick="setDifficulty('Easy')">
-                                🟢 Easy
-                            </button>
-                            <button class="tag-filter-btn" id="diff-btn-Medium" onclick="setDifficulty('Medium')">
-                                🟡 Medium
-                            </button>
-                            <button class="tag-filter-btn" id="diff-btn-Hard" onclick="setDifficulty('Hard')">
-                                🔴 Hard
-                            </button>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div id="nw-pyq-year-wrap" style="display:none;">
-                            <div class="section-label">PYQ Year Filter</div>
-                            <div id="nw-pyq-year-chips" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
-                            <div style="font-size:0.72rem;color:var(--text-muted);margin-top:6px;font-weight:600;">Only shown for the PYQs bank. “All years” uses the full PYQ set.</div>
-                        </div>
-
-                        <div class="section-label">Question Source</div>
-                        <div class="tag-selector-grid">
-                            <button class="tag-filter-btn selected" id="src-btn-all" onclick="setQuestionSource('all')">
-                                📚 All Questions
-                            </button>
-                            <button class="tag-filter-btn" id="src-btn-wrong" onclick="setQuestionSource('wrong')">
-                                ❌ Only Wrong Questions
-                            </button>
-                            <button class="tag-filter-btn" id="src-btn-bookmark" onclick="setQuestionSource('bookmark')">
-                                🔖 Only Bookmarked Questions
-                            </button>
-                        </div>
-                        <div id="nw-wrong-window-box" style="display:none; margin-top: 12px;">
-                            <div style="font-size:0.78rem; font-weight:800; color:var(--text-muted); margin-bottom:8px;">Pick wrong questions from my last…</div>
-                            <div id="nw-wrong-window-chips" style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;"></div>
-                        </div>
-                        <div id="src-info-note" style="display:none; margin-top: 8px; font-size: 0.75rem; color: var(--text-muted);"></div>
-                    </div>
-
-                    <div>
-                        <div class="section-label">No. of Questions</div>
-                        <div class="q-count-selector">
-                            <button class="q-count-btn active" id="qc-20" onclick="setQuestionCount(20)">20 Qs</button>
-                            <button class="q-count-btn" id="qc-45" onclick="setQuestionCount(45)">45 Qs</button>
-                            <button class="q-count-btn" id="qc-90" onclick="setQuestionCount(90)">90 Qs</button>
-                            <button class="q-count-btn" id="qc-180" onclick="setQuestionCount(180)">180 Qs</button>
-                            <input type="number" id="q-count-input" value="20" min="1" max="5000" placeholder="Custom" title="Type any custom number of questions" style="width: 80px; padding: 10px 14px; background: rgba(var(--surf2-rgb), 0.6); border: 1px solid var(--border-color); color: var(--text-strong); border-radius: 12px; font-weight: 800; text-align: center; font-family: 'JetBrains Mono', monospace;" onchange="syncQuestionCountInput()">
-                            <div style="flex-basis: 100%; font-size: 0.7rem; color: var(--text-muted); margin-top: -2px;">✏️ Type any custom number of questions in the box above</div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-next nw-cta-shimmer" style="padding: 18px; font-size: 1.05rem; width: 100%; border-radius: 14px;" onclick="startCustomTest()">Ready for Grinding Session 🧠</button>
-                </div>
+                <div class="setup-card nwf">
+<div class="nwf-top"><h2>Build your test</h2><p>Pick subjects and chapters, then set how the session runs. Your blueprint is at the end.</p></div>
+<div class="nwf-main">
+<section class="nwf-panel"><div class="nwf-ph"><div><h3>Subjects</h3><p>Choose one or more</p></div><button type="button" class="nwf-link" id="subjects-toggle-all-btn" onclick="toggleAllSubjects()">Select All</button></div><div class="nwf-pb"><div class="subject-grid"><div class="subject-card" id="sub-Physics" role="checkbox" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="toggleSubject('Physics')"><span class="nwf-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.6"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg></span><div><div class="subject-title">Physics</div><small>Mechanics, Electrodynamics</small></div><span class="nwq-tick"></span><div class="nwf-meta"><span class="nwf-mbar"><i data-bar="Physics"></i></span><span data-meta="Physics">0 chapters selected</span></div></div><div class="subject-card" id="sub-Chemistry" role="checkbox" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="toggleSubject('Chemistry')"><span class="nwf-ico"><svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6L4.8 18a2 2 0 0 0 1.8 3h10.8a2 2 0 0 0 1.8-3L14 9V3M7.5 15h9"/></svg></span><div><div class="subject-title">Chemistry</div><small>Physical, Organic, Inorganic</small></div><span class="nwq-tick"></span><div class="nwf-meta"><span class="nwf-mbar"><i data-bar="Chemistry"></i></span><span data-meta="Chemistry">0 chapters selected</span></div></div><div class="subject-card" id="sub-Biology" role="checkbox" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="toggleSubject('Biology')"><span class="nwf-ico"><svg viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10zM2 21c0-3 1.9-5.4 5.1-6 2.4-.5 4.9-2 5.9-3"/></svg></span><div><div class="subject-title">Biology</div><small>Botany, Zoology</small></div><span class="nwq-tick"></span><div class="nwf-meta"><span class="nwf-mbar"><i data-bar="Biology"></i></span><span data-meta="Biology">0 chapters selected</span></div></div></div></div></section>
+<section class="nwf-panel"><div class="nwf-ph"><div><h3>Chapters</h3><p>Search, then tap to pick chapters</p></div></div><div class="nwf-pb"><div id="subject-chapters-container"></div></div></section>
+<section class="nwf-panel"><div class="nwf-ph"><div><h3>Difficulty</h3><p>Mix follows the NEET pattern</p></div><span class="nwf-badge" data-badge="diff">Mix</span></div><div class="nwf-pb"><div class="nwf-tiles nwf-t4"><button type="button" class="tag-filter-btn selected" id="diff-btn-Mix" onclick="setDifficulty('Mix')"><span class="nwf-lv" data-l="x"><i></i><i></i><i></i></span><b>Mix</b><small>NEET pattern</small></button><button type="button" class="tag-filter-btn" id="diff-btn-Easy" onclick="setDifficulty('Easy')"><span class="nwf-lv" data-l="e"><i></i><i></i><i></i></span><b>Easy</b><small>Build confidence</small></button><button type="button" class="tag-filter-btn" id="diff-btn-Medium" onclick="setDifficulty('Medium')"><span class="nwf-lv" data-l="m"><i></i><i></i><i></i></span><b>Medium</b><small>Exam level</small></button><button type="button" class="tag-filter-btn" id="diff-btn-Hard" onclick="setDifficulty('Hard')"><span class="nwf-lv" data-l="h"><i></i><i></i><i></i></span><b>Hard</b><small>Stretch yourself</small></button></div></div></section>
+<section class="nwf-panel"><div class="nwf-ph"><div><h3>Source</h3><p>Where questions come from</p></div><span class="nwf-badge" data-badge="src">All questions</span></div><div class="nwf-pb"><div id="nw-pyq-year-wrap" style="display:none;margin-bottom:14px"><div class="nwf-mini" style="margin-top:0">PYQ year</div><div id="nw-pyq-year-chips" class="nwf-pills" style="display:flex;flex-wrap:wrap;gap:8px"></div><small style="display:block;margin-top:8px">Shown for the PYQs bank only. "All years" uses the full set.</small></div><div class="nwf-tiles nwf-t3"><button type="button" class="tag-filter-btn selected" id="src-btn-all" onclick="setQuestionSource('all')"><b>All questions</b><small>Full question bank</small><em class="nwf-cnt" data-src="all"></em></button><button type="button" class="tag-filter-btn" id="src-btn-wrong" onclick="setQuestionSource('wrong')"><b>Wrong only</b><small>Revise your mistakes</small><em class="nwf-cnt" data-src="wrong"></em></button><button type="button" class="tag-filter-btn" id="src-btn-bookmark" onclick="setQuestionSource('bookmark')"><b>Bookmarked</b><small>Your saved questions</small><em class="nwf-cnt" data-src="bookmark"></em></button></div><div id="nw-wrong-window-box" style="display:none"><div class="nwf-mini">Pick wrong questions from my last…</div><div id="nw-wrong-window-chips" class="nwf-pills" style="display:flex;flex-wrap:wrap;gap:8px;align-items:center"></div></div><div id="src-info-note" style="display:none;margin-top:14px;font-size:.75rem;color:var(--text-muted)"></div></div></section>
+<div class="nwf-duo"><section class="nwf-panel"><div class="nwf-ph"><div><h3>Mode</h3><p>Timed or untimed</p></div><span class="nwf-badge" data-badge="mode">Practice</span></div><div class="nwf-pb"><div class="nwf-stack"><div class="mode-btn active" id="mode-practice" role="radio" aria-checked="true" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="setSessionMode('practice')"><svg class="nwf-mi" viewBox="0 0 24 24"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2zM8 8h7"/></svg><b>Practice</b><small>No timer</small></div><div class="mode-btn" id="mode-test" role="radio" aria-checked="false" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click()}" onclick="setSessionMode('test')"><svg class="nwf-mi" viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg><b>Test</b><small>1 min per question</small></div></div></div></section>
+<section class="nwf-panel"><div class="nwf-ph"><div><h3>Questions</h3><p>Pick a preset or type a number</p></div><span class="nwf-badge" data-badge="qty">20 questions</span></div><div class="nwf-pb"><div class="nwf-tiles nwf-t2"><button type="button" class="q-count-btn active" id="qc-20" onclick="setQuestionCount(20)"><b>20</b><small>Quick set</small></button><button type="button" class="q-count-btn" id="qc-45" onclick="setQuestionCount(45)"><b>45</b><small>One section</small></button><button type="button" class="q-count-btn" id="qc-90" onclick="setQuestionCount(90)"><b>90</b><small>Half mock</small></button><button type="button" class="q-count-btn" id="qc-180" onclick="setQuestionCount(180)"><b>180</b><small>Full mock</small></button></div><div class="nwf-step"><button type="button" aria-label="Fewer" onclick="nwpBump(-5)">−</button><input type="number" id="q-count-input" value="20" min="1" max="5000" placeholder="Custom" title="Type any custom number of questions" onchange="syncQuestionCountInput()"><button type="button" aria-label="More" onclick="nwpBump(5)">+</button></div></div></section>
+</div>
+</div>
+<section class="nwf-bp"><div class="nwf-ph"><div><h3>Test blueprint</h3><p>Review before you generate</p></div></div><div class="nwf-bpb"><div class="nwf-bpl"><div class="nwf-big"><b id="bp-n">20</b><span>questions</span></div><div class="nwf-time" id="bp-time">No timer</div><div class="nwf-split e" id="bp-split"></div><ul class="nwf-rows" id="bp-rows"></ul></div><div class="nwf-bpr"><dl class="nwf-facts" id="bp-facts"></dl><div class="nwf-pool" id="bp-pool">Select a subject to begin.</div><button class="btn btn-next nw-cta-shimmer nwf-cta" onclick="startCustomTest()">Generate test</button></div></div></section>
+</div>
             </div>
         </div>
 
@@ -42836,7 +43591,7 @@ function startTestUI() {
     "id": "BIO_1245",
     "subject": "Biology",
     "chapter": "Animal Kingdom",
-    "question": "Match the following columns and select the correct option.\nColumn - I Column - II\n(A) Gregarious, Polyphagouspest (I) Asterias\nAdult with radi symmetry and\n(B) (II) Scorpion\nlarva with bilateral symmetry\n(C) Book lungs (III) Ctenoplana\n(D) Bioluminescence (IV) Locusta",
+    "question": "Match the following columns and select the correct option.\nColumn - I: (A) Gregarious, polyphagous pest (B) Adult with radial symmetry and larva with bilateral symmetry (C) Book lungs (D) Bioluminescence\nColumn - II: (I) Asterias (II) Scorpion (III) Ctenoplana (IV) Locusta",
     "hasDiagram": "false",
     "imageUrl": null,
     "options": [
@@ -85361,7 +86116,7 @@ function startTestUI() {
     "id": "PYQ_BIO_0075",
     "subject": "Biology",
     "chapter": "Animal Kingdom",
-    "question": "Match the following columns and select the correct option.\nColumn - I Column - II\n(A) Gregarious, polyphagous pest (I) Asterias\nAdult with radial symmetry and\n(B) (II) Scorpion\nlarva with bilateral symmetry\n(C) Book lungs (III) Ctenoplana\n(D) Bioluminescence (IV) Locusta (Neet 2020)",
+    "question": "Match the following columns and select the correct option.\nColumn - I: (A) Gregarious, polyphagous pest (B) Adult with radial symmetry and larva with bilateral symmetry (C) Book lungs (D) Bioluminescence\nColumn - II: (I) Asterias (II) Scorpion (III) Ctenoplana (IV) Locusta (Neet 2020)",
     "hasDiagram": "false",
     "imageUrl": null,
     "options": [
@@ -96422,54 +97177,6 @@ function startTestUI() {
     "difficulty": "Medium"
   },
   {
-    "id": "ALN_BIO_0336",
-    "subject": "Biology",
-    "chapter": "Breathing and Exchange of Gases",
-    "question": "Match: A. Tidal volume; B. Inspiratory reserve volume; C. Expiratory reserve volume; D. Residual volume; E. Vital capacity.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(iii), B-(i), C-(ii), D-(iv), E-(v)",
-      "A-(i), B-(ii), C-(iii), D-(iv), E-(v)",
-      "A-(ii), B-(i), C-(iii), D-(iv), E-(v)",
-      "A-(iii), B-(ii), C-(i), D-(iv), E-(v)"
-    ],
-    "correctIndex": 0,
-    "difficulty": "Hard"
-  },
-  {
-    "id": "ALN_BIO_0337",
-    "subject": "Biology",
-    "chapter": "Breathing and Exchange of Gases",
-    "question": "Match: A. Trachea; B. Respiratory tract; C. Chemosensitive area; D. Pons; E. Lung.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i), B-(ii), C-(iii), D-(iv), E-(v)",
-      "A-(ii), B-(i), C-(iii), D-(iv), E-(v)",
-      "A-(iii), B-(ii), C-(iv), D-(i), E-(v)",
-      "A-(ii), B-(iii), C-(i), D-(iv), E-(v)"
-    ],
-    "correctIndex": 0,
-    "difficulty": "Hard"
-  },
-  {
-    "id": "ALN_BIO_0338",
-    "subject": "Biology",
-    "chapter": "Breathing and Exchange of Gases",
-    "question": "Match column I with column II: A. Carbonic anhydrase; B. Diaphragm; C. Pneumotaxic centre; D. Chemosensitive area.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(iv), B-(iii), C-(ii), D-(i)",
-      "A-(iii), B-(iv), C-(ii), D-(i)",
-      "A-(iv), B-(ii), C-(iii), D-(i)",
-      "A-(ii), B-(iii), C-(iv), D-(i)"
-    ],
-    "correctIndex": 0,
-    "difficulty": "Hard"
-  },
-  {
     "id": "ALN_BIO_0339",
     "subject": "Biology",
     "chapter": "Breathing and Exchange of Gases",
@@ -104918,22 +105625,6 @@ function startTestUI() {
     "difficulty": "Medium"
   },
   {
-    "id": "ALN_BIO_1044",
-    "subject": "Biology",
-    "chapter": "Animal Kingdom",
-    "question": "Match the following columns:- Column-I Column-II (A) Porifera",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "Canal system (B) Aschelminthes",
-      "Water vascular system (C) Annelida",
-      "Muscular pharynx (D) Arthropoda",
-      "Joined appendages (E) Echinodermata (5) Metameres Select the correct option :- A B C D E (1) 1 3 5 4 2 (2) 1 2 3 4 5 (3) 5 4 3 2 1 (4) 4 3 1 2 5"
-    ],
-    "correctIndex": 0,
-    "difficulty": "Hard"
-  },
-  {
     "id": "ALN_BIO_1045",
     "subject": "Biology",
     "chapter": "Animal Kingdom",
@@ -104998,22 +105689,6 @@ function startTestUI() {
     "difficulty": "Hard"
   },
   {
-    "id": "ALN_BIO_1049",
-    "subject": "Biology",
-    "chapter": "Animal Kingdom",
-    "question": "Match the columns. Column-I Column-II (A) Gorgonia",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "Sea fan (B) Adamsia",
-      "Sea pen (C) Physalia",
-      "Portuguese man of war (D) Pennatula",
-      "Sea anemone Select the correct option :- A B C D (1) 1 4 3 2 (2) 1 2 3 4 (3) 4 3 2 1 (4) 3 4 1 2"
-    ],
-    "correctIndex": 0,
-    "difficulty": "Medium"
-  },
-  {
     "id": "ALN_BIO_1050",
     "subject": "Biology",
     "chapter": "Animal Kingdom",
@@ -105059,22 +105734,6 @@ function startTestUI() {
       "Both assertion and Reason are false."
     ],
     "correctIndex": 2,
-    "difficulty": "Hard"
-  },
-  {
-    "id": "ALN_BIO_1053",
-    "subject": "Biology",
-    "chapter": "Animal Kingdom",
-    "question": "Match the columns. Column-I Column-II (A) Gills",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "King crab (B) Tracheal system",
-      "Crab, prawn (C) Book gills",
-      "Butterfly, cockroach (D) Book lungs",
-      "Scorpion, spider Select the correct option :- A B C D (1) 1 2 3 4 (2) 2 3 1 4 (3) 4 3 2 1 (4) 3 1 4 2"
-    ],
-    "correctIndex": 1,
     "difficulty": "Hard"
   },
   {
@@ -105238,22 +105897,6 @@ function startTestUI() {
     "difficulty": "Medium"
   },
   {
-    "id": "ALN_BIO_1064",
-    "subject": "Biology",
-    "chapter": "Animal Kingdom",
-    "question": "Match the following columns. Column-I Column-II (A) Cyclostomes",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "Hemichordata (B) Aves",
-      "Urochordata (C) Tunicates",
-      "Agnatha (D) Balanoglossus",
-      "Pisces (E) Osteichthyes (5) Tetrapod Select the correct option :- A B C D E (1) 1 2 3 4 5 (2) 2 3 4 1 5 (3) 3 5 2 1 4 (4) 3 1 5 2 4"
-    ],
-    "correctIndex": 2,
-    "difficulty": "Hard"
-  },
-  {
     "id": "ALN_BIO_1065",
     "subject": "Biology",
     "chapter": "Animal Kingdom",
@@ -105283,22 +105926,6 @@ function startTestUI() {
       "Adamsia Radially symmetrical Porifera"
     ],
     "correctIndex": 0,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_1067",
-    "subject": "Biology",
-    "chapter": "Animal Kingdom",
-    "question": "Match the following columns. Column-I Column-II (A) Chameleon",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "Tortoise (B) Testudo",
-      "Tree lizard (C) Calotes",
-      "Garden lizard (D) Chelone",
-      "Turtle Select the correct option :- A B C D (1) 1 2 3 4 (2) 4 3 2 1 (3) 2 1 3 4 (4) 3 1 4 2"
-    ],
-    "correctIndex": 2,
     "difficulty": "Medium"
   },
   {
@@ -113078,22 +113705,6 @@ function startTestUI() {
     "difficulty": "Medium"
   },
   {
-    "id": "ALN_BIO_1554",
-    "subject": "Biology",
-    "chapter": "Biological Classification",
-    "question": "Match the column A with column B and find out the correct as shown ?",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "a - r, b - p, c - s, d - q",
-      "a - r, b - s, c - p, d - q",
-      "a - s, b - r, c - p, d - q",
-      "a - r, b - p, c - q, d - s"
-    ],
-    "correctIndex": 3,
-    "difficulty": "Medium"
-  },
-  {
     "id": "ALN_BIO_1555",
     "subject": "Biology",
     "chapter": "Biological Classification",
@@ -115651,22 +116262,6 @@ function startTestUI() {
       "All statements are correct"
     ],
     "correctIndex": 3,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_1715",
-    "subject": "Biology",
-    "chapter": "Biological Classification",
-    "question": "Match of the following columns correctly: - (i) Smut fungi (ii) White rust (iii) Rust fungi (iv) Peat moss",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "i-b, ii-a, iii-d, iv-c",
-      "i-b, ii-c, iii-d, iv-a",
-      "i-d, ii-c, iii-b, iv-a",
-      "i-d, ii-b, iii-c, iv-a"
-    ],
-    "correctIndex": 1,
     "difficulty": "Medium"
   },
   {
@@ -127350,22 +127945,6 @@ function startTestUI() {
     "difficulty": "Medium"
   },
   {
-    "id": "ALN_BIO_2446",
-    "subject": "Biology",
-    "chapter": "Cell: The Unit of Life",
-    "question": "Match column I with column II :-",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "(i)–d, (ii)–a, (iii)–b, (iv)–e",
-      "(i)–a, (ii)–d, (iii)–b, (iv)–e",
-      "(i)–d, (ii)–c, (iii)–b, (iv)–e",
-      "(i)–d, (ii)–e, (iii)–a, (iv)–c"
-    ],
-    "correctIndex": 2,
-    "difficulty": "Hard"
-  },
-  {
     "id": "ALN_BIO_2447",
     "subject": "Biology",
     "chapter": "Cell: The Unit of Life",
@@ -127491,22 +128070,6 @@ function startTestUI() {
       "80S ribosomes are present in cytoplasm of eukaryotic cell only."
     ],
     "correctIndex": 3,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_2455",
-    "subject": "Biology",
-    "chapter": "Cell: The Unit of Life",
-    "question": "Match between column I and column-II and choose the correct answer ?",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-iv B-iii C-ii D-i",
-      "A-iv B-ii C-i D-iii",
-      "A-i B-ii C-iii D-iv",
-      "A-iii B-iv C-ii D-i"
-    ],
-    "correctIndex": 0,
     "difficulty": "Medium"
   },
   {
@@ -134342,22 +134905,6 @@ function startTestUI() {
     "difficulty": "Medium"
   },
   {
-    "id": "ALN_BIO_2883",
-    "subject": "Biology",
-    "chapter": "Cell Cycle and Cell Division",
-    "question": "Find out the correct match if there are 7 chromosomes and 2C DNA in a plant cell.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "P and Q only",
-      "P, Q and R only",
-      "P, R and S only",
-      "Q, R and S only"
-    ],
-    "correctIndex": 2,
-    "difficulty": "Medium"
-  },
-  {
     "id": "ALN_BIO_2884",
     "subject": "Biology",
     "chapter": "Cell Cycle and Cell Division",
@@ -134470,22 +135017,6 @@ function startTestUI() {
     "difficulty": "Easy"
   },
   {
-    "id": "ALN_BIO_2891",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Which matching of excretory structures and animals is correct?",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i), B-(iii), C-(ii), D-(iv)",
-      "A-(ii), B-(iii), C-(i), D-(iv)",
-      "A-(iii), B-(ii), C-(i), D-(iv)",
-      "A-(iv), B-(i), C-(ii), D-(iii)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
-  },
-  {
     "id": "ALN_BIO_2892",
     "subject": "Biology",
     "chapter": "Excretory Products and Their Elimination",
@@ -134564,38 +135095,6 @@ function startTestUI() {
     ],
     "correctIndex": 1,
     "difficulty": "Easy"
-  },
-  {
-    "id": "ALN_BIO_2897",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match the nephron parts with processes: A-PCT, B-DCT, C-Henle's loop.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i), B-(ii), C-(iii)",
-      "A-(iii), B-(ii), C-(i)",
-      "A-(ii), B-(iii), C-(i)",
-      "A-(iii), B-(i), C-(ii)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_2898",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match abnormal conditions with their descriptions: Glycosuria, Renal calculi, Glomerulonephritis, Gout.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i), B-(iii), C-(ii), D-(iv)",
-      "A-(iii), B-(ii), C-(i), D-(iv)",
-      "A-(iv), B-(iii), C-(i), D-(ii)",
-      "A-(iv), B-(ii), C-(i), D-(iii)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
   },
   {
     "id": "ALN_BIO_2899",
@@ -136102,22 +136601,6 @@ function startTestUI() {
     "difficulty": "Easy"
   },
   {
-    "id": "ALN_BIO_2993",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match: A-protonephridia, B-nephridia, C-Malpighian tubules, D-green/antennal gland with their animals.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i),B-(ii),C-(iii),D-(iv)",
-      "A-(ii),B-(iii),C-(i),D-(iv)",
-      "A-(iii),B-(i),C-(ii),D-(iv)",
-      "A-(iv),B-(iii),C-(i),D-(ii)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
-  },
-  {
     "id": "ALN_BIO_2994",
     "subject": "Biology",
     "chapter": "Excretory Products and Their Elimination",
@@ -136180,38 +136663,6 @@ function startTestUI() {
     ],
     "correctIndex": 2,
     "difficulty": "Easy"
-  },
-  {
-    "id": "ALN_BIO_2998",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match PCT, DCT and Henle's loop with formation of concentrated urine, filtration and reabsorption of 70–80% electrolytes.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i),B-(ii),C-(iii)",
-      "A-(iii),B-(ii),C-(i)",
-      "A-(ii),B-(iii),C-(i)",
-      "A-(iii),B-(i),C-(ii)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_2999",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match glycosuria, renal calculi, glomerulonephritis and gout with their descriptions.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i),B-(iii),C-(ii),D-(iv)",
-      "A-(iii),B-(ii),C-(i),D-(iv)",
-      "A-(iv),B-(iii),C-(i),D-(ii)",
-      "A-(iv),B-(ii),C-(i),D-(iii)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
   },
   {
     "id": "ALN_BIO_3000",
@@ -136481,102 +136932,6 @@ function startTestUI() {
       "Statement I is correct but Statement II is incorrect",
       "Statement I is incorrect but Statement II is correct",
       "Both statements are incorrect"
-    ],
-    "correctIndex": 0,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_3017",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match ammonotelic, uricotelic and ureotelic with excretion of ammonia, uric acid and urea.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i),B-(iii),C-(ii)",
-      "A-(ii),B-(iii),C-(i)",
-      "A-(ii),B-(i),C-(iii)",
-      "A-(iii),B-(i),C-(ii)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_3018",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match nephridia, Malpighian tubules and antennal/green glands with crustaceans, annelids and insects.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(i),B-(ii),C-(iii)",
-      "A-(iii),B-(i),C-(ii)",
-      "A-(ii),B-(iii),C-(i)",
-      "A-(iii),B-(ii),C-(i)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_3019",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match renal structures with their functions: delivers blood to glomerulus, carries urine to pelvis, collects filtrate, loop of Henle.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(ii),B-(iii),C-(iv),D-(i)",
-      "A-(ii),B-(iv),C-(iii),D-(i)",
-      "A-(i),B-(iii),C-(ii),D-(iv)",
-      "A-(iv),B-(ii),C-(iii),D-(i)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_3020",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match lungs, liver, micturition, sweat, vasa recta, sebum, ADH and tubular reabsorption with CO₂, bilirubin, urinary bladder, lactic acid/NaCl, counter-current system, sterols, hypertonic urine and glucose.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(iv),B-(vii),C-(v),D-(i),E-(iii),F-(viii),G-(ii),H-(vi)",
-      "A-(iii),B-(vii),C-(iv),D-(i),E-(ii),F-(viii),G-(v),H-(vi)",
-      "A-(iv),B-(vi),C-(v),D-(vii),E-(iii),F-(viii),G-(ii),H-(i)",
-      "A-(vii),B-(i),C-(iv),D-(iii),E-(viii),F-(vi),G-(v),H-(ii)"
-    ],
-    "correctIndex": 0,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_3021",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match uremia, ketonuria, glycosuria and blood dialyser with ketone bodies in urine, artificial kidney, glucose in urine and accumulation of urea in blood.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(iii),B-(iv),C-(i),D-(ii)",
-      "A-(iv),B-(i),C-(iii),D-(ii)",
-      "A-(i),B-(iv),C-(iii),D-(ii)",
-      "A-(ii),B-(i),C-(iv),D-(iii)"
-    ],
-    "correctIndex": 1,
-    "difficulty": "Medium"
-  },
-  {
-    "id": "ALN_BIO_3022",
-    "subject": "Biology",
-    "chapter": "Excretory Products and Their Elimination",
-    "question": "Match vasa recta, loop of Henle, renal corpuscle and filtration slit with their descriptions.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "A-(iii),B-(iv),C-(ii),D-(i)",
-      "A-(iii),B-(iv),C-(i),D-(ii)",
-      "A-(iv),B-(iii),C-(ii),D-(i)",
-      "A-(ii),B-(iv),C-(i),D-(iii)"
     ],
     "correctIndex": 0,
     "difficulty": "Medium"
@@ -197414,38 +197769,6 @@ function startTestUI() {
     "difficulty": "Hard"
   },
   {
-    "id": "ALN_PHY_0421",
-    "subject": "Physics",
-    "chapter": "Kinematics",
-    "question": "For initial velocity vi=3î−4ĵ and final velocity vf=3î+4ĵ, match |Δv|, Δ|v|, vf−vi, vf+vi with given values.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "(A)-iii,(B)-iv,(C)-ii,(D)-i",
-      "(A)-iii,(B)-iv,(C)-i,(D)-ii",
-      "(A)-iv,(B)-iii,(C)-ii,(D)-i",
-      "(A)-iv,(B)-iii,(C)-i,(D)-ii"
-    ],
-    "correctIndex": 3,
-    "difficulty": "Hard"
-  },
-  {
-    "id": "ALN_PHY_0422",
-    "subject": "Physics",
-    "chapter": "Kinematics",
-    "question": "Particle projected vertically upward from ground with velocity u, clears top of pole height h after time t1, takes further time t2 to reach ground. Match u, h, Time of flight, Maximum height with expressions.",
-    "hasDiagram": "false",
-    "imageUrl": null,
-    "options": [
-      "(A)-ii,(B)-i,(C)-iii,(D)-iv",
-      "(A)-i,(B)-ii,(C)-iii,(D)-iv",
-      "(A)-iii,(B)-iv,(C)-ii,(D)-i",
-      "(A)-iv,(B)-iii,(C)-ii,(D)-i"
-    ],
-    "correctIndex": 2,
-    "difficulty": "Hard"
-  },
-  {
     "id": "ALN_PHY_0423",
     "subject": "Physics",
     "chapter": "Kinematics",
@@ -221522,7 +221845,7 @@ function startTestUI() {
                 const card = document.createElement('div');
                 card.className = 'bm-q-item';
                 
-                let qContent = q.question;
+                let qContent = (window.nwFormatMatch ? nwFormatMatch(q.question) : q.question);
                 if (q.hasDiagram === "true" || q.imageUrl) {
                     qContent += `<br><img src="${q.imageUrl}" class="q-diagram-img" alt="Question Diagram" />`;
                 }
@@ -221823,6 +222146,7 @@ function startTestUI() {
 
             const groupEl = document.createElement('div');
             groupEl.className = 'subject-chapter-group';
+            groupEl.setAttribute('data-subject', sub);
 
             const headerEl = document.createElement('div');
             headerEl.className = 'subject-group-header';
@@ -222630,13 +222954,13 @@ function startTestUI() {
         startQuestionTimer();
 
         const q = testQuestions[currentQIndex];
-        document.getElementById('q-number').innerText = `Question ${currentQIndex + 1} of ${testQuestions.length}`;
+        document.querySelectorAll('[id="q-number"]').forEach(function (el) { el.innerText = `Question ${currentQIndex + 1} of ${testQuestions.length}`; });
         document.getElementById('tag-badge').innerText = BANK_LABELS[bankOfId(q.id)];
         document.getElementById('chapter-badge').innerText = `${q.subject} • ${q.chapter}`;
         document.getElementById('prev-btn').disabled = (currentQIndex === 0);
         updateSubjectSwitcherActive();
 
-        let qContent = q.question;
+        let qContent = (window.nwFormatMatch ? nwFormatMatch(q.question) : q.question);
         if (q.hasDiagram === "true" || q.imageUrl) {
             qContent += `<br><img src="${q.imageUrl}" class="q-diagram-img" alt="Question Diagram" />`;
         }
@@ -229548,16 +229872,95 @@ html[data-theme="light"] #nw-toolbar-scorecard {
 </script>
 
 
+
+
+
+
+
 <script>
-/* INTRO WINDOW — one window on every open. First visit: name + target. Returning: welcome back + continue. */
+/* INTRO WINDOW v3 — landing page on every open. First visit: registration sheet (name + target). Returning: Continue. */
 (function () {
   var root = document.getElementById('nw-intro'); if (!root) return;
-  window.__nwIntroOpen = true; document.documentElement.style.overflow = 'hidden';
+  window.__nwIntroOpen = true; document.documentElement.style.overflow = 'hidden'; root.classList.add('nwi-js');
   function $i(id) { return document.getElementById(id); }
+  function fmt(v) { return Number(v).toLocaleString('en-IN'); }
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nameEl = $i('nwi-name'), tgtEl = $i('nwi-target'), rng = $i('nwi-range'), bar = $i('nwi-arc'), big = $i('nwi-big'),
-      tier = $i('nwi-tier'), meta = $i('nwi-meta'), chips = $i('nwi-chips'), errEl = $i('nwi-err'), goBtn = $i('nwi-go'), saved = null, raf = 0;
+      tier = $i('nwi-tier'), meta = $i('nwi-meta'), chips = $i('nwi-chips'), errEl = $i('nwi-err'), goBtn = $i('nwi-go'),
+      cName = $i('nwi-c-name'), cScore = $i('nwi-c-score'), saved = null, raf = 0, editing = false;
   try { saved = JSON.parse(localStorage.getItem('nextwhite_profile') || 'null'); } catch (e) { saved = null; }
   if (saved && !(saved.name && saved.target > 0)) saved = null;
+
+  /* ---- live numbers from the loaded question banks ---- */
+  var st = null;
+  try {
+    var seen = {}, subj = {}, chapAll = {}, n = 0;
+    NW_ALL_QUESTIONS.forEach(function (q) {
+      if (!q || seen[q.id]) return; seen[q.id] = 1; n++;
+      var s = q.subject || 'Other', c = q.chapter || 'General';
+      if (!subj[s]) subj[s] = { q: 0, c: {}, order: [] };
+      subj[s].q++; if (!subj[s].c[c]) { subj[s].c[c] = 0; subj[s].order.push(c); } subj[s].c[c]++; chapAll[s + '|' + c] = 1;
+    });
+    st = { questions: n, chapters: Object.keys(chapAll).length, subjects: Object.keys(subj).length, banks: 3, subj: subj,
+           bank: { missionjeet: masterQuestionBank.length, pyq: pyqQuestionBank.length, allen: allenQuestionBank.length } };
+  } catch (e) { st = null; }
+  if (st) {
+    root.querySelectorAll('[data-nwi-bank]').forEach(function (el) { var v = st.bank[el.getAttribute('data-nwi-bank')]; if (v) el.textContent = fmt(v); });
+    root.querySelectorAll('[data-nwi-count]').forEach(function (el) {
+      var to = st[el.getAttribute('data-nwi-count')]; if (!to) return;
+      if (reduce) { el.textContent = fmt(to); return; }
+      el.textContent = '0';
+      setTimeout(function () { var t0 = performance.now(); (function step(now) { var p = Math.min(1, (now - t0) / 1100), e = 1 - Math.pow(1 - p, 3); el.textContent = fmt(Math.round(to * e)); if (p < 1) requestAnimationFrame(step); })(t0); }, 500);
+    });
+    var COL = { Physics: '#b026ff', Chemistry: '#00f3ff', Biology: '#10b981' };
+    var names = Object.keys(st.subj).sort(function (a, b) { var o = ['Physics', 'Chemistry', 'Biology']; return (o.indexOf(a) < 0 ? 9 : o.indexOf(a)) - (o.indexOf(b) < 0 ? 9 : o.indexOf(b)); });
+    var tabsEl = $i('nwi-tabs'), chapsEl = $i('nwi-chaps');
+    function showSubj(name) {
+      tabsEl.querySelectorAll('.nwi-tab').forEach(function (t) { t.classList.toggle('on', t.getAttribute('data-s') === name); });
+      var d = st.subj[name]; chapsEl.innerHTML = '';
+      d.order.forEach(function (c, k) {
+        var s = document.createElement('span'); s.className = 'nwi-chap'; s.style.setProperty('--k', k);
+        var t = document.createElement('span'); t.textContent = c; var e = document.createElement('em'); e.textContent = fmt(d.c[c]);
+        s.appendChild(t); s.appendChild(e); chapsEl.appendChild(s);
+      });
+    }
+    names.forEach(function (nm) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'nwi-tab'; b.setAttribute('data-s', nm); b.style.setProperty('--c', COL[nm] || '#00f3ff');
+      var h = document.createElement('b'); h.textContent = nm; var sm = document.createElement('small'); sm.textContent = fmt(st.subj[nm].q) + ' questions · ' + st.subj[nm].order.length + ' chapters';
+      b.appendChild(h); b.appendChild(sm); b.addEventListener('click', function () { showSubj(nm); }); tabsEl.appendChild(b);
+    });
+    if (names.length) showSubj(names[0]);
+  } else { var s1 = $i('nwi-s-syl'); if (s1) s1.style.display = 'none'; }
+
+  /* ---- palette demo ---- */
+  var pal = $i('nwi-pal'), states = [];
+  if (pal) {
+    var init = 'nnamnnaamnnnmnan';
+    for (var i = 0; i < 15; i++) {
+      (function (i) {
+        states[i] = init.charAt(i) || 'n';
+        var b = document.createElement('button'); b.type = 'button'; b.textContent = String(i + 1);
+        function paintTile() { b.className = states[i] === 'a' ? 'a' : states[i] === 'm' ? 'm' : ''; }
+        paintTile();
+        b.addEventListener('click', function () { states[i] = states[i] === 'n' ? 'a' : states[i] === 'a' ? 'm' : 'n'; paintTile(); b.classList.remove('pop'); void b.offsetWidth; b.classList.add('pop'); legend(); });
+        pal.appendChild(b);
+      })(i);
+    }
+    function legend() { var c = { a: 0, m: 0, n: 0 }; states.forEach(function (s) { c[s]++; }); $i('nwi-la').textContent = c.a; $i('nwi-lm').textContent = c.m; $i('nwi-ln').textContent = c.n; }
+    legend();
+  }
+
+  /* ---- scroll pop-in ---- */
+  var rvs = root.querySelectorAll('.nwi-rv');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('nwi-shown'); io.unobserve(e.target); } }); }, { root: root, threshold: 0.12 });
+    rvs.forEach(function (el) { io.observe(el); });
+  } else { rvs.forEach(function (el) { el.classList.add('nwi-shown'); }); }
+
+  /* ---- scroll links ---- */
+  root.querySelectorAll('[data-go]').forEach(function (b) { b.addEventListener('click', function () { var t = $i(b.getAttribute('data-go')); if (t) t.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }); });
+
+  /* ---- target picker ---- */
   function tierText(v) {
     if (v >= 680) return 'Elite — a top-rank run'; if (v >= 620) return 'Top-rank territory'; if (v >= 550) return 'Strong government-college range';
     if (v >= 450) return 'Solid, very achievable'; if (v >= 300) return 'A good base to build from'; return 'A starting line — aim higher as you grow';
@@ -229566,36 +229969,41 @@ html[data-theme="light"] #nw-toolbar-scorecard {
     v = Math.max(0, Math.min(720, v)); big.innerText = String(v); bar.style.transform = 'scaleX(' + (v / 720) + ')';
     tier.innerText = v >= 1 ? tierText(v) : '';
     meta.innerText = v >= 1 ? ('≈ ' + Math.ceil(v / 4) + ' of 180 correct with zero wrong · ' + Math.round(v / 7.2) + '% of the paper') : '';
+    cScore.innerText = v >= 1 ? v + ' / 720' : '—';
     chips.querySelectorAll('.nwi-chip').forEach(function (c) { c.classList.toggle('on', parseInt(c.getAttribute('data-v'), 10) === v); });
   }
   function setTarget(v) { rng.value = v; tgtEl.value = v; errEl.style.display = 'none'; paint(v); }
+  function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
   function countUp(to) {
     var t0 = performance.now();
-    (function step(now) { var p = Math.min(1, (now - t0) / 700), e = 1 - Math.pow(1 - p, 3), c = Math.round(to * e);
+    (function step(now) { var p = Math.min(1, (now - t0) / 650), e = 1 - Math.pow(1 - p, 3), c = Math.round(to * e);
       big.innerText = String(c); bar.style.transform = 'scaleX(' + (c / 720) + ')';
       if (p < 1) raf = requestAnimationFrame(step); else { raf = 0; paint(to); } })(t0);
   }
   var start = saved ? saved.target : 600;
-  rng.value = start; tgtEl.value = start; paint(0);
-  if (saved) {
-    root.classList.add('nwi-ret'); nameEl.value = saved.name;
-    $i('nwi-title').innerText = 'Welcome back, ' + String(saved.name).split(' ')[0];
-    $i('nwi-sub').innerText = 'Your target is below. Jump straight back in, or update it if your goal has changed.';
-    goBtn.innerText = 'Continue →';
-    $i('nwi-edit').addEventListener('click', function () { root.classList.remove('nwi-ret'); $i('nwi-sub').innerText = 'Update your name or target.'; goBtn.innerText = 'Save & Continue →'; });
-  }
-  setTimeout(function () { countUp(start); }, 350);
-  function stop() { if (raf) { cancelAnimationFrame(raf); raf = 0; } }
+  rng.value = start; tgtEl.value = start; paint(start);
+  if (saved) nameEl.value = saved.name;
+  cName.innerText = (saved && saved.name) || 'Your name';
+  nameEl.addEventListener('input', function () { errEl.style.display = 'none'; cName.innerText = nameEl.value.trim() || 'Your name'; });
   rng.addEventListener('input', function () { stop(); var v = parseInt(rng.value, 10); tgtEl.value = v; errEl.style.display = 'none'; paint(v); });
   tgtEl.addEventListener('input', function () { stop(); var v = parseInt(tgtEl.value, 10); errEl.style.display = 'none';
     if (isNaN(v)) { paint(0); return; } if (v > 720) { v = 720; tgtEl.value = 720; } rng.value = v; paint(v); });
   chips.addEventListener('click', function (e) { var b = e.target.closest ? e.target.closest('.nwi-chip') : null; if (!b) return; stop(); setTarget(parseInt(b.getAttribute('data-v'), 10)); });
-  root.addEventListener('keydown', function (e) { e.stopPropagation(); if (e.key === 'Enter' && e.target && e.target.tagName !== 'BUTTON') { e.preventDefault(); enter(); } });
+
+  /* ---- sheet open / close ---- */
+  function openSheet(edit) {
+    editing = !!edit; root.classList.add('nwi-sheet-open');
+    if (saved) { $i('nwi-title').innerText = 'Update your goal'; $i('nwi-sub').innerText = 'Change your name or target score.'; goBtn.innerText = 'Save & Continue →'; }
+    stop(); paint(0); countUp(parseInt(tgtEl.value, 10) || 600);
+    if (!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches)) setTimeout(function () { try { (nameEl.value ? tgtEl : nameEl).focus(); } catch (e) {} }, 350);
+  }
+  function closeSheet() { root.classList.remove('nwi-sheet-open'); }
+  $i('nwi-x').addEventListener('click', closeSheet);
+  $i('nwi-sheet').addEventListener('mousedown', function (e) { if (e.target === this) closeSheet(); });
+
+  /* ---- enter the portal ---- */
   function showErr(m) { errEl.innerText = m; errEl.style.display = 'block'; }
-  function enter() {
-    var name = (nameEl.value || '').trim(), target = parseInt(tgtEl.value, 10);
-    if (!name) { root.classList.remove('nwi-ret'); showErr('Please tell us your name.'); nameEl.focus(); return; }
-    if (!target || target < 1 || target > 720) { root.classList.remove('nwi-ret'); showErr('Pick a target between 1 and 720.'); return; }
+  function finish(name, target) {
     try { userProfile = { name: name, target: target }; saveProfile(); }
     catch (e) { try { localStorage.setItem('nextwhite_profile', JSON.stringify({ name: name, target: target })); } catch (e2) {} }
     try { if (typeof renderAccountUI === 'function') renderAccountUI(); } catch (e) {}
@@ -229606,10 +230014,65 @@ html[data-theme="light"] #nw-toolbar-scorecard {
     setTimeout(function () { root.classList.add('nwi-gone'); }, 480);
     setTimeout(function () { if (root.parentNode) root.parentNode.removeChild(root); }, 700);
   }
-  goBtn.addEventListener('click', enter);
-  if (!saved && !(window.matchMedia && window.matchMedia('(pointer: coarse)').matches)) setTimeout(function () { try { nameEl.focus(); } catch (e) {} }, 700);
+  function submit() {
+    var name = (nameEl.value || '').trim(), target = parseInt(tgtEl.value, 10);
+    if (!name) { showErr('Please tell us your name.'); nameEl.focus(); return; }
+    if (!target || target < 1 || target > 720) { showErr('Pick a target between 1 and 720.'); return; }
+    finish(name, target);
+  }
+  goBtn.addEventListener('click', submit);
+  root.addEventListener('keydown', function (e) {
+    e.stopPropagation();
+    if (e.key === 'Escape' && root.classList.contains('nwi-sheet-open')) { closeSheet(); return; }
+    if (e.key === 'Enter' && root.classList.contains('nwi-sheet-open') && e.target && e.target.tagName !== 'BUTTON') { e.preventDefault(); submit(); }
+  });
+
+  /* ---- call-to-action buttons ---- */
+  var first = saved ? String(saved.name).split(' ')[0] : '';
+  var label = saved ? 'Continue as ' + first + ' →' : 'Start preparing →';
+  ['nwi-hero-cta', 'nwi-end-cta', 'nwi-fix-cta'].forEach(function (id) { var b = $i(id); if (b) b.textContent = label; });
+  $i('nwi-top-cta').textContent = saved ? 'Continue' : 'Start preparing';
+  if (saved) root.classList.add('nwi-ret');
+  root.querySelectorAll('[data-open]').forEach(function (b) { b.addEventListener('click', function () { if (saved) finish(saved.name, saved.target); else openSheet(false); }); });
+  $i('nwi-edit').addEventListener('click', function () { openSheet(true); });
 })();
 </script>
 
+
+<script>
+(function(){var $=function(i){return document.getElementById(i)},S=['Physics','Chemistry','Biology'],C={Physics:'#3b82f6',Chemistry:'#10b981',Biology:'#f43f5e'},bk={k:''},pc={s:'',n:null},raf=0;
+function put(e,h){if(e&&e.innerHTML!==h)e.innerHTML=h}
+function txt(e,t){if(e&&e.textContent!==t)e.textContent=t}
+function on(i,c){var e=$(i);return !!e&&e.classList.contains(c)}
+function stats(){var b=getBank(),k=currentBank+':'+b.length;if(bk.k!==k){var t={},c={};S.forEach(function(s){t[s]=0;c[s]={}});b.forEach(function(q){if(c[q.subject]){t[q.subject]++;c[q.subject][q.chapter]=1}});bk={k:k,t:t,c:c}}return bk}
+function pool(subs){var sel=selectedSource,ids=null,sig=[currentBank,getBank().length,sel,selectedDifficulty,(selectedPyqYears||[]).join(),selectedWrongTests,bookmarkedQuestionIds.length,wrongQuestionIds.length].concat(subs.map(function(s){return s+(selectedChaptersBySubject[s]||[]).join('|')})).join('#');
+if(pc.s===sig)return pc.n;var n=null;try{if(sel==='wrong')ids=new Set(nwGetWrongIdsFromLastTests(selectedWrongTests));else if(sel==='bookmark')ids=new Set(bookmarkedQuestionIds);
+var cs={};subs.forEach(function(s){cs[s]=new Set(selectedChaptersBySubject[s]||[])});
+var p=(sel==='all'?getBank():getBankForIds()).filter(function(q){return cs[q.subject]&&cs[q.subject].has(q.chapter)&&(!ids||ids.has(q.id))});n=filterByDifficulty(filterByPyqYear(p)).length}catch(e){}pc={s:sig,n:n};return n}
+function sum(){try{var st=stats(),subs=S.filter(function(s){return selectedSubjects.indexOf(s)>-1}),n=parseInt($('q-count-input').value)||0,test=on('mode-test','active'),tg={};
+try{tg=computeSubjectTargets(n)}catch(e){}
+S.forEach(function(s){var sel=(selectedChaptersBySubject[s]||[]).length,tot=Object.keys(st.c[s]).length,m=document.querySelector('[data-meta='+s+']'),b=document.querySelector('[data-bar='+s+']'),card=$('sub-'+s);
+txt(m,sel+' of '+tot+' chapters');if(b){var w=tot?Math.round(sel/tot*100)+'%':'0%';if(b.style.width!==w)b.style.width=w}
+if(card)card.setAttribute('aria-checked',on('sub-'+s,'selected'))});
+['practice','test'].forEach(function(k){var e=$('mode-'+k);if(e)e.setAttribute('aria-checked',on('mode-'+k,'active'))});
+var wr=wrongQuestionIds.filter(inCurrentBank).length,bm=bookmarkedQuestionIds.filter(inCurrentBank).length;
+document.querySelectorAll('[data-src]').forEach(function(e){txt(e,e.dataset.src==='wrong'?wr+' tracked':e.dataset.src==='bookmark'?bm+' saved':st.t.Physics+st.t.Chemistry+st.t.Biology+' in bank')});
+var d=['Mix','Easy','Medium','Hard'].filter(function(x){return on('diff-btn-'+x,'selected')})[0]||'Mix',so={all:'All questions',wrong:'Wrong only',bookmark:'Bookmarked'}[selectedSource]||'All questions';
+var bg={diff:d,src:so,mode:test?'Test':'Practice',qty:n+' question'+(n===1?'':'s')};document.querySelectorAll('[data-badge]').forEach(function(e){txt(e,bg[e.dataset.badge])});
+txt($('bp-n'),String(n));txt($('bp-time'),test?n+' min timer':'No timer');
+var sp=$('bp-split'),sc='nwf-split'+(subs.length&&n?'':' e');if(sp.className!==sc)sp.className=sc;put(sp,subs.length&&n?subs.map(function(s){return'<i style="flex:'+Math.max(tg[s]||0,.0001)+';background:'+C[s]+'"></i>'}).join(''):'');
+put($('bp-rows'),subs.map(function(s){var k=(selectedChaptersBySubject[s]||[]).length;return'<li><i style="background:'+C[s]+'"></i>'+s+'<small>'+(k?k+' chapter'+(k>1?'s':''):'No chapters yet')+'</small><em>'+(tg[s]||0)+'</em></li>'}).join('')||'<li><small style="margin:0">No subjects selected yet.</small></li>');
+var f='<dt>Difficulty</dt><dd>'+d+'</dd><dt>Source</dt><dd>'+so+'</dd><dt>Mode</dt><dd>'+(test?'Test':'Practice')+'</dd>';
+if(currentBank==='pyq'&&selectedPyqYears&&selectedPyqYears.length)f+='<dt>PYQ years</dt><dd>'+selectedPyqYears.length+' selected</dd>';put($('bp-facts'),f);
+var miss=subs.filter(function(s){return!(selectedChaptersBySubject[s]||[]).length}),pe=$('bp-pool'),cl='nwf-pool',tx;
+if(!subs.length)tx='Select a subject to begin.';else if(miss.length)tx='Choose at least one chapter for '+miss.join(', ')+'.';
+else{var p=pool(subs);if(p===null)tx='Ready to generate.';else if(p===0){cl+=' warn';tx='No questions match these filters. Broaden your selection.'}else if(p<n){cl+=' warn';tx='Only '+p+' questions match. The test will use all of them.'}else{cl+=' ok';tx=p+' questions match. Enough for '+n+'.'}}
+if(pe.className!==cl)pe.className=cl;txt(pe,tx)}catch(e){}}
+function sched(){if(!raf)raf=requestAnimationFrame(function(){raf=0;sum()})}
+window.nwpBump=function(d){var i=$('q-count-input');i.value=Math.max(1,Math.min(5000,(parseInt(i.value)||0)+d));if(window.syncQuestionCountInput)syncQuestionCountInput();sched()};
+var m=document.querySelector('#hero-view .nwf-main');if(!m)return;
+new MutationObserver(sched).observe(m,{subtree:true,attributes:true,attributeFilter:['class'],childList:true,characterData:true});
+m.addEventListener('input',sched);m.addEventListener('change',sched);window.addEventListener('load',sched);sched()})();
+</script>
 </body>
 </html>
