@@ -3397,7 +3397,6 @@
     <div class="hud-stats">
         <div class="hud-pill" id="goal-pill" style="color: var(--accent-cyan-text); border-color: rgba(0, 243, 255, 0.3);" onclick="switchDrawerTab('goals')">🎯 Daily Goal: <span id="header-goal-val">0%</span></div>
         <div class="hud-pill" id="level-pill" style="color: var(--accent-cyan-text); border-color: rgba(0, 243, 255, 0.3);">Level <span id="level-val">1</span> ⚡</div>
-        <button class="nav-btn" style="border: 1px solid rgba(244,63,94,0.4); color: #f43f5e; padding: 6px 14px;" onclick="resetAllProgress()">Reset Data 🗑️</button>
         <div class="hud-pill" id="live-score-pill" style="display: none; color: var(--tint-mint-pale); border-color: rgba(16,185,129,0.35);" title="+4 correct · −1 wrong · 0 skipped">
             📊 <span id="live-score-val">0</span>
             <span style="color:var(--text-muted);font-weight:600;font-size:0.72rem;margin-left:4px;">(+4/−1)</span>
@@ -3410,7 +3409,7 @@
 
     <!-- Left Navigation Drawer -->
     <div class="left-drawer" id="main-left-drawer">
-        <div class="drawer-section-title drawer-section-title-first">Learning</div>
+        <div class="nwsb-group"><div class="drawer-section-title drawer-section-title-first">Learning</div>
         <button class="drawer-btn active" id="drawer-practice-btn" onclick="switchDrawerTab('hero'); document.getElementById('main-left-drawer').classList.add('collapsed')">
             <span>🔥</span> Grind
         </button>
@@ -3420,16 +3419,16 @@
         <button class="drawer-btn" id="drawer-history-btn" onclick="switchDrawerTab('history'); document.getElementById('main-left-drawer').classList.add('collapsed')">
             <span>📜</span> Test History
         </button>
-
-        <div class="drawer-section-title">Boost</div>
+        </div>
+        <div class="nwsb-group"><div class="drawer-section-title">Boost</div>
         <button class="drawer-btn" id="drawer-goals-btn" onclick="switchDrawerTab('goals'); document.getElementById('main-left-drawer').classList.add('collapsed')">
             <span>🎯</span> Goals
         </button>
         <button class="drawer-btn" id="drawer-achievements-btn" onclick="switchDrawerTab('achievements'); document.getElementById('main-left-drawer').classList.add('collapsed')">
             <span>🏆</span> Achievements
         </button>
-
-        <div class="drawer-section-title">Connect</div>
+        </div>
+        <div class="nwsb-group"><div class="drawer-section-title">Connect</div>
         <button class="drawer-btn" id="drawer-community-btn" onclick="switchDrawerTab('community'); document.getElementById('main-left-drawer').classList.add('collapsed')">
             <span>💬</span> Community
         </button>
@@ -3439,11 +3438,12 @@
         <button class="drawer-btn" id="drawer-share-btn" onclick="switchDrawerTab('share'); document.getElementById('main-left-drawer').classList.add('collapsed')">
             <span>📤</span> Share with Batchmates
         </button>
-
-        <div class="drawer-section-title">Account</div>
+        </div>
+        <div class="nwsb-group"><div class="drawer-section-title">Account</div>
         <button class="drawer-btn" id="drawer-account-btn" onclick="switchDrawerTab('account'); document.getElementById('main-left-drawer').classList.add('collapsed')">
             <span>👤</span> My Account
         </button>
+        </div>
     </div>
 
     <!-- Right Main Content Area -->
@@ -3951,6 +3951,18 @@
                             <input type="file" accept=".json" style="display:none;" onchange="importBackupData(this)" />
                         </label>
                     </div>
+                 </div>
+
+                 <div class="dash-card" style="border-color: rgba(244,63,94,0.35);">
+                     <h3 style="font-size: 1.1rem; font-weight: 800; color: #f43f5e;">🗑️ Reset Data</h3>
+                     <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 8px; line-height: 1.6;">
+                         Permanently erases your test history, bookmarks, streaks and goals from this browser. Export a backup first if you might need it.
+                     </p>
+                     <div style="margin-top: 16px;">
+                         <button class="btn btn-clear" style="border: 1px solid rgba(244,63,94,0.5); color: #f43f5e;" onclick="resetAllProgress()">Reset Data 🗑️</button>
+                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -23682,6 +23694,3078 @@ function startTestUI() {
     ],
     "correctIndex": 2,
     "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1216",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A uniform metal disc of radius $R$ is taken and out of it a disc of diameter $\\frac{R}{2}$ is cut off from the end. The centre of mass of the remaining part will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{R}{10}$ from the centre",
+      "$\\frac{R}{15}$ from the centre",
+      "$\\frac{R}{5}$ from the centre",
+      "$\\frac{R}{20}$ from the centre"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1217",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The coordinate of the centre of mass of a system as shown in figure (a solid sphere of mass $M$ at $(0,a)$, a hollow sphere of mass $M$ at $(0,0)$ and a disc of mass $M$ at $(a,0)$):",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/brm5Kyzy/image.png",
+    "options": [
+      "$\\left(\\frac{a}{3},0\\right)$",
+      "$\\left(\\frac{a}{2},\\frac{a}{2}\\right)$",
+      "$\\left(\\frac{a}{3},\\frac{a}{3}\\right)$",
+      "$\\left(0,\\frac{a}{3}\\right)$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1218",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Seven particles, each of mass $m$ are placed at the seven corners of a cube of side $a$ but one corner is vacant, as shown in figure. The co-ordinates of the centre of mass of the system is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/c4J2fnmH/image.png",
+    "options": [
+      "$\\left(\\frac{2a}{7},\\frac{2a}{7},\\frac{2a}{7}\\right)$",
+      "$\\left(\\frac{3a}{7},\\frac{3a}{7},\\frac{3a}{7}\\right)$",
+      "$\\left(\\frac{a}{3},\\frac{a}{3},\\frac{a}{3}\\right)$",
+      "$\\left(\\frac{5a}{11},\\frac{5a}{11},\\frac{5a}{11}\\right)$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1219",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A uniform rod of length 1.0 meter is bent at its midpoint to make $90^\\circ$ angle. The distance of the centre of mass from the centre of the rod is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "35.3 cm",
+      "25.2 cm",
+      "17.7 cm",
+      "zero"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1220",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Three identical metal balls, each of radius $r$, are placed touching each other on a horizontal surface such that an equilateral triangle is formed when the centres of the three balls are joined. The centre of mass of the system is located at:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "horizontal surface",
+      "centre of one of the balls",
+      "line joining centres of any two balls",
+      "point of intersection of their medians"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1221",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The centre of mass of a system of three particles of masses 1 g, 2 g and 3 g is taken as the origin of a co-ordinate system. The position vector of a fourth particle of mass 4 g such that the centre of mass of the four particle system lies at the point $(1, 2, 3)$ is $\\alpha(\\hat{i}+2\\hat{j}+3\\hat{k})$, where $\\alpha$ is a constant. The value of $\\alpha$ is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{10}{3}$",
+      "$\\frac{5}{2}$",
+      "$\\frac{1}{2}$",
+      "$\\frac{2}{5}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1222",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A circular plate of uniform thickness has a diameter 56 cm. A circular portion of diameter 42 cm is removed from one edge as shown in the figure. The centre of mass of the remaining portion from the centre of plate will be:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/05VH5Nqt/image.png",
+    "options": [
+      "5 cm",
+      "7 cm",
+      "9 cm",
+      "11 cm"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1223",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The centre of mass of a system of two particles divides the distance between them",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "In inverse ratio of square of masses of particles",
+      "In direct ratio of square of masses of particles",
+      "In inverse ratio of masses of particles",
+      "In direct ratio of masses of particles"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1224",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The centre of mass of a body:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Lies always outside the body",
+      "May lie inside or outside the body",
+      "Lies always inside the body",
+      "Lies always on the surface of the body"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1225",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "If linear density of a rod of length 3 m varies as $\\lambda = 2 + x$, then the position of the centre of gravity of the rod is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{7}{3}$ m",
+      "$\\frac{12}{7}$ m",
+      "$\\frac{10}{7}$ m",
+      "$\\frac{9}{7}$ m"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1226",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The centre of mass of a system of particles does not depend on:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "masses of the particles",
+      "Internal forces on the particles",
+      "position of the particles",
+      "relative distance between the particles"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1227",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A system consists of mass $M$ and $m$ ($\\ll M$). The centre of mass of the system is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "at the middle",
+      "nearer to M",
+      "nearer to m",
+      "at the position of larger mass"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1228",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Three point particles of masses 1.0 kg, 1.5 kg and 2.5 kg are placed at three corners of a right angle triangle of sides 4.0 cm, 3.0 cm and 5.0 cm as shown in the figure. The center of mass of the system is at a point:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/8P3KWncq/image.png",
+    "options": [
+      "0.6 cm right and 2.0 cm above 1 kg mass",
+      "2.0 cm right and 0.9 cm above 1 kg mass",
+      "0.9 cm right and 2.0 cm above 1 kg mass",
+      "1.5 cm right and 1.2 cm above 1 kg mass"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1229",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A uniform solid cone of height 40 cm is shown in figure. The distance of centre of mass of the cone from point B (centre of the base) is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/nLf3Sjvr/image.png",
+    "options": [
+      "20 cm",
+      "10/3 cm",
+      "20/3 cm",
+      "10 cm"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1230",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "In the HCl molecule the separation between the nuclei of the two atoms is about 1.27 Å ($1\\,\\text{Å} = 10^{-10}$ m). The approximate location of the centre of mass of the molecule from hydrogen atom, assuming the chlorine atom to be about 35.5 times massive than hydrogen is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "1 Å",
+      "2.5 Å",
+      "1.24 Å",
+      "1.5 Å"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1231",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A cricket bat is cut at the location of its centre of mass as shown. Then:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/0Q8cxTXN/image.png",
+    "options": [
+      "The two pieces will have the same mass",
+      "The bottom piece will have larger mass",
+      "The handle piece will have larger mass",
+      "Mass of handle piece is double the mass of bottom piece"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1232",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Five uniform circular plates, each of diameter $D$ and mass $m$ are laid out in a pattern shown. Using the origin shown, find the $y$ co-ordinate of the centre of mass of the five-plate system.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/0j4fYb8h/image.png",
+    "options": [
+      "$\\frac{2D}{5}$",
+      "$\\frac{4D}{5}$",
+      "$\\frac{D}{3}$",
+      "$\\frac{D}{5}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1233",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "From the circular disc of radius $4R$ two small disc of radius $R$ are cut off. The centre of mass of the new structure will be:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/KcpJSsnp/image.png",
+    "options": [
+      "$\\hat{i}\\frac{R}{5}+\\hat{j}\\frac{R}{5}$",
+      "$-\\hat{i}\\frac{R}{5}+\\hat{j}\\frac{R}{5}$",
+      "$\\frac{-3R}{14}(\\hat{i}+\\hat{j})$",
+      "None of these"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1234",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "If the system is released then the acceleration of the centre of mass of the system (masses $m$ and $3m$ connected over a light pulley):",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/xTkg0y5G/image.png",
+    "options": [
+      "$\\frac{g}{4}$",
+      "$\\frac{g}{2}$",
+      "$g$",
+      "$2g$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1235",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 2 kg body and a 3 kg body are moving along the $x$-axis. At a particular instant the 2 kg body has a velocity of $3\\ \\text{m s}^{-1}$ and the 3 kg body has the velocity of $2\\ \\text{m s}^{-1}$. The velocity of the centre of mass at that instant is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$5\\ \\text{m s}^{-1}$",
+      "$1\\ \\text{m s}^{-1}$",
+      "0",
+      "$\\frac{12}{5}\\ \\text{m s}^{-1}$"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1236",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two objects of masses 200 gram and 500 gram possess velocities $10\\hat{i}$ m/s and $(3\\hat{i}+5\\hat{j})$ m/s respectively. The velocity of their centre of mass in m/s is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$5\\hat{i}-25\\hat{j}$",
+      "$\\frac{5}{7}\\hat{i}-25\\hat{j}$",
+      "$5\\hat{i}+\\frac{25}{7}\\hat{j}$",
+      "$25\\hat{i}-\\frac{5}{7}\\hat{j}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1237",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Initially two stable particles $x$ and $y$ start moving towards each other under mutual attraction. If at one time the velocities of $x$ and $y$ are $V$ and $2V$ respectively what will be the velocity of centre of mass of the system?",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$V$",
+      "Zero",
+      "$\\frac{V}{3}$",
+      "$\\frac{V}{5}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1238",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A person of mass $m$ is standing on one end of a plank of mass $M$ and length $L$ and floating in water. The person moves from one end to another and stops. The displacement of the plank is",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{Lm}{(m+M)}$",
+      "$Lm(M+m)$",
+      "$\\frac{(M+m)}{Lm}$",
+      "$\\frac{LM}{(m+M)}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1239",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "In a vertical plane inside a smooth hollow thin tube a block of same mass as that of tube is released as shown in figure. When it is slightly disturbed it moves towards right. By the time the block reaches the right end of the tube, displacement of the tube will be (where $R$ is mean radius of tube). Assume that the tube remains in vertical plane.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/fRmKdz6k/image.png",
+    "options": [
+      "$\\frac{2R}{\\pi}$",
+      "$\\frac{4R}{\\pi}$",
+      "$\\frac{R}{2}$",
+      "$R$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1240",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Seven identical birds are flying in south together at constant velocity. A hunter shoots one of them, which immediately dies and falls to the ground. The other six continue flying south at the original velocity. After the one bird has hit the ground, the centre of mass of all seven birds:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "continues south at the original speed, but is now located some distance behind the flying birds",
+      "continues south, but at 6/7 the original velocity",
+      "continues south, but at 1/7 the original velocity",
+      "stops with the dead bird"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1241",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bomb travelling in a parabolic path under the effect of gravity, explodes in mid air. The centre of mass of fragments will:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Move vertically upwards and then downwards",
+      "Move vertically downwards",
+      "Move in irregular path",
+      "Move in the parabolic path which the unexploded bomb would have travelled."
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1242",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "If a ball is thrown upwards from the surface of earth then initially (assuming that there is no external force on the system):",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "The earth remains stationary while the ball moves upwards",
+      "The ball remains stationary while the earth moves downwards",
+      "The ball and earth both move towards each other",
+      "The ball and earth both move away from each other"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1243",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass $m$ collides horizontally with a stationary wedge on a rough horizontal surface, in the two orientations as shown. Neglect friction between ball and wedge. Two students comment on system of ball and wedge in these situations.<br>Aarav: Momentum of system in x-direction will change by significant amount in both cases.<br>Aliza: There are no impulsive external forces in y-direction in both cases hence the total momentum of system in y-direction can be treated as conserved in both cases.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/J0SNyvxs/image.png",
+    "options": [
+      "Aarav is wrong and Aliza is correct",
+      "Aarav is correct and Aliza is wrong",
+      "Both are correct",
+      "Both are wrong"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1244",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A nucleus of mass number $A$ originally at rest, emits alpha particle with speed $v$. The recoil speed of the daughter nucleus is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{4v}{A-4}$",
+      "$\\frac{4v}{A+4}$",
+      "$\\frac{v}{A-4}$",
+      "$\\frac{v}{A+4}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1245",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The law of conservation of momentum for a system is based on Newton's:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "First law of motion",
+      "Second law of motion",
+      "Third law of motion",
+      "Law of gravitation"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1246",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass $m$ is fired into a large block of wood of mass $M$ with velocity $v$. The final velocity of the system is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\left(\\frac{m}{M-m}\\right)v$",
+      "$\\left(\\frac{m+M}{M}\\right)v$",
+      "$\\left(\\frac{M-m}{M}\\right)v$",
+      "$\\left(\\frac{m}{m+M}\\right)v$"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1247",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Identify the wrong statement.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "A body can have momentum without mechanical energy",
+      "A body can have energy without momentum",
+      "The momentum is conserved in an elastic collision only.",
+      "Kinetic energy is not conserved in an inelastic collision."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1248",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass $P$ is fired with velocity $Q$ in a large body of mass $R$. The final velocity of the system will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{R}{P+R}$",
+      "$\\frac{PQ}{P+R}$",
+      "$\\frac{(P+Q)}{R}$",
+      "$\\frac{(P+R)}{P}Q$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1249",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Bullets of mass 40 g each are fired from a machine gun with a velocity of $10^3$ m/s. If the person firing the bullets experience an average force of 200 N, then the number of bullets fired per minute will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "300",
+      "600",
+      "150",
+      "75"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1250",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 50 gm bullet moving with a velocity 10 m/s gets embedded into a 950 gm stationary body. The loss in kinetic energy of the system will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "5%",
+      "50%",
+      "100%",
+      "95%"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1251",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass $m$ moving with a speed $v$ strikes a wooden block of mass $M$ and gets embedded into the block. The final speed is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/xTbyrjjX/image.png",
+    "options": [
+      "$\\sqrt{\\frac{M}{M+m}}\\,v$",
+      "$\\sqrt{\\frac{m}{M+m}}\\,v$",
+      "$\\frac{m}{M+m}\\,v$",
+      "$\\frac{v}{2}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1252",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 10 g bullet, moving with velocity of 500 m/s enters a stationary piece of ice of mass 10 kg and stops. If the piece of ice is lying on a frictionless plane, then its velocity will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "5 cm/s",
+      "5 m/s",
+      "0.5 m/s",
+      "0.5 cm/s"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1253",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Which of the following is true:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Momentum is conserved in all collision but kinetic energy is conserved only in inelastic collision",
+      "Neither momentum nor kinetic energy is conserved in inelastic collisions.",
+      "Momentum is conserved in all collisions but not kinetic energy",
+      "Both momentum and kinetic energy are conserved in all collisions."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1254",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two blocks of masses $m$ and $M$ are moving with speeds $v_1$ and $v_2$ ($v_1>v_2$) in the same direction on the frictionless surface respectively, $M$ being ahead of $m$. An ideal spring of force constant $k$ is attached to the backside of $M$ (as shown). The maximum compression of the spring when the block collides is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/13h0yx4d/image.png",
+    "options": [
+      "$v_1\\sqrt{\\frac{m}{k}}$",
+      "$v_2\\sqrt{\\frac{M}{k}}$",
+      "$(v_1-v_2)\\sqrt{\\frac{mM}{(M+m)k}}$",
+      "None of above is correct"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1255",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Mass A hits B inelastically ($e=0$) while moving horizontally with some velocity along the common line of centres of the three equal masses each of same mass. Initially mass B and C are stationary and the spring is unstretched. Then which is incorrect.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/Dz7qbqrC/image.png",
+    "options": [
+      "compression will be maximum when blocks have same velocity",
+      "velocity of C is maximum when (A + B) is at rest",
+      "velocity of C is maximum when spring is undeformed.",
+      "velocity of C is minimum when spring is undeformed."
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1256",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two blocks A and B of mass $m$ and $2m$ respectively are connected by a massless spring of spring constant $K$. This system lies over a smooth horizontal surface. At $t=0$ the block A has velocity $u$ towards right as shown while the speed of block B is zero, and spring is at its natural length at this instant. Which of the following is INCORRECT for subsequent motion.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/zBcWM69n/image.png",
+    "options": [
+      "Maximum elongation in spring is $\\sqrt{\\frac{2mu^2}{3K}}$",
+      "Velocity of centre of mass of the system consisting A and B will be constant.",
+      "Acceleration of block B will be constant.",
+      "At maximum elongation, velocity of A and B is same in ground frame."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1257",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bomb initially at rest explodes by itself into three equal mass fragments. The velocities of two fragments are $(3\\hat{i}+2\\hat{j})$ m/s and $(-\\hat{i}-4\\hat{j})$ m/s. The velocity of the third fragment is (in m/s):",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$2\\hat{i}+2\\hat{j}$",
+      "$2\\hat{i}-2\\hat{j}$",
+      "$-2\\hat{i}+2\\hat{j}$",
+      "$-2\\hat{i}-2\\hat{j}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1258",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bomb of 50 kg is fired from a cannon with a velocity 600 m/s. If the mass of the cannon is $10^3$ kg, then its velocity will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "30 m/s",
+      "-30 m/s",
+      "0.30 m/s",
+      "-0.30 m/s"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1259",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A stationary particle explodes into two particles of masses $m_1$ and $m_2$ which move in opposite directions with velocities $v_1$ and $v_2$. The ratio of their kinetic energies $E_1/E_2$ is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$m_1/m_2$",
+      "$m_2/m_1$",
+      "1",
+      "$m_1v_2/m_2v_1$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1260",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A body of mass $4m$ at rest explodes into three pieces. Two of the pieces each of mass $m$ move with a speed $v$ each in mutually perpendicular directions. The total kinetic energy released is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{1}{2}mv^2$",
+      "$mv^2$",
+      "$\\frac{3}{2}mv^2$",
+      "$\\frac{5}{2}mv^2$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1261",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bomb of mass 3.0 kg explodes in air into two pieces of masses 2.0 kg and 1.0 kg. The smaller mass goes at a speed of 80 m/s. The total energy imparted to the two fragments is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "1.07 kJ",
+      "2.14 kJ",
+      "2.4 kJ",
+      "4.8 kJ"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1262",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 1 kg stationary bomb is exploded in three parts having mass ratio 1 : 1 : 3. Parts having same mass move in perpendicular directions with velocity 30 m/s, then the velocity of bigger part will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$10\\sqrt{2}$ m/s",
+      "$\\frac{10}{\\sqrt{2}}$ m/s",
+      "$15\\sqrt{2}$ m/s",
+      "$\\frac{15}{\\sqrt{2}}$ m/s"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1263",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A heavy nucleus at rest breaks into two fragments which fly off with velocities 8 : 1. The ratio of radii of the fragments is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "1 : 2",
+      "1 : 4",
+      "4 : 1",
+      "2 : 1"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1264",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bomb of mass 30 kg at rest explodes into two pieces of masses 18 kg and 12 kg. The velocity of 18 kg mass is $6\\ \\text{m s}^{-1}$. The kinetic energy of the other mass is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "524 J",
+      "256 J",
+      "486 J",
+      "324 J"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1265",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bomb of mass 9 kg explodes into two pieces of 3 kg and 6 kg. The velocity of 3 kg piece is 16 m/s. The kinetic energy of 6 kg piece is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "768 joule",
+      "786 joule",
+      "192 joule",
+      "687 joule"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1266",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass 50 gm is dropped from a height $h = 10$ m. It rebounds losing 75 percent of its kinetic energy. If it remains in contact with the ground for $t = 0.01$ sec., the impulse of the impact force is: (take $g = 10\\ \\text{m/s}^2$)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "1.3 N-s",
+      "1.06 N-s",
+      "1300 N-s",
+      "105 N-s"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1267",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The area of $F$-$t$ curve is $A$, where $F$ is the force acting on one mass due to the other. If one of the colliding bodies of mass $M$ is at rest initially, its speed just after the collision is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$A/M$",
+      "$M/A$",
+      "$AM$",
+      "$\\sqrt{\\frac{2A}{M}}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1268",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A boy hits a baseball with a bat and imparts an impulse $J$ to the ball. The boy hits the ball again with the same force, except that the ball and the bat are in contact for twice the amount of time as in the first hit. The new impulse equals:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "half the original impulse",
+      "the original impulse",
+      "twice the original impulse",
+      "four times the original impulse"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1269",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle of mass $m$ moving with a velocity $(3\\hat{i}+2\\hat{j})$ m/s collides with stationary body of mass $M$ and finally moves with velocity $(-2\\hat{i}+\\hat{j})$ m/s. Then",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Impulse received by $m = m(5\\hat{i}-5\\hat{j})$",
+      "Impulse received by $m = m(-5\\hat{i}-\\hat{j})$",
+      "Impulse received by $m = m(5\\hat{i}+\\hat{j})$",
+      "Impulse received by $M = m(5\\hat{i}-\\hat{j})$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1270",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two balls of same mass are dropped from the same height $h$, on to the floor. The first ball bounces to a height $h/4$, after the collision and the second ball to a height $h/16$. The impulse applied by the first and second ball on the floor are $I_1$ and $I_2$ respectively. Then",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$5I_1 = 6I_2$",
+      "$6I_1 = 5I_2$",
+      "$I_1 = 2I_2$",
+      "$2I_1 = I_2$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1271",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two balls of masses 1 kg each are connected by an inextensible massless string. The system is resting on a smooth horizontal surface. An impulse of 10 Ns is applied to one of the balls at an angle $30^\\circ$ with the line joining two balls in horizontal direction as shown in the figure. Assuming that the string remains taut after the impulse, the magnitude of impulse of tension is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/1Rb7Vjf6/image.png",
+    "options": [
+      "$6\\ \\text{Ns}$",
+      "$\\frac{5}{2}\\sqrt{3}\\ \\text{Ns}$",
+      "$5\\ \\text{Ns}$",
+      "$\\frac{5}{\\sqrt{3}}\\ \\text{Ns}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1272",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass $m$ moving vertically upwards instantaneously with a velocity $u$ hits the hanging block of mass $m$ and gets embedded in it, as shown in the figure. The height through which the block rises after the collision (assume sufficient space above block) is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/RZBPXJ1B/image.png",
+    "options": [
+      "$u^2/2g$",
+      "$u^2/g$",
+      "$u^2/8g$",
+      "$u^2/4g$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1273",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 5 kg body collides with another stationary body. After the collision, the bodies move in the same direction with one-third of the velocity of the first body. The mass of the second body will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "5 kg",
+      "10 kg",
+      "15 kg",
+      "20 kg"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1274",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A heavy body moving with a velocity $20\\ \\text{m s}^{-1}$ and another small object at rest undergo an elastic collision. The latter will move with a velocity of",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "20 m/s",
+      "40 m/s",
+      "60 m/s",
+      "Zero"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1275",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 5 gm lump of clay moving with velocity of 10 cm/s towards east, collides head-on with another 2 gm lump of clay moving with 15 cm/s towards west. After collision, the two lumps stick together. The velocity of the compound lump will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "5 cm/s towards east",
+      "5 cm/s towards west",
+      "2.86 cm/s towards east",
+      "2.5 cm/s towards west"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1276",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "In an inelastic collision between two bodies, the physical quantity that is conserved:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Kinetic energy",
+      "Momentum",
+      "Potential energy",
+      "Kinetic energy and momentum"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1277",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A neutron makes a head on elastic collision with a stationary deuteron. The fractional energy loss of the neutron in the collision is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "16/82",
+      "8/9",
+      "8/27",
+      "2/3"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1278",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two particles each of mass $m$ travelling with velocities $u_1$ and $u_2$ collide perfectly inelastically. The loss of kinetic energy will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{1}{2}m(u_1-u_2)^2$",
+      "$\\frac{1}{4}m(u_1-u_2)^2$",
+      "$m(u_1-u_2)^2$",
+      "$2m(u_1-u_2)^2$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1279",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two particles of mass $M_A$ and $M_B$ and their velocities $V_A$ and $V_B$ respectively collide. After collision they interchange their velocities, then the ratio of $\\frac{M_A}{M_B}$ is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{V_A}{V_B}$",
+      "$\\frac{V_B}{V_A}$",
+      "$\\frac{V_A+V_B}{V_B-V_A}$",
+      "1"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1280",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two ice skaters A and B approach each other at right angles. Skater A has a mass 30 kg and velocity 1 m/s and skater B has a mass 20 kg and velocity 2 m/s. They meet and cling together. Their final velocity of the couple is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "2 m/s",
+      "1.5 m/s",
+      "1 m/s",
+      "2.5 m/s"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1281",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The bob (mass $m$) of a simple pendulum of length $L$ is held horizontal and then released. It collides elastically with a block of equal mass lying on a frictionless table. The kinetic energy of the block will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Zero",
+      "$mgL$",
+      "$2mgL$",
+      "$mgL/2$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1282",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A sphere of mass $m$ moving with a constant velocity collides with another stationary sphere of same mass. The ratio of velocities of two spheres after collision will be, if the coefficient of restitution is $e$:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{1-e}{1+e}$",
+      "$\\frac{e-1}{e+1}$",
+      "$\\frac{1+e}{1-e}$",
+      "$\\frac{e+1}{e-1}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1283",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A mass of 20 kg moving with a speed of 10 m/s collides with another stationary mass of 5 kg. As a result of the collision, the two masses stick together. The kinetic energy of the composite mass will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "600 Joule",
+      "800 Joule",
+      "1000 Joule",
+      "1200 Joule"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1284",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A body of mass $m$ having an initial velocity $v$ makes head on collision with a stationary body of mass $M$. After the collision, the body of mass $m$ comes to rest and only the body having mass $M$ moves. This will happen only when:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$m \\gg M$",
+      "$m \\ll M$",
+      "$m = M$",
+      "$m = \\frac{M}{2}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1285",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A body A experiences perfectly elastic collision with a stationary body B. If after collision the bodies fly apart in the opposite direction with equal speeds, the mass ratio of A and B is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{1}{2}$",
+      "$\\frac{1}{3}$",
+      "$\\frac{1}{4}$",
+      "$\\frac{1}{5}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1286",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A collision is said to be perfectly inelastic when:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Coefficient of restitution = 0",
+      "Coefficient of restitution = 1",
+      "Coefficient of restitution = $\\infty$",
+      "Coefficient of restitution < 1"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1287",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "If two masses $m_1$ and $m_2$ collide, the ratio of the changes in their respective velocities is proportional to:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{m_1}{m_2}$",
+      "$\\sqrt{\\frac{m_1}{m_2}}$",
+      "$\\frac{m_2}{m_1}$",
+      "$\\sqrt{\\frac{m_2}{m_1}}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1288",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two identical balls, one moves with 12 m/s and second is at rest, collides elastically. After collision velocity of second and first ball will be",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "6 m/s, 6 m/s",
+      "12 m/s, 12 m/s",
+      "12 m/s, 0 m/s",
+      "0 m/s, 12 m/s"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1289",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two elastic bodies P and Q having equal masses are moving along the same line with velocities 16 m/s and 10 m/s respectively. Their velocities after the elastic collision will be in m/s:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "0 and 25",
+      "5 and 20",
+      "10 and 16",
+      "20 and 5"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1290",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The unit of the coefficient of restitution is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "m/s",
+      "s/m",
+      "m $\\times$ s",
+      "None of the above"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1291",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two solid balls of rubber A and B whose masses are 200 gm and 400 gm respectively, are moving in mutually opposite directions. If the velocity of ball A is 0.3 m/s and both the balls come to rest after collision, then the velocity of ball B is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "0.5 m/s",
+      "-0.15 m/s",
+      "1.5 m/s",
+      "None of the above"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1292",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two bodies of same mass moving with speed $V$ in mutually opposite directions. They collide and stick together. The velocity after collision will be in m/s:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Zero",
+      "$\\frac{V}{2}$",
+      "$V$",
+      "From zero to $\\frac{V}{2}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1293",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass $m$ hits the floor with a speed $v$ making an angle of incidence $\\theta = 45^\\circ$ with the normal to the floor. If the coefficient of restitution $e = \\frac{1}{\\sqrt{2}}$, then the speed of the reflected ball and the angle of reflection are:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{\\sqrt{3}}{2}v,\\ \\tan^{-1}\\sqrt{2}$",
+      "$\\frac{\\sqrt{3}}{4}v,\\ \\tan^{-1}\\sqrt{3}$",
+      "$\\frac{2\\sqrt{3}}{5}v,\\ \\tan^{-1}\\frac{2}{5}$",
+      "$\\frac{\\sqrt{3}}{5}v,\\ \\tan^{-1}\\sqrt{2}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1294",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass $m$ is moving with initial velocity $4\\hat{i}$ m/s. It strikes a fixed incline plane such that angle of incidence of the ball with normal = angle of reflection of ball with normal. Velocity vector of ball just after collision will be: (No friction is present between surfaces of ball and wedge; incline angle $\\theta = 30^\\circ$)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/VN7Df7xs/image.png",
+    "options": [
+      "$(\\hat{i}+\\sqrt{3}\\hat{j})$ m/s",
+      "$\\frac{1}{2}(\\hat{i}+\\sqrt{3}\\hat{j})$ m/s",
+      "$2(\\hat{i}+\\sqrt{3}\\hat{j})$ m/s",
+      "$4(\\hat{i}+\\sqrt{3}\\hat{j})$ m/s"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1295",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A metal ball does not rebound when struck on a wall, whereas a rubber ball of same mass when thrown with the same velocity on the wall rebounds. From this it is inferred that:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Change in momentum is same in both",
+      "Change in momentum in rubber ball is more",
+      "Change in momentum in metal ball is more",
+      "Initial momentum of metal ball is more than that of rubber ball"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1296",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle of mass $m$ moving with speed $v$ towards east strikes another particle of same mass moving with same speed $v$ towards north. After striking the two particles fuse together. With what speed this new particle of mass $2m$ will move in north-east direction?",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$v$",
+      "$\\frac{v}{2}$",
+      "$\\frac{v}{\\sqrt{2}}$",
+      "$v\\sqrt{2}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1297",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball strikes the floor and after collision rebounds back. In this state:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Momentum of the ball is conserved",
+      "Mechanical energy of the ball is conserved",
+      "Momentum of ball-earth system is conserved",
+      "The kinetic energy of ball-earth system is not conserved."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1298",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball moving with velocity of 9 m/s collides with another similar stationary ball. After the collision both the ball move in directions making an angle of $30^\\circ$ with the initial direction. After the collision their speed will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "2.6 m/s",
+      "5.2 m/s",
+      "0.52 m/s",
+      "52 m/s"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1299",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle falls from a height $h$ upon a fixed horizontal plane and rebounds. If $e$ is the coefficient of restitution the total distance travelled before rebounding has stopped is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\left(\\frac{1+e^2}{1-e^2}\\right)h$",
+      "$h\\left(\\frac{1-e^2}{1+e^2}\\right)$",
+      "$\\frac{h}{2}\\left(\\frac{1-e^2}{1+e^2}\\right)$",
+      "$\\frac{h}{2}\\left(\\frac{1+e^2}{1-e^2}\\right)$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1300",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A sphere P of mass $m$ and velocity $\\vec{v}$ undergoes an oblique and perfectly elastic collision with an identical sphere Q initially at rest. The angle $\\theta$ between the velocities of the spheres after the collision shall be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$0^\\circ$",
+      "$45^\\circ$",
+      "$90^\\circ$",
+      "$180^\\circ$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1301",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball is dropped from a height of 10 m. If 40% of its energy is lost on collision with the earth then after collision the ball will rebound to a height of",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "10 m",
+      "8 m",
+      "4 m",
+      "6 m"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1302",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A rubber ball is dropped from a height of 5 m on a plane, where the acceleration due to the gravity is not shown. On bouncing it rises to 1.8 m. The ball loses its velocity on bouncing by a factor of:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{16}{25}$",
+      "$\\frac{2}{5}$",
+      "$\\frac{3}{5}$",
+      "$\\frac{9}{25}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1303",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 1 kg ball falls from a height of 25 cm and rebounds up to a height of 9 cm. The coefficient of restitution is",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "0.6",
+      "0.32",
+      "0.40",
+      "0.56"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1304",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball is dropped from height $h$ on the ground level. If the coefficient of restitution is $e$ then the height up to which the ball will go after $n^{th}$ jump will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{h}{e^{2n}}$",
+      "$\\frac{e^{2n}}{h}$",
+      "$he^n$",
+      "$he^{2n}$"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1305",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball falls from a height of 5 m and strikes the roof of a lift. If at the time of collision, lift is moving in the upward direction with a velocity of 1 m/s, then the velocity with which the ball rebounds after collision will be ($e = 1$)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "11 m/s downwards",
+      "12 m/s upwards",
+      "13 m/s upwards",
+      "12 m/s downwards"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1306",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass 100 g is projected vertically upwards from the ground with a velocity of 49 m/s. At the same time another identical ball is dropped from a height of 98 m to fall freely along the same path as followed by the first ball. After some time the two balls collide and stick together. The velocity of the combined mass just after the collision is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "4.9 m/s upward",
+      "4.9 m/s downward",
+      "9.8 m/s upward",
+      "9.8 m/s downward"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1307",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A big ball of mass $M$, moving with velocity $u$ strikes a small ball of mass $m$, which is at rest. Finally small ball attains velocity $u$ and big ball $v$. What is the value of $v$:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{M-m}{M}u$",
+      "$\\frac{m}{M+m}u$",
+      "$\\frac{2m}{M+m}$",
+      "$\\frac{M}{M+m}v$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1308",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bomb at rest explodes into two parts of masses $m_1$ and $m_2$. If the momentums of the two parts be $p_1$ and $p_2$, then their kinetic energies will be in the ratio of-",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{m_1}{m_2}$",
+      "$\\frac{m_2}{m_1}$",
+      "$\\frac{p_1}{p_2}$",
+      "$\\frac{p_2}{p_1}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1309",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "In the diagrams given below the horizontal line represents the path of a ball coming from left and hitting another ball which is initially at rest. The other two lines represent the paths of the two balls after the collision. Which of the diagram shows a physically impossible situation?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/VvtRFzdV/image.png",
+    "options": [
+      "Diagram (a)",
+      "Diagram (b)",
+      "Diagram (c)",
+      "Diagram (d)"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1310",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A girl throws a ball with initial velocity $v$ at an inclination of $45^\\circ$. The ball strikes a smooth vertical wall at a horizontal distance $d$ from the girl and after rebounding returns to her hand. What is the coefficient of restitution between the wall and the ball?",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$v^2-gd$",
+      "$\\frac{gd}{v^2-gd}$",
+      "$\\frac{gd}{v^2}$",
+      "$\\frac{v^2}{gd}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1311",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A body of mass $m$ collides against a wall with the velocity $u$ and rebounds with the same speed. Its change of momentum is-",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$2mu$",
+      "$mu$",
+      "$-mu$",
+      "0"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1312",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two particles of masses $m_1$ and $m_2$ in projectile motion have velocities $\\vec{v}_1$ and $\\vec{v}_2$, respectively at time $t=0$. They collide at time $t_0$. Their velocities become $\\vec{v}_1'$ and $\\vec{v}_2'$ just after collision, then $|(m_1\\vec{v}_1+m_2\\vec{v}_2)-(m_1\\vec{v}_1'+m_2\\vec{v}_2')|$ is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "zero",
+      "$(m_1+m_2)gt_0$",
+      "$2(m_1+m_2)gt_0$",
+      "$\\frac{1}{2}(m_1+m_2)gt_0$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1313",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two blocks of masses 10 kg and 4 kg are connected by a spring of negligible mass and placed on a frictionless horizontal surface. An impulse gives a velocity of 14 m/s to the heavier block in the direction of the lighter block. The velocity of the centre of mass is",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "30 m/s",
+      "20 m/s",
+      "10 m/s",
+      "5 m/s"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1314",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A block of mass $m$ slides down along the surface of the bowl (radius $R$) from the rim to the bottom. The velocity of the block at the bottom will be-",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\sqrt{\\pi Rg}$",
+      "$2\\sqrt{\\pi Rg}$",
+      "$\\sqrt{2Rg}$",
+      "$\\sqrt{gR}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1315",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A gun fires a bullet as shown in figure. The barrel of the gun is inclined at an angle of $45^\\circ$ with horizontal. When the bullet leaves the barrel, it will be travelling at an angle to the horizontal, of:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/HsG3k8h0/image.png",
+    "options": [
+      "$45^\\circ$",
+      "less than $45^\\circ$",
+      "more than $45^\\circ$",
+      "zero"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1316",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A block of mass $M = 2$ kg with a semicircular track of radius $R = 1.1$ m rests on a horizontal frictionless surface. A uniform cylinder of radius $r = 10$ cm and mass $m = 1.0$ kg is released from rest from the top point A. The cylinder slips on the semicircular frictionless track. The speed of the block when the cylinder reaches the bottom of the track at B is: ($g = 10\\ \\text{m/s}^2$)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/T3f9rMGK/image.png",
+    "options": [
+      "$\\sqrt{\\frac{10}{3}}$ m/s",
+      "$\\sqrt{\\frac{4}{3}}$ m/s",
+      "$\\sqrt{\\frac{5}{2}}$ m/s",
+      "$\\sqrt{10}$ m/s"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1317",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two blocks A and B of mass $m$ and $2m$ are connected by a massless spring of force constant $k$. They are placed on a smooth horizontal plane. Spring is stretched by an amount $x$ and then released. The relative velocity of the blocks when the spring comes to its natural length is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/tggNM3sj/image.png",
+    "options": [
+      "$\\left(\\sqrt{\\frac{3k}{2m}}\\right)x$",
+      "$\\left(\\sqrt{\\frac{2k}{3m}}\\right)x$",
+      "$\\sqrt{\\frac{2kx}{m}}$",
+      "$\\sqrt{\\frac{3km}{2x}}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1318",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle of mass $m$ moving with a speed $v$ hits elastically another stationary particle of mass $2m$ in a smooth fixed horizontal circular tube of radius $r$. The time in which the next collision will take place is equal to:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/DwvrSrdm/image.png",
+    "options": [
+      "$\\frac{2\\pi r}{v}$",
+      "$\\frac{4\\pi r}{v}$",
+      "$\\frac{3\\pi r}{2v}$",
+      "$\\frac{\\pi r}{v}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1319",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A rope thrown over a pulley has a ladder with a man of mass $m$ on one of its ends and a counterbalancing mass $M$ on its other end. The man climbs with a velocity $v_r$ relative to ladder. Ignoring the masses of the pulley and the rope as well as the friction on the pulley, the velocity of the centre of mass of this system is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{m}{M}v_r$",
+      "$\\frac{m}{2M}v_r$",
+      "$\\frac{M}{m}v_r$",
+      "$\\frac{2M}{m}v_r$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1320",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Three identical spheres, each of mass 1 kg are placed touching each other with their centres on a straight line. Their centres are marked P, Q and R respectively. The distance of centre of mass of the system from P is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{PQ+PR+QR}{3}$",
+      "$\\frac{PQ+PR}{3}$",
+      "$\\frac{PQ+QR}{3}$",
+      "$\\frac{PR+QR}{2}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1321",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A sphere of diameter $r$ is cut from a solid sphere of radius $r$ such that the centre of mass of remaining part be at maximum distance from original centre, then this distance is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{r}{2}$",
+      "$\\frac{r}{3}$",
+      "$\\frac{r}{14}$",
+      "None of these"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1322",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ladder is leaned against a smooth wall and it is allowed to slip on a frictionless floor. Which figure represents path of its centre of mass:-",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/Hn15dXkt/image.png",
+    "options": [
+      "Figure (a)",
+      "Figure (b)",
+      "Figure (c)",
+      "Figure (d)"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1323",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass $m$ is fired from a gun of mass $M$. The recoiling gun compresses a spring of force constant $k$ by a distance $d$. Then the velocity of the bullet is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$kd\\sqrt{M/m}$",
+      "$\\frac{d}{m}\\sqrt{km}$",
+      "$\\frac{d}{m}\\sqrt{kM}$",
+      "$\\frac{kM}{m}\\sqrt{d}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1324",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two identical balls A and B are released from the positions shown in figure (A from height $4h$ on a $45^\\circ$ incline, B from height $h$ on a $60^\\circ$ incline). They collide elastically on horizontal portion MN. The ratio of heights attained by A and B after collision will be: (neglect friction)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/K8pM4dYy/image.png",
+    "options": [
+      "1 : 4",
+      "2 : 1",
+      "4 : 13",
+      "2 : 5"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1325",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two blocks of masses 2 kg and 1 kg respectively are tied to the ends of a string which passes over a light frictionless pulley. The masses are held at rest at the same horizontal level and then released. The distance traversed by centre of mass in 2 s is: ($g = 10\\ \\text{m/s}^2$)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/4dV7LyQz/image.png",
+    "options": [
+      "1.42 m",
+      "2.22 m",
+      "3.12 m",
+      "3.33 m"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1326",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "In a one dimensional collision between two identical particles A and B, B is stationary and A has momentum $P$ before impact. During impact B gives an impulse $J$ to A. Then coefficient of restitution between the two is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{2J}{P}-1$",
+      "$\\frac{2J}{P}+1$",
+      "$\\frac{J}{P}+1$",
+      "$\\frac{J}{P}-1$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1327",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle of mass $m$ moves with velocity $v_0 = 20$ m/sec towards a large wall that is moving with velocity $v = 5$ m/sec towards the particle as shown. If the particle collides with the wall elastically, the speed of the particle just after the collision is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/0jC6v44H/image.png",
+    "options": [
+      "30 m/s",
+      "20 m/s",
+      "25 m/s",
+      "22 m/s"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1328",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A small light ball falling vertically downward with constant velocity 2 m/s strikes elastically an inclined plane (inclined at $45^\\circ$) moving with velocity 2 m/s horizontally as shown in figure. The velocity of rebound of the ball with respect to ground is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/KvZkfZkj/image.png",
+    "options": [
+      "4 m/s",
+      "$2\\sqrt{5}$ m/s",
+      "$2\\sqrt{2}$ m/s",
+      "2 m/s"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1329",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two blocks of masses $m$ and $2m$ are kept on a smooth horizontal surface. They are connected by an ideal spring of force constant $k$. Initially the spring is unstretched. A constant force $F$ is applied to the heavier block in the direction shown in figure. Suppose at time $t$ displacement of smaller block is $x$, then displacement of the heavier block at this moment would be:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/sgLM37nB/image.png",
+    "options": [
+      "$\\frac{x}{2}$",
+      "$\\frac{Ft^2}{6m}+\\frac{x}{3}$",
+      "$\\frac{x}{3}$",
+      "$\\frac{Ft^2}{4m}-\\frac{x}{2}$"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1330",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A shell is fired from a cannon with velocity $V$ m/s at an angle $\\theta$ with the horizontal direction. At the highest point in its path with same speed it explodes into two pieces of equal masses. One of the pieces retraces its path to the cannon. The speed in m/sec of the other piece immediately after the explosion is",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{\\sqrt{3}}{2}V\\cos\\theta$",
+      "$3V\\cos\\theta$",
+      "$2V\\cos\\theta$",
+      "$\\frac{3}{2}V\\cos\\theta$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1331",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two masses $m_1 = 2$ kg and $m_2 = 5$ kg are moving on a frictionless surface with velocities 10 m/s and 3 m/s respectively. $m_2$ is ahead of $m_1$. An ideal spring of spring constant $k = 1120$ N/m is attached on the back side of $m_2$. The maximum compression of the spring will be:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/gjGJgD04/image.png",
+    "options": [
+      "0.51 m",
+      "0.062 m",
+      "0.25 m",
+      "0.72 m"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1332",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bomb of mass $m = 1$ kg thrown vertically upwards with a speed $u = 100$ m/s explodes into two parts after $t = 5$ s. A fragment of mass $m_1 = 400$ g moves downwards with a speed $v_1 = 25$ m/s, then speed $v_2$ and direction of another mass $m_2$ will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "40 m/s downwards",
+      "40 m/s upwards",
+      "60 m/s upwards",
+      "100 m/s upwards"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1333",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A frictionless steel ball of radius 2 cm, moving on a horizontal plane with a velocity of 5 cm/s, collides head-on with another stationary steel ball of radius 3 cm. The velocities of the two balls after collision will respectively be (in cm/s) ($e = 1$):",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "2.7, 2.3",
+      "-2.7, 2.3",
+      "2.7, -2.3",
+      "-2.7, -2.3"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1334",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A body of mass 2.0 kg makes an elastic collision with another body at rest and continues to move in the original direction but with one-fourth of its original speed $v$. What is the mass of the other body and the speed of the two-body center of mass?",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "1.0 kg and $\\frac{2}{3}v$",
+      "1.2 kg and $\\frac{5}{8}v$",
+      "1.4 kg and $\\frac{10}{17}v$",
+      "1.5 kg and $\\frac{4}{7}v$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1335",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle of mass 1 kg moving with velocity 1 m/s, collides elastically with another particle of mass $m$. In the collision particle of mass 1 kg loses $\\frac{3}{4}$ of its K.E. The value of $m$ is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/nV1MC6R8/image.png",
+    "options": [
+      "$\\frac{1}{2}$ kg",
+      "$\\frac{1}{3}$ kg",
+      "$\\frac{1}{4}$ kg",
+      "$\\frac{1}{5}$ kg"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1336",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "There are hundred identical sliders equally spaced on a frictionless track as shown in the figure. Initially all the sliders are at rest. Slider 1 is pushed with velocity $v$ towards slider 2. In a collision the sliders stick together. The final velocity of the set of hundred stuck sliders will be:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/NffFTpS5/image.png",
+    "options": [
+      "$\\frac{v}{99}$",
+      "$\\frac{v}{100}$",
+      "zero",
+      "$v$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1337",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Assertion: Inertia and moment of inertia are same quantities.\nReason: Inertia represents the capacity of a body to oppose its state of motion or rest.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Assertion and Reason are correct and Reason is the correct explanation of Assertion.",
+      "Both Assertion and Reason are correct but Reason is not the correct explanation of Assertion.",
+      "Assertion is correct but Reason is incorrect.",
+      "Assertion is incorrect but Reason is correct."
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1338",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Assertion: Moment of inertia of a particle is same, whatever be the axis of rotation.\nReason: Moment of inertia depends on mass and distance of the particle from the axis of rotation.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Assertion and Reason are correct and Reason is the correct explanation of Assertion.",
+      "Both Assertion and Reason are correct but Reason is not the correct explanation of Assertion.",
+      "Assertion is correct but Reason is incorrect.",
+      "Assertion is incorrect but Reason is correct."
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1339",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Assertion: If bodies roll down an inclined plane without slipping, then all bodies reach the bottom simultaneously is not necessary.\nReason: Acceleration of all bodies are equal and independent of the shape.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Assertion and Reason are correct and Reason is the correct explanation of Assertion.",
+      "Both Assertion and Reason are correct but Reason is not the correct explanation of Assertion.",
+      "Assertion is correct but Reason is incorrect.",
+      "Assertion is incorrect but Reason is correct."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1340",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Assertion: The work done against force of friction in the case of a disc rolling without slipping down an inclined plane is zero.\nReason: When the disc rolls without slipping, friction is required because for rolling condition velocity of point of contact is zero.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Assertion and Reason are correct and Reason is the correct explanation of Assertion.",
+      "Both Assertion and Reason are correct but Reason is not the correct explanation of Assertion.",
+      "Assertion is correct but Reason is incorrect.",
+      "Assertion is incorrect but Reason is correct."
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1341",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Assertion: The centre of mass of a body must lie on the body.\nReason: The centre of mass of a body lie at the geometric centre of body.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Assertion and Reason are correct and Reason is the correct explanation of Assertion.",
+      "Both Assertion and Reason are correct but Reason is not the correct explanation of Assertion.",
+      "Assertion is correct but Reason is incorrect.",
+      "Assertion is incorrect but Reason is correct."
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1342",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Assertion: The motion of the centre of mass describes the translational part of the motion.\nReason: Translational motion always means straight line motion.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Assertion and Reason are correct and Reason is the correct explanation of Assertion.",
+      "Both Assertion and Reason are correct but Reason is not the correct explanation of Assertion.",
+      "Assertion is correct but Reason is incorrect.",
+      "Assertion is incorrect but Reason is correct."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1343",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Assertion: For a system of particles under central force field, the total angular momentum is conserved.\nReason: The torque acting on such a system is zero.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Assertion and Reason are correct and Reason is the correct explanation of Assertion.",
+      "Both Assertion and Reason are correct but Reason is not the correct explanation of Assertion.",
+      "Assertion is correct but Reason is incorrect.",
+      "Assertion is incorrect but Reason is correct."
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1344",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Assertion: When a particle is moving in a straight line with a uniform velocity, its angular momentum is constant.\nReason: The angular momentum is zero when particle moves with a uniform velocity.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Assertion and Reason are correct and Reason is the correct explanation of Assertion.",
+      "Both Assertion and Reason are correct but Reason is not the correct explanation of Assertion.",
+      "Assertion is correct but Reason is incorrect.",
+      "Assertion is incorrect but Reason is correct."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1345",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: In an elastic collision between two bodies, the relative speed of the bodies after collision is equal to the relative speed before the collision.\nStatement-II: In an elastic collision, the linear momentum of the system is conserved.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1346",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: A point particle of mass $m$ moving with speed $v$ collides with stationary point particle of mass $M$. The maximum energy loss possible is given as $K = \\left(\\frac{1}{2}mv^2\\right)\\left(\\frac{m}{M+m}\\right)$.\nStatement-II: Maximum energy loss occurs when the particles get stuck together as a result of the collision.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1347",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: A shell at rest, explodes. The centre of mass of fragments moves along a straight path.\nStatement-II: In explosion the linear momentum of the system remains always conserved.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1348",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: The centre of mass of an electron and proton, when released moves faster towards proton.\nStatement-II: Proton is heavier than electron.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1349",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: A bomb at rest explodes into two fragments of different masses. The ratio of kinetic energies of the two fragments will be in inverse ratio of their masses.\nStatement-II: Kinetic energy of a body is inversely proportional to its momentum.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1350",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: The rate of change of total momentum of a many particle system is proportional to the sum of the internal forces of the system.\nStatement-II: Internal forces can change the kinetic energy but not the momentum of the system.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1351",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: Two identical bodies undergo an elastic collision. Speed of both balls before collision is $u$. The maximum speed of any ball after collision can be $u\\sqrt{2}$.\nStatement-II: In oblique collision component of velocity along tangent will remains unchanged.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1352",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: The centre of mass of a proton and an electron, released from their respective positions remains at rest.\nStatement-II: The centre of mass remain at rest, if no external force is applied.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1353",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: In a perfectly inelastic collision between two spheres, velocity of both spheres just after the collision are not always equal.\nStatement-II: For two spheres undergoing collision, component of velocities of both spheres along line of impact just after the collision will be equal if the collision is perfectly inelastic. The component of velocity of each sphere perpendicular to line of impact remains unchanged due to the impact.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1354",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: The centre of mass of a body may lie where there is no mass.\nStatement-II: Centre of mass of a body is a point, where the whole mass of the body is supposed to be concentrated.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1355",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: A sphere of mass $m$ moving with speed $u$ undergoes a perfectly elastic head on collision with another sphere of heavier mass $M$ at rest ($M>m$), then direction of velocity of sphere of mass $m$ is reversed due to collision [no external force acts on system of two spheres].\nStatement-II: During a collision of spheres of unequal masses, the heavier mass exerts more force on lighter mass in comparison to the force which lighter mass exerts on heavier mass.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1356",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Statement-I: Position of centre of mass is independent of the reference frame.\nStatement-II: Centre of mass is same for all bodies.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Both Statement-I and Statement-II are correct.",
+      "Both Statement-I and Statement-II are incorrect.",
+      "Statement-I is correct and Statement-II is incorrect.",
+      "Statement-I is incorrect and Statement-II is correct."
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1357",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Match Column X (Arrangement, as shown in figure) with Column Y (x-coordinate of c.m.)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/3xmswH1y/image.png",
+    "options": [
+      "A-I, B-II, C-III, D-IV",
+      "A-IV, B-III, C-II, D-I",
+      "A-II, B-III, C-IV, D-I",
+      "A-III, B-II, C-IV, D-I"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1358",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle is thrown vertically upward with a speed $u$ from the top of a tower of height $h$ from ground level. If after first impact with ground it just reaches to height $h$ from ground the coefficient of restitution for the collision is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "1",
+      "$u^2$",
+      "$\\sqrt{\\frac{2gh}{u^2+2gh}}$",
+      "$\\frac{\\sqrt{2gh}}{u}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1359",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The figure below depicts the paths of two colliding steel balls, A and B. Which of the arrows 1-4 best represents the impulse applied to ball A during the collision?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/VLqyf8DJ/image.png",
+    "options": [
+      "Arrow 1",
+      "Arrow 2",
+      "Arrow 3",
+      "Arrow 4"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1360",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 6.0 kg mass is moving to the right at 10 m/s. A 0.25 kg mass is fired towards left at the larger mass. What speed ($v$) must the smaller mass have to completely stop both masses?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/0j74yYdq/image.png",
+    "options": [
+      "4.2 m/s",
+      "15 m/s",
+      "150 m/s",
+      "240 m/s"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1361",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "In figure, determine the character of the collision. The masses of the blocks, and the velocities before and after are given (before: 4 kg block at 1.8 m/s towards right and 6 kg block at 0.2 m/s towards left; after: 4 kg block at 0.6 m/s towards left and 6 kg block at 1.4 m/s towards right). The collision is",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/Z5wMnK3m/image.png",
+    "options": [
+      "Perfectly elastic",
+      "Partially inelastic",
+      "Completely inelastic",
+      "This collision is not possible"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1362",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A small sphere of mass 1 kg is moving with a velocity $(6\\hat{i}+\\hat{j})\\ \\text{m s}^{-1}$. It hits a fixed smooth wall and rebound with velocity $(-4\\hat{i}+\\hat{j})\\ \\text{m s}^{-1}$. The coefficient of restitution between the sphere and the wall is-",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "3/2",
+      "2/3",
+      "9/16",
+      "4/9"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1363",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A semicircular portion of radius $r$ is cut from a uniform rectangular plate as shown in figure. The distance of centre of mass $C$ of remaining plate, from point $O$ is:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/hGwZ8y2c/image.png",
+    "options": [
+      "$\\frac{2r}{(3-\\pi)}$",
+      "$\\frac{3r}{2(4-\\pi)}$",
+      "$\\frac{2r}{(4+\\pi)}$",
+      "$\\frac{2r}{3(4-\\pi)}$"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1364",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "From a circular disc of radius $R$, a square is cut out with a radius as its diagonal. The center of mass of remainder part is at a distance (from the centre):-",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/RCwpfTfg/image.png",
+    "options": [
+      "$\\frac{R}{(4\\pi-2)}$",
+      "$\\frac{R}{2\\pi}$",
+      "$\\frac{R}{(\\pi-2)}$",
+      "$\\frac{R}{(2\\pi-2)}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1365",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A uniform thin rod AB of length $L$ has linear mass density $\\mu(x) = a + \\frac{bx}{L}$, where $x$ is measured from A. If the CM of the rod lies at a distance of $\\left(\\frac{7}{12}L\\right)$ from A, then $a$ and $b$ are related as:-",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$a=b$",
+      "$a=2b$",
+      "$2a=b$",
+      "$3a=2b$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1366",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Figure shows a disc of radius $R = 20$ cm with a portion of it removed symmetrically. The removed part is a disc of radius $R/2$. The removed part is now placed in contact with the larger disc as shown in figure. Disc has uniform mass distribution. With respect to origin at centre of larger disc find $x$-coordinate of centre of mass of system.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/jS3MK30n/image.png",
+    "options": [
+      "20 cm",
+      "10 cm",
+      "15 cm",
+      "5 cm"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1367",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Find the $x$ coordinate of the centre of mass of the bricks shown in figure: (Each rod has length $\\ell$)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/nr11W0Gm/image.png",
+    "options": [
+      "$\\frac{24}{25}\\ell$",
+      "$\\frac{25}{24}\\ell$",
+      "$\\frac{15}{16}\\ell$",
+      "$\\frac{16}{15}\\ell$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1368",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "$y$ coordinate of COM of given system (a half ring of mass $m$ and a half disc of mass $m$, each of radius $R$, joined as shown) will be at:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/Jz0QT3DZ/image.png",
+    "options": [
+      "$\\frac{R}{3\\pi}$",
+      "$\\frac{-R}{3\\pi}$",
+      "$\\frac{2R}{3\\pi}$",
+      "$\\frac{-2R}{3\\pi}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1369",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Mass centers of a system of three particles of masses 1, 2, 3 kg is at the point $(1\\text{ m}, 2\\text{ m}, 3\\text{ m})$ and mass center of another group of two particles of masses 2 kg and 3 kg is at point $(-1\\text{ m}, 3\\text{ m}, -2\\text{ m})$. Where a 5 kg particle should be placed, so that mass center of the system of all these six particles shifts to mass center of the first system?",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$(1\\text{ m}, -3\\text{ m}, 2\\text{ m})$",
+      "$(3\\text{ m}, 3\\text{ m}, 2\\text{ m})$",
+      "$(-1\\text{ m}, 2\\text{ m}, 3\\text{ m})$",
+      "$(3\\text{ m}, 1\\text{ m}, 8\\text{ m})$"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1370",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A uniform wire frame ABC is in the shape of an equilateral triangle in $xy$-plane with centroid at the origin. Then:",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/nV1YpSqv/image.png",
+    "options": [
+      "If AB is removed, the centre of mass of the remaining figure is in fourth quadrant.",
+      "If BC is removed, the centre of mass of the remaining figure is on the positive Y-axis.",
+      "If AC is removed, the centre of mass of the remaining figure is in third quadrant.",
+      "All of above"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1371",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two equal rods joined at one end are kept on a smooth surface as shown and released. Trajectory of centre of mass of both rods is -",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/1tQwZDtG/image.png",
+    "options": [
+      "parabola",
+      "straight vertical line",
+      "straight inclined line",
+      "straight horizontal line"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1372",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The centre of mass of a non uniform rod of length $L$ whose mass per unit length varies as $\\rho = \\frac{kx^2}{L}$ (where $k$ is a constant and $x$ is the distance measured from one end) is at the following distance from the same end.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{3L}{4}$",
+      "$\\frac{L}{4}$",
+      "$\\frac{2L}{3}$",
+      "$\\frac{L}{3}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1373",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A thick uniform wire is bent into the shape of the letter 'U' as shown. Which point indicates the location of the center of mass of this wire? $A$ is the midpoint of the line joining mid points of two parallel sides of 'U' shaped wire.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/k4s63ZzL/image.png",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1374",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "In the given figure four rods AB, BC, CD and DA have mass $m$, $2m$, $3m$ and $4m$ respectively. In which of the regions (numbered 1, 2, 3, 4) the centre of mass of system lies?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/FznY1S9M/image.png",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1375",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Figure shows two cylindrical rods whose center of mass is marked as A and B. Line AB divides the region in two parts one containing point O (region 1) and other containing point O' (region 2). Choose the correct option regarding the center of mass of the combined system?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/PqkPLTjT/image.png",
+    "options": [
+      "The center of mass of the system lies in region 1",
+      "The center of mass of the system lies in region 2",
+      "The center of mass of the system lies on line AB",
+      "The center of mass of the system may lie in region 1 or region 2 depending on the mass of the rods"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1376",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two 20 g worms climb over a 10 cm high, very thin wall. One worm is thin and 20 cm long the other is fat and only 10 cm long. What is the ratio of the potential energy (w.r.t. the base of wall) of the thin worm as compared to that of the fat worm when each is half way over the top of the wall as shown?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/JnpndXHd/image.png",
+    "options": [
+      "1 : 1",
+      "2 : 1",
+      "2 : 3",
+      "1 : 2"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1377",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A cubical block of ice of mass $m$ and edge $L$ is placed in a large tray of mass $M$. If the ice melts, how far does the centre of mass of the system 'ice plus tray' come down?",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{mL}{2(m+M)}$",
+      "$\\frac{2mL}{m+M}$",
+      "$\\frac{mL}{2m+M}$",
+      "$\\frac{mL}{m+2M}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1378",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The reduced mass of two particles having masses $m$ and $2m$ is:-",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$2m$",
+      "$3m$",
+      "$\\frac{2m}{3}$",
+      "$\\frac{m}{2}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1379",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Shown in the figure is a system of three particles having masses $m_1 = 1$ kg, $m_2 = 2$ kg and $m_3 = 4$ kg connected by two springs. At an instant, accelerations of these particles are $1\\ \\text{m/s}^2$, $2\\ \\text{m/s}^2$ (both rightward) and $0.5\\ \\text{m/s}^2$ (leftward) respectively as shown. The external force at this instant acting on the system is",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/05HjYpsW/image.png",
+    "options": [
+      "1 N rightward",
+      "3 N leftward",
+      "3 N rightward",
+      "Zero"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1380",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A system of particles consists of several particles. Total mass of all the particles is 10 kg. To apply Newton's laws of motion in centroidal frame to one of the particles of mass 2 kg, you have to assume a pseudo force of $(4\\hat{i}-2\\hat{j})$ N acting on it. What is the net external force acting on the whole system?",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$(10\\hat{i}-20\\hat{j})$ N",
+      "$(-10\\hat{i}+20\\hat{j})$ N",
+      "$(20\\hat{i}-10\\hat{j})$ N",
+      "$(-20\\hat{i}+10\\hat{j})$ N"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1381",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A body of mass $4m$ at rest explodes into three fragments. Two of the fragments, each of mass $m$ move with speed $v$ in mutually perpendicular directions.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "Total kinetic energy released in the process is $mv^2$",
+      "Total kinetic energy released in the process is $3mv^2/2$",
+      "Velocity of third fragment is $\\sqrt{2}v$",
+      "Velocity of third fragment is $2v$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1382",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A cannon shell moving along a straight line bursts into two parts. One part moves with momentum 20 N-s making an angle $30^\\circ$ with original line of motion. The minimum momentum other part of shell can have is.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "0 N-s",
+      "5 N-s",
+      "10 N-s",
+      "Depends on mass of individual particles."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1383",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle of mass $4m$ which is at rest explodes into masses $m$, $m$ and $2m$, two of the fragments of masses $m$ and $2m$ are found to move with equal speed $v$ each in opposite directions. The total mechanical energy released in the process of explosion is",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$mv^2$",
+      "$2mv^2$",
+      "$\\frac{1}{2}mv^2$",
+      "$4mv^2$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1384",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A shell in free space initially at rest explodes into two pieces, A and B, which then move in opposite directions. Piece A has less mass than piece B. Ignore all external forces. Identify correct statement?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/htVGR675/image.png",
+    "options": [
+      "Both have the same momentum after the explosion.",
+      "Piece B has greater magnitude of momentum after the explosion.",
+      "Piece A has greater kinetic energy after the explosion.",
+      "Both have the same kinetic energy after the explosion."
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1385",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 50 kg boy runs at a speed of 10 m/s and jumps onto a cart as shown in the figure. The cart is initially at rest. If the speed of the cart with the boy on it is 2.50 m/s, what is the mass of the cart? (Assuming friction is absent between cart and ground)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/KzpG5ydM/image.png",
+    "options": [
+      "150 kg",
+      "210 kg",
+      "175 kg",
+      "260 kg"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1386",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball is thrown with a velocity of 6 m/s vertically from a height $H = 3.2$ m above a horizontal floor. If it rebounds back to same height then coefficient of restitution $e$ is [$g = 10\\ \\text{m/s}^2$]",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "0.5",
+      "0.6",
+      "0.7",
+      "0.8"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1387",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle strikes a smooth horizontal surface at an angle of $45^\\circ$ with a velocity of 100 m/s and rebounds. If the coefficient of restitution between the floor and the particle is 0.57 then the angle which the velocity of the particle after it rebounds will make with the floor is",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$30^\\circ$",
+      "$45^\\circ$",
+      "$60^\\circ$",
+      "$90^\\circ$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1388",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two balls of equal mass have a head-on collision with speed 6 m/s each. If the coefficient of restitution is $\\frac{1}{3}$, find the speed of each ball after impact in m/s.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1389",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "There are 10 small identical elastic balls placed at rest on a smooth horizontal surface as shown in figure. Find the least velocity which should be provided to the first ball such that 10th ball completes the circle (circle of radius $R = 1$ m). [$g = 9.8\\ \\text{m/s}^2$]",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/GhyLvVKW/image.png",
+    "options": [
+      "70 m/s",
+      "7 m/s",
+      "35 m/s",
+      "14 m/s"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1390",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Starting from rest on her swing at initial height $h_0$ above the ground, Saina swings forward. At the lowest point of her motion, she grabs her bag that lies on the ground. Saina continues swinging forward to reach maximum height $h_1$. She then swings backward and when reaching the lowest point of motion again, she simply lets go off the bag, which falls freely. Saina's backward swing then reaches maximum height $h_2$. Neglecting air resistance, how are the three heights related?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/Qdgjy7RP/image.png",
+    "options": [
+      "$h_0 > h_1 > h_2$",
+      "$h_0 = h_1 = h_2$",
+      "$h_0 > h_1 = h_2$",
+      "$h_0 = h_2 > h_1$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1391",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The linear density of a non-uniform rod of length 2 m is given by $\\lambda(x) = a(1+bx^2)$ where $a$ and $b$ are constants and $0 \\le x \\le 2$. The centre of mass of the rod will be at, $X =$",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{3+6b}{6+8b}$",
+      "$\\frac{6+2b}{3+4b}$",
+      "$\\frac{3+6b}{3+4b}$",
+      "$\\frac{1+2b}{3+4b}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1392",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass $m$ moving with velocity $v$ strikes a block of mass $M$ at rest and gets embedded into it. The kinetic energy of the composite block will be:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{1}{2}mv^2\\times\\frac{m}{(m+M)}$",
+      "$\\frac{1}{2}mv^2\\times\\frac{M}{(m+M)}$",
+      "$\\frac{1}{2}mv^2\\times\\frac{(M+m)}{M}$",
+      "$\\frac{1}{2}Mv^2\\times\\frac{m}{(M+m)}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1393",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "One projectile moving with velocity $v$ in space, gets burst into 2 parts of masses in the ratio $1:3$. The smaller part becomes stationary. What is the velocity of the other part?",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$4v$",
+      "$v$",
+      "$\\frac{4v}{3}$",
+      "$\\frac{3v}{4}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1394",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Ball A of mass 1 kg moving right with speed 2 m/s bounces off ball B of mass 1.5 kg, and then moves left with speed 4 m/s. Calculate magnitude of impulse (SI Units) received by ball B.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/XXS02Nx4/image.png",
+    "options": [
+      "2",
+      "3",
+      "6",
+      "4"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1395",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A mass $m_1$ moves with a large velocity, strikes another mass $m_2$ at rest in a head on elastic collision. It comes back along its path with lesser speed after collision. Then:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$m_1 > m_2$",
+      "$m_1 < m_2$",
+      "$m_1 = m_2$",
+      "There is no relation between $m_1$ and $m_2$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1396",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two bodies, A and B, collide as shown in Figures (a) and (b) below. Which statement is true?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/T2ZL8r4G/image.png",
+    "options": [
+      "They exert equal and opposite forces on each other in (a) but not in (b).",
+      "They exert equal and opposite force on each other in both (a) and (b).",
+      "The forces are equal and opposite to each other in (a), but only the components of the forces parallel to the velocities are equal in (b).",
+      "The forces are equal and opposite in (a), but only the components of the forces perpendicular to the velocities are equal in (b)"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1397",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass 50 g is fired from below into the bob of mass 450 g of a long simple pendulum as shown in Figure. The bullet stays inside the bob and the bob rises through a vertical height 1.8 m. What was the speed of bullet when it struck the bob?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/NfmyQ53N/image.png",
+    "options": [
+      "40 m/sec",
+      "50 m/sec",
+      "60 m/sec",
+      "35 m/sec"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1398",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A trolley filled with sand moves on a smooth horizontal surface with a velocity $v_0$. A small hole is made at the base of it from which sand is leaking out at constant rate. As the sand leaks out then which of the following is incorrect?",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/FHvYzhmR/image.png",
+    "options": [
+      "The velocity of the trolley increases",
+      "The velocity of the trolley remains constant",
+      "The momentum of the trolley decreases",
+      "The momentum of the total system (trolley with sand + leaked out sand) is conserved in horizontal direction"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1399",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass 1 kg strikes a heavy platform, elastically, moving upwards with a velocity of 5 m/s. The speed of the ball just before the collision is 10 m/s downwards. Then the impulse imparted by the platform on the ball is",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/SKNjLVJd/image.png",
+    "options": [
+      "15 N-s",
+      "10 N-s",
+      "20 N-s",
+      "30 N-s"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PHY_1400",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A steel ball strikes a fixed smooth steel plate placed on a horizontal surface at an angle $\\theta$ with the vertical. If the coefficient of restitution is $e$, the angle at which the rebound will take place is:",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\theta$",
+      "$\\tan^{-1}\\left[\\frac{\\tan\\theta}{e}\\right]$",
+      "$e\\tan\\theta$",
+      "$\\tan^{-1}\\left[\\frac{e}{\\tan\\theta}\\right]$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1401",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass $m$ moving with speed $u$ undergoes a head on elastic collision with a ball of mass $nm$ initially at rest. The fraction of the initial energy transferred to the second ball is:-",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{n}{1+n}$",
+      "$\\frac{n}{(1+n)^2}$",
+      "$\\frac{2n}{(1+n)^2}$",
+      "$\\frac{4n}{(1+n)^2}$"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1402",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two billiard balls P and Q, each of mass 20 g and moving in opposite directions with speed of 5 m/s each, collide and rebound with the same speed. If the collision lasts for $10^{-3}$ sec, which of the following statements are true?\n(A) The impulse imparted to each ball is 0.2 N-s\n(B) The impulse imparted to each ball is 0.4 N-s and the force exerted on each ball is 400 N\n(C) The impulse imparted to each ball is 0.4 kg m/s and the force exerted on each ball is $4\\times10^{-5}$ N\n(D) The impulse and the force on each ball are equal in magnitude and opposite in direction",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "A & D",
+      "B & D",
+      "C & D",
+      "B only"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1403",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A thin rod of length 6 m is lying along the $x$ axis with its ends at $x = 0$ and $x = 6$ m. Its linear density (mass/length) varies with $x$ as $kx^4$. Find the position of centre of mass of rod in meters.",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "5 m",
+      "3 m",
+      "2 m",
+      "4 m"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1404",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A man of mass $M$ stands at one end of a plank of length $L$ which lies at rest on a frictionless surface. The man walks to the other end of the plank. If mass of the plank is $3M$, the distance that man moves relative to the ground is:-",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{L}{4}$",
+      "$\\frac{3L}{4}$",
+      "$\\frac{2L}{3}$",
+      "$\\frac{L}{3}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PHY_1405",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "There are three small particles A, B and C where A & B have mass $5m$ & $m$ respectively but C is very light and all three particles are moving under their mutual interaction. At $t=0$, C is at $(2,3,5)$ and at $t=2$ sec, C is at $(5,-1,5)$. If centre of mass of system always lies on C and at $t=2$ sec velocity of A is $2\\hat{i}$ then velocity of B at this instant. (Assume all units in SI)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$(\\hat{i}+\\hat{j})$",
+      "Zero",
+      "$(-\\hat{i}-12\\hat{j})$",
+      "Can not find because velocity of centre of mass is not constant"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1406",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "In the figure shown, the small prism of mass $M$ slides down on the bigger prism of mass $5M$ from top of the bigger prism to the bottom of the bigger prism. By what distance does the combination move to the left if the bigger prism initially rests on a frictionless floor.",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/CKP5cD8g/image.png",
+    "options": [
+      "$\\frac{L}{5}$",
+      "$\\frac{4L}{5}$",
+      "$\\frac{2L}{3}$",
+      "$\\frac{L}{6}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PHY_1407",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A non-zero external force acts on a system of particles. The velocity and acceleration of the centre of mass are found to be $v_0$ and $a_C$ respectively at any instant $t$. It is possible that<br>(i) $v_0 = 0$, $a_C = 0$<br>(ii) $v_0 \\ne 0$, $a_C = 0$<br>(iii) $v_0 = 0$, $a_C \\ne 0$<br>(iv) $v_0 \\ne 0$, $a_C \\ne 0$<br>Then",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "(iii) and (iv) are true.",
+      "(i) and (ii) are true.",
+      "(i) and (iii) are true.",
+      "(ii), (iii) and (iv) are true."
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
   },
   {
     "id": "BIO_0001",
@@ -84926,6 +88010,518 @@ function startTestUI() {
       "$(2t^3+3t^5)$ W"
     ],
     "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0175",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass 0.5 kg is dropped from a height of 40 m. The ball hits the ground and rises to a height of 10 m. The impulse imparted to the ball during its collision with the ground is (Take $g = 9.8\\ \\text{m/s}^2$) (NEET 2025)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "0",
+      "84 Ns",
+      "21 Ns",
+      "7 Ns"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0176",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two bodies A and B of same mass undergo completely inelastic one dimensional collision. The body A moves with velocity $v_1$ while body B is at rest before collision. The velocity of the system after collision is $v_2$. The ratio $v_1 : v_2$ is (NEET 2024)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "1 : 2",
+      "2 : 1",
+      "4 : 1",
+      "1 : 4"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0177",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass $m$ hits a block of mass $M$ elastically. The transfer of energy is the maximum, when : (NEET 2023)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$M = m$",
+      "$M = 2m$",
+      "$M \\ll m$",
+      "$M \\gg m$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0178",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two particles A and B initially at rest, move towards each other under mutual force of attraction. At an instance when the speed of A is $v$ and speed of B is $3v$, the speed of centre of mass is : (NEET 2023)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$2v$",
+      "zero",
+      "$v$",
+      "$4v$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0179",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 1 kg object strikes a wall with velocity $1\\ \\text{m s}^{-1}$ at an angle of $60^\\circ$ with the wall and reflects at the same angle. If it remains in contact with wall for 0.1 s, then the force exerted on the wall is : (NEET 2023)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$30\\sqrt{3}$ N",
+      "Zero",
+      "$10\\sqrt{3}$ N",
+      "$20\\sqrt{3}$ N"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0180",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The distance covered by a body of mass 5 g having linear momentum $0.3\\ \\text{kg m/s}$ in 5 s is : (NEET 2022)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "0.3 m",
+      "300 m",
+      "30 m",
+      "3 m"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0181",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Given below are two statements: One is labelled as Assertion (A) and the other is labelled as Reason (R).\nAssertion (A): When a fire cracker (rocket) explodes in mid air, its fragments fly in such a way that they continue moving in the same path, which the fire cracker would have followed, had it not exploded.\nReason (R): Explosion of cracker (rocket) occurs due to internal force only and no external force acts for this explosion.\nIn the light of the above statements, choose the most appropriate answer from the option given below (NEET 2023)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "(A) is not correct but (R) is correct",
+      "Both (A) and (R) are correct and (R) is the correct explanation of (A)",
+      "Both (A) and (R) are correct but (R) is not the correct explanation of (A)",
+      "(A) is correct but (R) is not correct"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0182",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A shell of mass $m$ is at rest initially. It explodes into three fragments having mass in the ratio $2 : 2 : 1$. If the fragments having equal mass fly off along mutually perpendicular directions with speed $v$, the speed of the third (lighter) fragment is : (NEET 2022)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$v$",
+      "$\\sqrt{2}v$",
+      "$2\\sqrt{2}v$",
+      "$3\\sqrt{2}v$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0183",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two objects of mass 10 kg and 20 kg respectively are connected to the two ends of a rigid rod of length 10 m with negligible mass. The distance of the center of mass of the system from the 10 kg mass is : (NEET 2022)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{10}{3}$ m",
+      "$\\frac{20}{3}$ m",
+      "10 m",
+      "5 m"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0184",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A ball of mass 0.15 kg is dropped from a height 10 m, strikes the ground and rebounds to the same height. The magnitude of impulse imparted to the ball is ($g = 10\\ \\text{m/s}^2$) nearly : (NEET 2021)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "1.4 kg m/s",
+      "0 kg m/s",
+      "4.2 kg m/s",
+      "2.1 kg m/s"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0185",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two particles of mass 5 kg and 10 kg respectively are attached to the two ends of a rigid rod of length 1 m with negligible mass. The centre of mass of the system from the 5 kg particle is nearly at a distance of : (NEET 2020)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "50 cm",
+      "67 cm",
+      "80 cm",
+      "33 cm"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0186",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Body A of mass $4m$ moving with speed $u$ collides with another body B of mass $2m$, at rest. The collision is head on and elastic in nature. After the collision the fraction of energy lost by the colliding body A is : (NEET 2019)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{5}{9}$",
+      "$\\frac{4}{9}$",
+      "$\\frac{8}{9}$",
+      "$\\frac{1}{9}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0187",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A moving block having mass $m$, collides with another stationary block having mass $4m$. The lighter block comes to rest after collision. When the initial velocity of the lighter block is $v$, then the value of coefficient of restitution ($e$) will be (NEET 2019)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "0.5",
+      "0.25",
+      "0.8",
+      "0.4"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0188",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Which of the following statements are correct?\n(a) Centre of mass of a body always coincides with the centre of gravity of the body.\n(b) Centre of mass of a body is the point at which the total gravitational torque on the body is zero.\n(c) A couple on a body produces both translational and rotational motion in a body\n(d) Mechanical advantage greater than one means that small effort can be used to lift a large load. (NEET 2017)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "(a) and (b)",
+      "(b) and (c)",
+      "(c) and (d)",
+      "(d)"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0189",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two identical balls A and B having velocities of $0.5\\ \\text{m s}^{-1}$ and $-0.3\\ \\text{m s}^{-1}$ respectively collide elastically in one dimension. The velocities of B and A after the collision respectively will be : (NEET 2016)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$-0.5\\ \\text{m s}^{-1}$ and $0.3\\ \\text{m s}^{-1}$",
+      "$0.5\\ \\text{m s}^{-1}$ and $-0.3\\ \\text{m s}^{-1}$",
+      "$-0.3\\ \\text{m s}^{-1}$ and $0.5\\ \\text{m s}^{-1}$",
+      "$0.3\\ \\text{m s}^{-1}$ and $0.5\\ \\text{m s}^{-1}$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0190",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A bullet of mass 10 g moving horizontally with a velocity of $400\\ \\text{m s}^{-1}$ strikes a wood block of mass 2 kg which is suspended by light inextensible string of length 5 m. As a result, the centre of gravity of the block found to rise a vertical distance of 10 cm. The speed of the bullet after it emerges out horizontally from the block will be (NEET 2016)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$100\\ \\text{m s}^{-1}$",
+      "$80\\ \\text{m s}^{-1}$",
+      "$120\\ \\text{m s}^{-1}$",
+      "$160\\ \\text{m s}^{-1}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PYQ_PHY_0191",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A rigid ball of mass $m$ strikes a rigid wall at $60^\\circ$ and gets reflected without loss of speed as shown in the figure. The value of impulse imparted by the wall on the ball will be : (NEET 2016)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/BnJvsN5r/image.png",
+    "options": [
+      "$mV$",
+      "$2mV$",
+      "$\\frac{mV}{2}$",
+      "$\\frac{mV}{3}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0192",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two particles of masses $m_1$, $m_2$ move with initial velocities $u_1$ and $u_2$. On collision, one of the particles get excited to higher level, after absorbing energy $\\varepsilon$. If final velocities of particles be $v_1$ and $v_2$ then we must have : (NEET 2015)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$\\frac{1}{2}m_1u_1^2+\\frac{1}{2}m_2u_2^2-\\varepsilon=\\frac{1}{2}m_1v_1^2+\\frac{1}{2}m_2v_2^2$",
+      "$\\frac{1}{2}m_1^2u_1^2+\\frac{1}{2}m_2^2u_2^2+\\varepsilon=\\frac{1}{2}m_1^2v_1^2+\\frac{1}{2}m_2^2v_2^2$",
+      "$m_1^2u_1+m_2^2u_2-\\varepsilon=m_1^2v_1+m_2^2v_2$",
+      "$\\frac{1}{2}m_1u_1^2+\\frac{1}{2}m_2u_2^2=\\frac{1}{2}m_1v_1^2+\\frac{1}{2}m_2v_2^2-\\varepsilon$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0193",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two spherical bodies of mass $M$ and $5M$ and radii $R$ and $2R$ are released in free space with initial separation between their centres equal to $12R$. If they attract each other due to gravitational force only, then the distance covered by the smaller body before collision is : (NEET 2015)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "7.5R",
+      "1.5R",
+      "2.5R",
+      "4.5R"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PYQ_PHY_0194",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A body of mass $(4m)$ is lying in $x$-$y$ plane at rest. It suddenly explodes into three pieces. Two pieces, each of mass $(m)$ move perpendicular to each other with equal speeds $(v)$. The total kinetic energy generated due to explosion is : (NEET 2014)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$mv^2$",
+      "$\\frac{3}{2}mv^2$",
+      "$2mv^2$",
+      "$4mv^2$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0195",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "The force $F$ acting on a particle of mass $m$ is indicated by the force-time graph shown below. The change in momentum of the particle over the time interval from zero to 8 s is : (NEET 2014)",
+    "hasDiagram": "true",
+    "imageUrl": "https://i.postimg.cc/jj5dn5Fp/image.png",
+    "options": [
+      "24 N s",
+      "20 N s",
+      "12 N s",
+      "6 Ns"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0196",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A person holding a rifle (mass of person and rifle together is 100 kg) stands on a smooth surface and fires 10 shots horizontally, in 5 s. Each bullet has a mass of 10 g with a muzzle velocity of $800\\ \\text{m s}^{-1}$. The final velocity acquired by the person and the average force exerted on the person are : (NEET 2013)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$-0.08\\ \\text{m s}^{-1}$, 16 N",
+      "$-0.8\\ \\text{m s}^{-1}$, 16 N",
+      "$-1.6\\ \\text{m s}^{-1}$, 16 N",
+      "$-1.6\\ \\text{m s}^{-1}$, 8 N"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PYQ_PHY_0197",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "An explosion breaks a rock into three parts in a horizontal plane. Two of them go off at right angles to each other. The first part of mass 1 kg moves with a speed of $12\\ \\text{m s}^{-1}$ and the second part of mass 2 kg moves with $8\\ \\text{m s}^{-1}$ speed. If the third part flies off with $4\\ \\text{m s}^{-1}$ speed, then its mass is : (NEET 2013)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "7 kg",
+      "17 kg",
+      "3 kg",
+      "5 kg"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0198",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Three masses are placed on the x-axis: 300 g at origin, 500 g at x = 40 cm and 400 g at x = 70 cm. The distance of the centre of mass from the origin is : (NEET 2012)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "40 cm",
+      "45 cm",
+      "50 cm",
+      "30 cm"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0199",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two persons of masses 55 kg and 65 kg respectively, are at the opposite ends of a boat. The length of the boat is 3.0 m and weighs 100 kg. The 55 kg man walks up to the 65 kg man and sits with him. If the boat is in still water the centre of mass of the system shifts by : (NEET 2012)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "3.0 m",
+      "2.3 m",
+      "zero",
+      "0.75 m"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0200",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two spheres A and B of masses $m_1$ and $m_2$ respectively collide. A is at rest initially and B is moving with velocity $v$ along $x$-axis. After collision B has a velocity $v/2$ in a direction perpendicular to the original direction. The mass A moves after collision in the direction : (NEET 2012)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "same as that of B",
+      "opposite to that of B",
+      "$\\theta = \\tan^{-1}\\left(\\frac{1}{2}\\right)$ to the x-axis",
+      "$\\theta = \\tan^{-1}\\left(-\\frac{1}{2}\\right)$ to the x-axis"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Hard"
+  },
+  {
+    "id": "PYQ_PHY_0201",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two particles which are initially at rest, move towards each other under the action of their internal attraction. If their speeds are $v$ and $2v$ at any instant, then the speed of centre of mass of the system will be : (NEET 2010)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$2v$",
+      "zero",
+      "$1.5v$",
+      "$v$"
+    ],
+    "correctIndex": 1,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0202",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "Two bodies of mass 1 kg and 3 kg have position vectors $\\hat{i}+2\\hat{j}+\\hat{k}$ and $-3\\hat{i}-2\\hat{j}+\\hat{k}$, respectively. The center of mass of this system has a position vector : (NEET 2009)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$-2\\hat{i}-\\hat{j}+\\hat{k}$",
+      "$2\\hat{i}-\\hat{j}-2\\hat{k}$",
+      "$-\\hat{i}+\\hat{j}+\\hat{k}$",
+      "$-2\\hat{i}+2\\hat{k}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Easy"
+  },
+  {
+    "id": "PYQ_PHY_0203",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "An explosion blows a rock into three parts. Two parts go off at right angles to each other. These two are, 1 kg first part moving with a velocity of $12\\ \\text{m s}^{-1}$ and 2 kg second part moving with a velocity $8\\ \\text{m s}^{-1}$. If the third part flies off with a velocity of $4\\ \\text{m s}^{-1}$, its mass would be : (NEET 2009)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "7 kg",
+      "17 kg",
+      "3 kg",
+      "5 kg"
+    ],
+    "correctIndex": 3,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0204",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A particle of mass $m$ is projected with velocity $v$ making an angle of $45^\\circ$ with the horizontal. When the particle lands on the level ground the magnitude of the change in its momentum will be : (NEET 2008)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$mv\\sqrt{2}$",
+      "zero",
+      "$2mv$",
+      "$mv/\\sqrt{2}$"
+    ],
+    "correctIndex": 0,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0205",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A shell of mass 200 gm is ejected from a gun of mass 4 kg by an explosion that generates 1.05 kJ of energy. The initial velocity of the shell is : (NEET 2009)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "$40\\ \\text{m s}^{-1}$",
+      "$120\\ \\text{m s}^{-1}$",
+      "$100\\ \\text{m s}^{-1}$",
+      "$80\\ \\text{m s}^{-1}$"
+    ],
+    "correctIndex": 2,
+    "difficulty": "Medium"
+  },
+  {
+    "id": "PYQ_PHY_0206",
+    "subject": "Physics",
+    "chapter": "Collisions and Centre of Mass",
+    "question": "A 0.5 kg ball moving with a speed of 12 m/s strikes a hard wall at an angle of $30^\\circ$ with the wall. It is reflected with the same speed at the same angle. If the ball is in contact with the wall for 0.25 seconds, the average force acting on the wall is : (NEET 2006)",
+    "hasDiagram": "false",
+    "imageUrl": null,
+    "options": [
+      "96 N",
+      "48 N",
+      "24 N",
+      "12 N"
+    ],
+    "correctIndex": 2,
     "difficulty": "Medium"
   },
   {
@@ -230043,5 +233639,253 @@ html[data-theme="light"] #nw-tg .tg-ic{background:linear-gradient(135deg,#2563eb
   };
 })();
 </script>
+
+<!-- ========== NW-FX: light effects layer (home / non-test windows only, Balanced mode fixed) ========== -->
+<style id="nw-fx-style">
+  /* Never selects #test-view or anything inside it. Compositor-only (transform/opacity), one-shot. */
+  @keyframes fxRise { from { opacity: 0; transform: translate3d(0, 14px, 0) scale(.985); } to { opacity: 1; transform: none; } }
+  @keyframes fxSlideIn { from { opacity: 0; transform: translate3d(-12px, 0, 0); } to { opacity: 1; transform: none; } }
+  @keyframes fxPop { from { opacity: 0; transform: translate3d(0, 10px, 0) scale(.94); } to { opacity: 1; transform: none; } }
+
+  .fx-enter > * { animation: fxRise .5s cubic-bezier(.2,.8,.2,1) backwards; }
+  .fx-enter > *:nth-child(2) { animation-delay: .05s; }
+  .fx-enter > *:nth-child(3) { animation-delay: .10s; }
+  .fx-enter > *:nth-child(4) { animation-delay: .15s; }
+  .fx-enter > *:nth-child(5) { animation-delay: .20s; }
+  .fx-enter > *:nth-child(6) { animation-delay: .25s; }
+  .fx-enter > *:nth-child(n+7) { animation-delay: .30s; }
+
+  body.fx-boot #main-left-drawer > * { animation: fxSlideIn .45s cubic-bezier(.2,.8,.2,1) backwards; }
+  body.fx-boot #main-left-drawer > *:nth-child(2) { animation-delay: .04s; }
+  body.fx-boot #main-left-drawer > *:nth-child(3) { animation-delay: .08s; }
+  body.fx-boot #main-left-drawer > *:nth-child(4) { animation-delay: .12s; }
+  body.fx-boot #main-left-drawer > *:nth-child(n+5) { animation-delay: .16s; }
+
+  #onboarding-modal-overlay[style*="flex"] > *,
+  #motivation-modal-overlay[style*="flex"] > *,
+  #nw-pretest-modal-overlay[style*="flex"] > *,
+  #nw-report-modal-overlay[style*="flex"] > * { animation: fxPop .32s cubic-bezier(.2,.8,.2,1) backwards; }
+
+  @media (hover: none) {
+    #main-shell button:active, #main-shell .subject-card:active, #main-shell .dash-card:active { transform: scale(.97); }
+  }
+
+  /* Long lists: skip layout/paint of off-screen cards */
+  #history-view .history-item, #achievements-view .ach-card, #community-view .social-card, #bookmarks-view .bm-subject-block {
+    content-visibility: auto; contain-intrinsic-size: auto 150px;
+  }
+
+  /* Sticky header blur is re-computed on every scroll frame: drop it outside the test window */
+  body:not([data-fx-view="test"]) header { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+
+</style>
+<script id="nw-fx-script">
+(function () {
+  "use strict";
+  var b = document.body;
+  b.setAttribute('data-fx', 'balanced');
+  b.setAttribute('data-fx-view', 'hero');
+  b.classList.add('fx-boot');
+  setTimeout(function () { b.classList.remove('fx-boot'); }, 900);
+  try { localStorage.removeItem('nw-fx'); } catch (e) {}
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var lastEl = null, lastT = 0;
+  function animateActiveView() {
+    if (reduce) return;
+    var shell = document.getElementById('main-shell');
+    if (!shell || shell.style.display === 'none') return;
+    var vs = shell.querySelectorAll('[id$="-view"]'), v = null;
+    for (var i = 0; i < vs.length; i++) { if (vs[i].style.display && vs[i].style.display !== 'none') { v = vs[i]; break; } }
+    if (!v) return;
+    var now = Date.now();
+    if (v === lastEl && now - lastT < 400) return;
+    lastEl = v; lastT = now;
+    v.classList.remove('fx-enter'); void v.offsetWidth; v.classList.add('fx-enter');
+    setTimeout(function () { v.classList.remove('fx-enter'); }, 900);
+  }
+  function wrap(name, after) {
+    var orig = window[name];
+    if (typeof orig !== 'function') return;
+    window[name] = function () {
+      var r = orig.apply(this, arguments);
+      try { after.apply(null, arguments); } catch (e) {}
+      return r;
+    };
+  }
+  wrap('switchView', function (v) {
+    b.setAttribute('data-fx-view', v || 'hero');
+    if (v !== 'test' && v !== 'dashboard') requestAnimationFrame(animateActiveView);
+  });
+  wrap('switchDrawerTab', function () {
+    if (b.getAttribute('data-fx-view') !== 'test') requestAnimationFrame(animateActiveView);
+  });
+})();
+</script>
+<style id="nw-ui2-style">
+/* ================= SIDEBAR: grouped glass cards ================= */
+@media (min-width: 901px) {
+  #main-left-drawer.left-drawer { background: transparent !important; border-right: 0 !important; box-shadow: none !important;
+    backdrop-filter: none !important; -webkit-backdrop-filter: none !important; padding: 16px 14px 24px 16px !important; gap: 14px !important; }
+}
+#main-left-drawer .nwsb-group { display: flex; flex-direction: column; gap: 3px; padding: 8px; border-radius: 20px;
+  background: rgba(var(--glass-rgb), .035); border: 1px solid rgba(var(--glass-rgb), .10); box-shadow: inset 0 1px 0 rgba(var(--glass-rgb), .05); flex: none; }
+#main-left-drawer .drawer-section-title { display: flex; align-items: center; gap: 8px; margin: 2px 0 4px !important; padding: 6px 10px 2px !important;
+  font-size: .64rem; letter-spacing: .16em; opacity: .8; }
+#main-left-drawer .drawer-section-title::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, rgba(var(--glass-rgb), .18), transparent); }
+#main-left-drawer .drawer-btn { position: relative; gap: 11px; min-height: 44px; padding: 6px 10px !important; border-radius: 13px;
+  border: 1px solid transparent !important; background: transparent !important; box-shadow: none !important;
+  font-size: .86rem; font-weight: 650; color: var(--text-muted); line-height: 1.25; }
+#main-left-drawer .drawer-btn > span { flex: none; display: grid !important; place-items: center; width: 32px; height: 32px; border-radius: 10px;
+  font-size: 1rem; background: rgba(var(--glass-rgb), .07); transform: none !important; transition: background .2s ease; }
+#main-left-drawer .drawer-btn:hover { background: rgba(var(--glass-rgb), .07) !important; color: var(--text-strong); transform: translateX(2px); }
+#main-left-drawer .drawer-btn.active { color: var(--text-strong);
+  background: linear-gradient(100deg, color-mix(in srgb, var(--accent-cyan-text) 20%, transparent), rgba(139,92,246,.14)) !important;
+  border-color: color-mix(in srgb, var(--accent-cyan-text) 55%, transparent) !important;
+  box-shadow: 0 8px 20px -12px var(--accent-cyan-text) !important; }
+#main-left-drawer .drawer-btn.active > span { background: color-mix(in srgb, var(--accent-cyan-text) 26%, transparent); }
+#main-left-drawer .drawer-btn.active::before { left: 0; top: 24%; height: 52%; width: 3px; }
+
+html[data-theme="light"] #main-left-drawer .nwsb-group {
+  background: linear-gradient(160deg, rgba(255,255,255,.74), rgba(255,255,255,.42)); border: 1px solid rgba(30,41,90,.16);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 10px 26px -18px rgba(79,70,229,.45); }
+html[data-theme="light"] #main-left-drawer .drawer-section-title::after { background: linear-gradient(90deg, rgba(30,41,90,.2), transparent); }
+html[data-theme="light"] #main-left-drawer .drawer-btn > span { background: rgba(30,41,90,.07); }
+html[data-theme="light"] #main-left-drawer .drawer-btn:hover { background: rgba(255,255,255,.8) !important; }
+html[data-theme="light"] #main-left-drawer .drawer-btn.active { color: #312e81;
+  background: linear-gradient(100deg, rgba(99,102,241,.20), rgba(34,211,238,.16)) !important;
+  border-color: rgba(79,70,229,.5) !important; box-shadow: 0 8px 20px -12px rgba(79,70,229,.6) !important; }
+html[data-theme="light"] #main-left-drawer .drawer-btn.active > span { background: rgba(99,102,241,.2); }
+
+/* ================= LIGHT MODE: test builder matches the dark glass look ================= */
+html[data-theme="light"] #hero-view .nwf.setup-card { background: transparent !important; border: 0 !important; box-shadow: none !important;
+  --ln: rgba(30,41,90,.20); --ln2: rgba(30,41,90,.38); }
+html[data-theme="light"] #hero-view .nwf .nwf-panel {
+  background: linear-gradient(160deg, rgba(255,255,255,.74), rgba(255,255,255,.42)) !important;
+  border: 1px solid rgba(30,41,90,.20) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 14px 34px -20px rgba(79,70,229,.45) !important; }
+html[data-theme="light"] #hero-view .nwf .nwf-ph { background: linear-gradient(90deg, rgba(99,102,241,.09), rgba(34,211,238,.06)) !important; border-bottom: 1px solid rgba(30,41,90,.15) !important; }
+html[data-theme="light"] #hero-view .nwf .subject-card,
+html[data-theme="light"] #hero-view .nwf .subject-chapter-group,
+html[data-theme="light"] #hero-view .nwf .chapter-tag-chip,
+html[data-theme="light"] #hero-view .nwf .nwf-pills .tag-filter-btn,
+html[data-theme="light"] #hero-view .nwf :is(.nwf-tiles .tag-filter-btn,.mode-btn,.q-count-btn) {
+  background: rgba(255,255,255,.55) !important; border: 1px solid rgba(30,41,90,.22) !important; box-shadow: none !important; }
+html[data-theme="light"] #hero-view .nwf .nwf-pool,
+html[data-theme="light"] #hero-view .nwf .nwf-step,
+html[data-theme="light"] #hero-view .nwf .nwf-facts,
+html[data-theme="light"] #hero-view .nwf .nw-count-chip { background: rgba(255,255,255,.5) !important; border: 1px solid rgba(30,41,90,.22) !important; }
+html[data-theme="light"] #hero-view .nwf #nw-chapter-search { background: rgba(255,255,255,.7) !important; border: 1px solid rgba(30,41,90,.30) !important; box-shadow: none !important; }
+html[data-theme="light"] #hero-view .nwf .subject-card:hover,
+html[data-theme="light"] #hero-view .nwf .chapter-tag-chip:hover,
+html[data-theme="light"] #hero-view .nwf .nwf-pills .tag-filter-btn:hover,
+html[data-theme="light"] #hero-view .nwf :is(.nwf-tiles .tag-filter-btn,.mode-btn,.q-count-btn):hover { background: rgba(255,255,255,.85) !important; border-color: rgba(79,70,229,.45) !important; }
+html[data-theme="light"] #hero-view .nwf .subject-card.selected {
+  background: color-mix(in srgb, var(--c) 13%, rgba(255,255,255,.7)) !important; border-color: var(--c) !important;
+  box-shadow: 0 0 0 1px var(--c), 0 10px 24px -14px var(--c) !important; }
+html[data-theme="light"] #hero-view .nwf .chapter-tag-chip.selected {
+  background: color-mix(in srgb, var(--c) 14%, rgba(255,255,255,.7)) !important; border-color: var(--c) !important; box-shadow: 0 0 0 1px var(--c) !important; }
+html[data-theme="light"] #hero-view .nwf :is(.nwf-tiles .tag-filter-btn.selected,.mode-btn.active,.q-count-btn.active),
+html[data-theme="light"] #hero-view .nwf .nwf-pills .tag-filter-btn.selected {
+  background: color-mix(in srgb, var(--ac) 13%, rgba(255,255,255,.7)) !important; border-color: var(--ac) !important; box-shadow: 0 0 0 1px var(--ac), 0 10px 22px -14px var(--ac) !important; }
+html[data-theme="light"] #hero-view .nwf .nwf-link,
+html[data-theme="light"] #hero-view .nwf .btn-select-all-ch,
+html[data-theme="light"] #hero-view .nwf .btn-deselect-all-ch { background: rgba(255,255,255,.6) !important; border: 1px solid var(--ac) !important; box-shadow: none !important; }
+</style>
+<style id="nw-ui3-style">
+/* ===== Portal-wide glass: translucent gradient + hairline border + inner highlight.
+   Static paint only (no backdrop-filter, no animation) so it stays smooth. Never applies inside #test-view. ===== */
+:is(#main-shell, #dashboard-view, #onboarding-modal-overlay, #motivation-modal-overlay, #nw-pretest-modal-overlay, #nw-report-modal-overlay)
+:is(.dash-card, .goal-card, .ach-card, .ach-portfolio-card, .history-item, .bm-subject-block, .dash-stat-box, .ach-tier-box) {
+  background: linear-gradient(160deg, rgba(255,255,255,.060), rgba(255,255,255,.016)) !important;
+  border: 1px solid rgba(255,255,255,.13) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07), 0 16px 34px -24px rgba(0,0,0,.75) !important;
+}
+:is(#main-shell, #dashboard-view) :is(.social-card, .feedback-box, .setup-card:not(.nwf)) {
+  border: 1px solid rgba(255,255,255,.14) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 16px 34px -24px rgba(0,0,0,.75) !important;
+}
+:is(#main-shell, #dashboard-view) :is(.dash-card, .goal-card, .ach-card, .history-item, .social-card):hover {
+  border-color: color-mix(in srgb, var(--accent-cyan-text) 45%, rgba(255,255,255,.14)) !important;
+}
+
+html[data-theme="light"] :is(#main-shell, #dashboard-view, #onboarding-modal-overlay, #motivation-modal-overlay, #nw-pretest-modal-overlay, #nw-report-modal-overlay)
+:is(.dash-card, .goal-card, .ach-card, .ach-portfolio-card, .history-item, .bm-subject-block, .dash-stat-box, .ach-tier-box) {
+  background: linear-gradient(160deg, rgba(255,255,255,.76), rgba(255,255,255,.44)) !important;
+  border: 1px solid rgba(30,41,90,.20) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 14px 32px -20px rgba(79,70,229,.45) !important;
+}
+html[data-theme="light"] :is(#main-shell, #dashboard-view) :is(.social-card, .feedback-box, .setup-card:not(.nwf)) {
+  border: 1px solid rgba(30,41,90,.22) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 14px 32px -20px rgba(79,70,229,.45) !important;
+}
+html[data-theme="light"] :is(#main-shell, #dashboard-view) :is(.dash-card, .goal-card, .ach-card, .history-item, .social-card):hover {
+  background: linear-gradient(160deg, rgba(255,255,255,.88), rgba(255,255,255,.58)) !important;
+  border-color: rgba(79,70,229,.45) !important;
+}
+/* modals: slightly more opaque so text stays crisp over the dimmed page */
+html[data-theme="light"] :is(#onboarding-modal-overlay, #motivation-modal-overlay, #nw-report-modal-overlay) .dash-card { background: linear-gradient(160deg, rgba(255,255,255,.94), rgba(255,255,255,.82)) !important; }
+</style>
+<style id="nw-ui4-style">
+/* ===== LIGHT MODE "aurora glass": glows, luminous edges, coloured shadows. All static paint: no blur filters, no animation. ===== */
+/* 1. Fixed aurora + dot-grid backdrop (rasterised once; not used inside the test window) */
+html[data-theme="light"] body:not([data-fx-view="test"]) .ambient-bg {
+  background:
+    radial-gradient(60vw 55vh at 6% 0%, rgba(139,92,246,.34), transparent 64%),
+    radial-gradient(55vw 55vh at 100% 6%, rgba(34,211,238,.32), transparent 62%),
+    radial-gradient(60vw 60vh at 94% 100%, rgba(244,114,182,.26), transparent 64%),
+    radial-gradient(50vw 50vh at 0% 100%, rgba(59,130,246,.22), transparent 64%),
+    radial-gradient(rgba(30,41,90,.14) 1px, transparent 1.4px) 0 0 / 26px 26px,
+    linear-gradient(180deg, #f5f6ff, #e9f3fb);
+}
+html[data-theme="light"] body:not([data-fx-view="test"]) .gradient-blob { opacity: 0; }
+
+/* 2. Header: luminous bottom edge + glowing status pills */
+html[data-theme="light"] body:not([data-fx-view="test"]) header {
+  box-shadow: 0 1px 0 rgba(99,102,241,.38), 0 14px 30px -20px rgba(79,70,229,.55) !important;
+}
+html[data-theme="light"] body:not([data-fx-view="test"]) header .hud-pill { box-shadow: 0 8px 18px -10px rgba(79,70,229,.6) !important; }
+html[data-theme="light"] body:not([data-fx-view="test"]) #nw-streak-pill { box-shadow: 0 8px 18px -10px rgba(249,115,22,.7) !important; }
+
+/* 3. Hero title: rich gradient text */
+html[data-theme="light"] .hero-title {
+  background: linear-gradient(120deg, #1e1b4b 8%, #4f46e5 46%, #0891b2 100%) !important;
+  -webkit-background-clip: text !important; background-clip: text !important; -webkit-text-fill-color: transparent !important;
+}
+
+/* 4. Cards: add a luminous top edge to the glass */
+html[data-theme="light"] :is(#main-shell, #dashboard-view, #onboarding-modal-overlay, #motivation-modal-overlay, #nw-pretest-modal-overlay, #nw-report-modal-overlay)
+:is(.dash-card, .goal-card, .ach-card, .ach-portfolio-card, .history-item, .bm-subject-block, .dash-stat-box, .ach-tier-box) {
+  background:
+    linear-gradient(90deg, transparent 6%, rgba(99,102,241,.55) 38%, rgba(34,211,238,.5) 62%, transparent 94%) top / 100% 2px no-repeat,
+    linear-gradient(160deg, rgba(255,255,255,.78), rgba(255,255,255,.44)) !important;
+}
+html[data-theme="light"] :is(#main-shell, #dashboard-view) :is(.dash-card, .goal-card, .ach-card, .history-item):hover {
+  background:
+    linear-gradient(90deg, transparent 4%, rgba(99,102,241,.8) 38%, rgba(34,211,238,.75) 62%, transparent 96%) top / 100% 2px no-repeat,
+    linear-gradient(160deg, rgba(255,255,255,.9), rgba(255,255,255,.6)) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.95), 0 20px 40px -20px rgba(79,70,229,.6) !important;
+}
+html[data-theme="light"] #hero-view .nwf .nwf-panel {
+  background:
+    linear-gradient(90deg, transparent 6%, rgba(99,102,241,.55) 38%, rgba(34,211,238,.5) 62%, transparent 94%) top / 100% 2px no-repeat,
+    linear-gradient(160deg, rgba(255,255,255,.78), rgba(255,255,255,.44)) !important;
+}
+
+/* 5. Glowing numbers and primary buttons */
+html[data-theme="light"] #main-shell .dash-stat-val, html[data-theme="light"] #dashboard-view .dash-stat-val { text-shadow: 0 0 16px rgba(99,102,241,.35); }
+html[data-theme="light"] :is(#main-shell, #onboarding-modal-overlay, #motivation-modal-overlay) .btn-next {
+  background: linear-gradient(135deg, #4f46e5, #0ea5e9) !important; color: #fff !important; border: 0 !important;
+  box-shadow: 0 14px 28px -12px rgba(79,70,229,.75), inset 0 1px 0 rgba(255,255,255,.4) !important;
+}
+html[data-theme="light"] #main-shell .bank-tab-btn.active {
+  box-shadow: 0 0 0 1px rgba(79,70,229,.6), 0 12px 28px -10px rgba(79,70,229,.75), 0 0 22px -4px rgba(34,211,238,.55) !important;
+}
+html[data-theme="light"] #main-shell .bank-tabs-shell { box-shadow: 0 18px 40px -24px rgba(79,70,229,.6), inset 0 1px 0 rgba(255,255,255,.9) !important; }
+
+/* 6. Focus glow + scrollbars */
+html[data-theme="light"] #main-shell :is(input, textarea):focus { outline: 0; border-color: rgba(79,70,229,.7) !important; box-shadow: 0 0 0 3px rgba(99,102,241,.22) !important; }
+html[data-theme="light"] ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #a5b4fc, #67e8f9); border-radius: 8px; }
+</style>
 </body>
 </html>
