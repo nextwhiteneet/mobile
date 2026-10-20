@@ -2,9 +2,9 @@
   "name": "NEXT WHITE \u2014 NEET Test Arena",
   "short_name": "NEXT WHITE",
   "description": "India's gamified NEET test arena. Free forever. No login.",
-  "start_url": "./indexpcpro.html",
+  "start_url": "./",
   "scope": "./",
-  "id": "./indexpcpro.html",
+  "id": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
   "background_color": "#030712",
@@ -14,19 +14,19 @@
   ],
   "icons": [
     {
-      "src": "icons/pcpro-192.png",
+      "src": "pcpro-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/pcpro-512.png",
+      "src": "pcpro-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/pcpro-maskable-512.png",
+      "src": "pcpro-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
