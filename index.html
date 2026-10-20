@@ -304,15 +304,23 @@ function nwAlloc(items,total){
   }
   return out;
 }
+function nwChap(list,n){
+  n=Math.min(n,list.length);if(n<=0)return [];
+  const by={},keys=[];list.forEach(x=>{const k=x.chapter||"";if(!by[k]){by[k]=[];keys.push(k)}by[k].push(x)});
+  if(keys.length<2)return list.slice(0,n);
+  const al=nwAlloc(keys.map(k=>({key:k,w:1,cap:by[k].length})),n),pick=new Set();
+  keys.forEach(k=>by[k].slice(0,al[k]||0).forEach(x=>pick.add(x)));
+  return list.filter(x=>pick.has(x));
+}
 function nwPattern(shuf,count){
   const by={};shuf.forEach(x=>{(by[x.subject]=by[x.subject]||[]).push(x)});
   const ga=NW_GROUPS.map(g=>({g,subs:g.subs.filter(s=>by[s]&&by[s].length)})).filter(o=>o.subs.length);
-  if(ga.length<2&&!(ga.length&&ga[0].subs.length>1))return nwOrder(shuf.slice(0,count));
+  if(ga.length<2&&!(ga.length&&ga[0].subs.length>1))return nwOrder(nwChap(shuf,count));
   const gA=nwAlloc(ga.map(o=>({key:o.g.id,w:o.g.w,cap:o.subs.reduce((a,s)=>a+by[s].length,0)})),count);
   let out=[];
   ga.forEach(o=>{
     const sA=nwAlloc(o.subs.map(s=>({key:s,w:1,cap:by[s].length})),gA[o.g.id]||0);
-    o.subs.forEach(s=>{out=out.concat(by[s].slice(0,sA[s]||0))});
+    o.subs.forEach(s=>{out=out.concat(nwChap(by[s],sA[s]||0))});
   });
   return nwOrder(out);
 }

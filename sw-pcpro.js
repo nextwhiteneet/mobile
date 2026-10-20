@@ -1,4 +1,4 @@
-const VERSION="pcpro-v2";
+const VERSION="pcpro-v3";
 const SHELL=["./","./index.html","./manifest-pcpro.webmanifest","./pcpro-192.png","./pcpro-512.png","./pcpro-maskable-512.png"];
 const CDN=/^https:\/\/(cdn\.jsdelivr\.net|fonts\.googleapis\.com|fonts\.gstatic\.com)\//;
 const shellPaths=SHELL.map(p=>new URL(p,self.location).pathname);
