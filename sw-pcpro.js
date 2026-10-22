@@ -1,4 +1,4 @@
-const VERSION="pcpro-v7";
+const VERSION="pcpro-v8";
 const SHELL=["./","./index.html","./manifest-pcpro.webmanifest","./pcpro-192.png","./pcpro-512.png","./pcpro-maskable-512.png"];
 const CDN=/^https:\/\/(cdn\.jsdelivr\.net|fonts\.googleapis\.com|fonts\.gstatic\.com)\//;
 const shellPaths=SHELL.map(p=>new URL(p,self.location).pathname);
@@ -9,7 +9,7 @@ const r=e.request;if(r.method!=="GET")return;
 const u=new URL(r.url);
 if(u.origin===location.origin){
 if(!shellPaths.includes(u.pathname))return;
-e.respondWith(fetch(r).then(res=>{if(res.ok){const cp=res.clone();caches.open(VERSION).then(c=>c.put(r,cp));}return res;}).catch(()=>caches.match(r,{ignoreSearch:true}).then(m=>m||caches.match("./index.html"))));
+e.respondWith(fetch(r,{cache:"no-store"}).then(res=>{if(res.ok){const cp=res.clone();caches.open(VERSION).then(c=>c.put(r,cp));}return res;}).catch(()=>caches.match(r,{ignoreSearch:true}).then(m=>m||caches.match("./index.html"))));
 }else if(CDN.test(r.url)){
 e.respondWith(caches.open(VERSION).then(c=>c.match(r).then(m=>{const f=fetch(r).then(res=>{c.put(r,res.clone());return res;}).catch(()=>m);return m||f;})));
 }});
