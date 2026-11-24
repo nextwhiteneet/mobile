@@ -2529,13 +2529,13 @@ if(old&&old.getAttribute("data-a")===m[1])return;if(old)old.remove();
 var st;try{st=JSON.parse(localStorage.getItem("nextwhite-state-v1")||"{}")}catch(e){return}
 var a=(st.attempts||[]).filter(function(x){return String(x.id)===decodeURIComponent(m[1])})[0];
 if(!a||a.title!=="Mission JEET AITS-2")return;
-var host=document.querySelector("main");if(!host)return;
+var host=document.querySelector("main");if(!host)return;var hero=null,w=document.createTreeWalker(host,NodeFilter.SHOW_TEXT),n;while((n=w.nextNode())){if(/Battle report/.test(n.nodeValue)){hero=n.parentElement;break}}if(!hero)return;while(hero.parentElement&&hero.parentElement!==host&&hero.parentElement.children.length<2)hero=hero.parentElement;
 var r=est(a.score),pc=Math.max(0,Math.min(100,(1-r/N)*100)).toFixed(3);
 var d=document.createElement("div");d.id="nw-air";d.setAttribute("data-a",m[1]);
-d.style.cssText="margin:16px auto 0;max-width:1100px;padding:16px 20px;border-radius:20px;border:1px solid var(--stroke);background:var(--card);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-around;text-align:center";
+d.style.cssText="margin:16px 0 0;padding:16px 20px;border-radius:20px;border:1px solid var(--stroke);background:var(--card);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-around;text-align:center";
 function cell(v,l){return '<div><div style="font-family:var(--font-display,sans-serif);font-size:26px;font-weight:700;color:var(--t1)">'+v+'</div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3)">'+l+'</div></div>'}
 d.innerHTML=cell("~ "+fmt(r),"Estimated AIR")+cell(pc+"%","Estimated percentile")+cell(a.score+" / "+a.maxScore,"Score")+'<div style="flex-basis:100%;font-size:11px;color:var(--t3)">Estimated rank &mdash; actual rank may vary.</div>';
-host.insertBefore(d,host.firstChild)}
+hero.parentNode.insertBefore(d,hero.nextSibling)}
 setInterval(tick,500);
 })();
 </script>
