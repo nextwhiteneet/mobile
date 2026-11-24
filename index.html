@@ -2513,5 +2513,31 @@ if(!seenOv&&el>6000){clearInterval(iv);show()}
 if(document.readyState==="complete")start();else window.addEventListener("load",start);
 })();
 </script>
+<script id="nwaits2-air">
+(function(){
+/* Estimated AIR for Mission JEET AITS-2. Anchor from real result: 568/720 -> AIR 20033 (98.99532 percentile).
+   Edit this table [score, rank] (high score -> low rank) to refine the estimate; ranks are log-interpolated. */
+var T=[[720,1],[700,60],[680,600],[650,3500],[620,9500],[600,13500],[568,20033],[540,30000],[500,48000],[450,85000],[400,140000],[350,215000],[300,320000],[250,470000],[200,680000],[150,950000],[100,1300000],[50,1700000],[0,1994000]];
+var N=1994000;
+function est(sc){if(sc>=T[0][0])return 1;if(sc<=0)return N;
+for(var i=0;i<T.length-1;i++){var a=T[i],b=T[i+1];if(sc<=a[0]&&sc>=b[0]){var f=(sc-b[0])/(a[0]-b[0]);var lr=Math.log(b[1])+(Math.log(a[1])-Math.log(b[1]))*f;return Math.round(Math.exp(lr))}}return N}
+function fmt(n){return n.toLocaleString("en-IN")}
+function tick(){
+var m=(location.hash||"").match(/\/analysis\/([^\/?#]+)/);var old=document.getElementById("nw-air");
+if(!m){if(old)old.remove();return}
+if(old&&old.getAttribute("data-a")===m[1])return;if(old)old.remove();
+var st;try{st=JSON.parse(localStorage.getItem("nextwhite-state-v1")||"{}")}catch(e){return}
+var a=(st.attempts||[]).filter(function(x){return String(x.id)===decodeURIComponent(m[1])})[0];
+if(!a||a.title!=="Mission JEET AITS-2")return;
+var host=document.querySelector("main");if(!host)return;
+var r=est(a.score),pc=Math.max(0,Math.min(100,(1-r/N)*100)).toFixed(3);
+var d=document.createElement("div");d.id="nw-air";d.setAttribute("data-a",m[1]);
+d.style.cssText="margin:16px auto 0;max-width:1100px;padding:16px 20px;border-radius:20px;border:1px solid var(--stroke);background:var(--card);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-around;text-align:center";
+function cell(v,l){return '<div><div style="font-family:var(--font-display,sans-serif);font-size:26px;font-weight:700;color:var(--t1)">'+v+'</div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3)">'+l+'</div></div>'}
+d.innerHTML=cell("~ "+fmt(r),"Estimated AIR")+cell(pc+"%","Estimated percentile")+cell(a.score+" / "+a.maxScore,"Score")+'<div style="flex-basis:100%;font-size:11px;color:var(--t3)">Estimated rank &mdash; actual rank may vary.</div>';
+host.insertBefore(d,host.firstChild)}
+setInterval(tick,500);
+})();
+</script>
 </body>
 </html>
